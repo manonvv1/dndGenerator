@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Characters</title>
+  <style>
+    body{font-family: ui-sans-serif, system-ui, sans-serif; margin: 24px;}
+    h1{margin-top:0}
+    table{border-collapse: collapse; width: 100%;}
+    th,td{border:1px solid #ddd; padding:8px;}
+    tr:nth-child(even){background:#fafafa}
+    .topbar{display:flex; gap:12px; align-items:center; margin-bottom:16px}
+    a.btn{display:inline-block; padding:8px 12px; border:1px solid #333; text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <h1 style="flex:1">Characters</h1>
+    <a class="btn" href="charactersheet.html" title="Open sheet to create a character">New character</a>
+  </div>
+  <table id="tbl">
+    <thead><tr><th>Name</th><th>Class</th><th>Level</th><th>Race</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  <script>
+    async function load(){
+      const res = await fetch('/api/characters');
+      const data = await res.json();
+      const tb = document.querySelector('#tbl tbody');
+      tb.innerHTML = '';
+      data.forEach(c => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td><a href="charactersheet.html?name=${encodeURIComponent(c.Name)}">${c.Name}</a></td><td>${c.Class}</td><td>${c.Level}</td><td>${c.Race}</td>`;
+        tb.appendChild(tr);
+      });
+    }
+    load();
+  </script>
+</body>
+</html>

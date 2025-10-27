@@ -1,0 +1,78 @@
+[
+  {
+    "Name": "Lyra Dawnwhisper",
+    "Race": "half-elf",
+    "Class": "sorcerer",
+    "Level": 7,
+    "AbilityScores": {
+      "Strength": 8,
+      "Dexterity": 14,
+      "Constitution": 13,
+      "Intelligence": 12,
+      "Wisdom": 10,
+      "Charisma": 17
+    },
+    "Background": "acolyte",
+    "ProficiencyBonus": 3,
+    "Equipment": {
+      "Armor": "",
+      "Weapon": "dagger",
+      "Shield": "",
+      "OffHand": "",
+      "WeaponInfo": {
+        "Category": "Weapon",
+        "RangeNormal": 5,
+        "TwoHanded": false
+      },
+      "ArmorInfo": {
+        "ArmorClass": 0,
+        "DexBonus": false,
+        "MaxDexBonus": null
+      }
+    },
+    "Skills": [
+      "arcana",
+      "insight",
+      "persuasion",
+      "religion"
+    ],
+    "Spellcasting": {
+      "SlotsByLevel": {
+        "1": 4,
+        "2": 3,
+        "3": 3,
+        "4": 1
+      },
+      "Spells": [
+        {
+          "Name": "acid splash",
+          "Level": 0,
+          "School": "Conjuration",
+          "Range": "60 feet",
+          "Prepared": true
+        },
+        {
+          "Name": "alter self",
+          "Level": 2,
+          "School": "Transmutation",
+          "Range": "Self",
+          "Prepared": true
+        },
+        {
+          "Name": "banishment",
+          "Level": 4,
+          "School": "Abjuration",
+          "Range": "60 feet",
+          "Prepared": true
+        },
+        {
+          "Name": "blight",
+          "Level": 4,
+          "School": "Necromancy",
+          "Range": "30 feet",
+          "Prepared": true
+        }
+      ]
+    }
+  }
+]
