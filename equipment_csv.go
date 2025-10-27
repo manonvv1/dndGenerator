@@ -1,3 +1,5 @@
+// Layer: Infrastructure (data source adapter: equipment CSV helpers)
+
 package main
 
 import (

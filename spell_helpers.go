@@ -1,3 +1,5 @@
+// Layer: Domain (helpers for spell logic; no IO)
+
 package main
 
 import "strings"

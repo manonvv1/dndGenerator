@@ -1,3 +1,5 @@
+// Layer: Domain (business rules: caster types, slots; no IO)
+
 package main
 
 import (

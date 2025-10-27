@@ -1,3 +1,5 @@
+// Layer: Infrastructure (data source adapter: load spells from CSV)
+
 package main
 
 import (

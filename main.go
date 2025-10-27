@@ -1,3 +1,5 @@
+// Layer: Infrastructure / UI (CLI commands; invokes application/domain)
+
 package main
 
 import (
@@ -6,8 +8,6 @@ import (
 	"os"
 	"sort"
 	"strings"
-	"sync"
-	"time"
 )
 
 /**
@@ -172,6 +172,9 @@ func main() {
 
 		if strings.TrimSpace(c.Equipment.Weapon) != "" {
 			fmt.Printf("Main hand: %s\n", c.Equipment.Weapon)
+			if dmg := computeWeaponDamageString(c); dmg != "" {
+			fmt.Printf("Weapon damage: %s\n", dmg)
+			}
 		}
 		if strings.TrimSpace(c.Equipment.OffHand) != "" {
 			fmt.Printf("Off hand: %s\n", c.Equipment.OffHand)
@@ -482,165 +485,23 @@ func main() {
 		saveCharacters()
 		fmt.Printf("Learned spell %s\n", target)
 
-	case "enrich":
-		fs := flag.NewFlagSet("enrich", flag.ExitOnError)
-		limit := fs.Int("limit", 0, "")
-		dryrun := fs.Bool("dryrun", false, "")
-		rps := fs.Int("rps", 6, "")
-		workers := fs.Int("workers", 8, "number of concurrent workers")
-		_ = fs.Parse(os.Args[2:])
+case "enrich":
+    fs := flag.NewFlagSet("enrich", flag.ExitOnError)
+    limit := fs.Int("limit", 0, "")
+    _ = fs.Parse(os.Args[2:])
 
-		var tick <-chan time.Time
-		var ticker *time.Ticker
-		if *rps > 0 {
-			interval := time.Second / time.Duration(*rps)
-			if interval <= 0 {
-				interval = time.Second
-			}
-			ticker = time.NewTicker(interval)
-			defer ticker.Stop()
-			tick = ticker.C
-		}
+    processed := 0
+    for i := range characters {
+        if *limit > 0 && processed >= *limit {
+            break
+        }
+        EnrichCharacter(&characters[i]) // ← dit vult DamageDice, Finesse, WeaponRange
+        processed++
+    }
+    saveCharacters()
+    fmt.Println("enrichment done")
+    return
 
-		type task struct {
-			url, kind  string
-			cIdx, sIdx int
-		}
-		type weaponResult struct {
-			cIdx int
-			ok   bool
-			cat  string
-			rng  int
-			two  bool
-		}
-		type armorResult struct {
-			cIdx int
-			ok   bool
-			base int
-			dex  bool
-			max  *int
-		}
-		type spellResult struct {
-			cIdx, sIdx  int
-			ok          bool
-			school, rng string
-		}
-
-		jobs := make(chan task, 64)
-		wres := make(chan weaponResult, 256)
-		ares := make(chan armorResult, 256)
-		sres := make(chan spellResult, 256)
-
-		var wg sync.WaitGroup
-		if *workers <= 0 {
-			*workers = 8
-		}
-		for i := 0; i < *workers; i++ {
-			wg.Add(1)
-			go func() {
-				defer wg.Done()
-				for t := range jobs {
-					switch t.kind {
-					case "weapon":
-						var eq apiEquipment
-						if err := httpGetJSON(t.url, &eq, tick); err != nil {
-							wres <- weaponResult{cIdx: t.cIdx, ok: false}
-							continue
-						}
-						two := false
-						for _, p := range eq.Properties {
-							pi := strings.ToLower(p.Index + " " + p.Name)
-							if strings.Contains(pi, "two-handed") {
-								two = true
-								break
-							}
-						}
-						wres <- weaponResult{cIdx: t.cIdx, ok: true, cat: eq.EquipmentCategory.Name, rng: eq.Range.Normal, two: two}
-
-					case "armor":
-						var eq apiEquipment
-						if err := httpGetJSON(t.url, &eq, tick); err != nil {
-							ares <- armorResult{cIdx: t.cIdx, ok: false}
-							continue
-						}
-						ares <- armorResult{cIdx: t.cIdx, ok: true, base: eq.ArmorClass.Base, dex: eq.ArmorClass.DexBonus, max: eq.ArmorClass.MaxBonus}
-
-					case "spell":
-						var sp apiSpell
-						if err := httpGetJSON(t.url, &sp, tick); err != nil {
-							sres <- spellResult{cIdx: t.cIdx, sIdx: t.sIdx, ok: false}
-							continue
-						}
-						sres <- spellResult{cIdx: t.cIdx, sIdx: t.sIdx, ok: true, school: sp.School.Name, rng: sp.Range}
-					}
-				}
-			}()
-		}
-
-		var total int
-		processedChars := 0
-		for ci := range characters {
-			if *limit > 0 && processedChars >= *limit {
-				break
-			}
-			ch := &characters[ci]
-			if w := strings.TrimSpace(ch.Equipment.Weapon); w != "" {
-				total++
-				jobs <- task{url: "https://www.dnd5eapi.co/api/equipment/" + slugify(w), kind: "weapon", cIdx: ci}
-			}
-			if a := strings.TrimSpace(ch.Equipment.Armor); a != "" {
-				total++
-				jobs <- task{url: "https://www.dnd5eapi.co/api/equipment/" + slugify(a), kind: "armor", cIdx: ci}
-			}
-			if ch.Spellcasting != nil {
-				for si := range ch.Spellcasting.Spells {
-					total++
-					jobs <- task{url: "https://www.dnd5eapi.co/api/spells/" + slugify(ch.Spellcasting.Spells[si].Name), kind: "spell", cIdx: ci, sIdx: si}
-				}
-			}
-			processedChars++
-		}
-		close(jobs)
-
-		go func() { wg.Wait(); close(wres); close(ares); close(sres) }()
-
-		done := 0
-		for done < total {
-			select {
-			case wr, ok := <-wres:
-				if ok {
-					if wr.ok {
-						characters[wr.cIdx].Equipment.WeaponInfo.Category = wr.cat
-						characters[wr.cIdx].Equipment.WeaponInfo.RangeNormal = wr.rng
-						characters[wr.cIdx].Equipment.WeaponInfo.TwoHanded = wr.two
-					}
-					done++
-				}
-			case ar, ok := <-ares:
-				if ok {
-					if ar.ok {
-						characters[ar.cIdx].Equipment.ArmorInfo.ArmorClass = ar.base
-						characters[ar.cIdx].Equipment.ArmorInfo.DexBonus = ar.dex
-						characters[ar.cIdx].Equipment.ArmorInfo.MaxDexBonus = ar.max
-					}
-					done++
-				}
-			case sr, ok := <-sres:
-				if ok {
-					if sr.ok && characters[sr.cIdx].Spellcasting != nil &&
-						sr.sIdx >= 0 && sr.sIdx < len(characters[sr.cIdx].Spellcasting.Spells) {
-						characters[sr.cIdx].Spellcasting.Spells[sr.sIdx].School = sr.school
-						characters[sr.cIdx].Spellcasting.Spells[sr.sIdx].Range = sr.rng
-					}
-					done++
-				}
-			}
-		}
-
-		if !*dryrun {
-			saveCharacters()
-		}
-		fmt.Println("enrichment done")
 
 	case "inspect":
 		fs := flag.NewFlagSet("inspect", flag.ExitOnError)

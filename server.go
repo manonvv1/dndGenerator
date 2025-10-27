@@ -1,3 +1,5 @@
+// Layer: Infrastructure / UI (HTTP transport/controller layer)
+
 package main
 
 import (

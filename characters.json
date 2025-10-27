@@ -1,28 +1,31 @@
 [
   {
-    "Name": "Lyra Dawnwhisper",
-    "Race": "half-elf",
-    "Class": "sorcerer",
-    "Level": 7,
+    "Name": "Gor",
+    "Race": "half orc",
+    "Class": "barbarian",
+    "Level": 1,
     "AbilityScores": {
-      "Strength": 8,
+      "Strength": 19,
       "Dexterity": 14,
-      "Constitution": 13,
-      "Intelligence": 12,
+      "Constitution": 11,
+      "Intelligence": 10,
       "Wisdom": 10,
-      "Charisma": 17
+      "Charisma": 10
     },
     "Background": "acolyte",
-    "ProficiencyBonus": 3,
+    "ProficiencyBonus": 2,
     "Equipment": {
       "Armor": "",
-      "Weapon": "dagger",
+      "Weapon": "greataxe",
       "Shield": "",
       "OffHand": "",
       "WeaponInfo": {
         "Category": "Weapon",
         "RangeNormal": 5,
-        "TwoHanded": false
+        "TwoHanded": true,
+        "DamageDice": "1d12",
+        "Finesse": false,
+        "WeaponRange": "Melee"
       },
       "ArmorInfo": {
         "ArmorClass": 0,
@@ -31,48 +34,101 @@
       }
     },
     "Skills": [
-      "arcana",
+      "animal handling",
+      "athletics",
       "insight",
-      "persuasion",
+      "religion"
+    ],
+    "Spellcasting": null
+  },
+  {
+    "Name": "Nyx",
+    "Race": "tiefling",
+    "Class": "ranger",
+    "Level": 1,
+    "AbilityScores": {
+      "Strength": 13,
+      "Dexterity": 15,
+      "Constitution": 10,
+      "Intelligence": 11,
+      "Wisdom": 10,
+      "Charisma": 12
+    },
+    "Background": "acolyte",
+    "ProficiencyBonus": 2,
+    "Equipment": {
+      "Armor": "",
+      "Weapon": "shortsword",
+      "Shield": "",
+      "OffHand": "",
+      "WeaponInfo": {
+        "Category": "Weapon",
+        "RangeNormal": 5,
+        "TwoHanded": false,
+        "DamageDice": "1d6",
+        "Finesse": true,
+        "WeaponRange": "Melee"
+      },
+      "ArmorInfo": {
+        "ArmorClass": 0,
+        "DexBonus": false,
+        "MaxDexBonus": null
+      }
+    },
+    "Skills": [
+      "animal handling",
+      "athletics",
+      "insight",
+      "insight",
       "religion"
     ],
     "Spellcasting": {
-      "SlotsByLevel": {
-        "1": 4,
-        "2": 3,
-        "3": 3,
-        "4": 1
-      },
-      "Spells": [
-        {
-          "Name": "acid splash",
-          "Level": 0,
-          "School": "Conjuration",
-          "Range": "60 feet",
-          "Prepared": true
-        },
-        {
-          "Name": "alter self",
-          "Level": 2,
-          "School": "Transmutation",
-          "Range": "Self",
-          "Prepared": true
-        },
-        {
-          "Name": "banishment",
-          "Level": 4,
-          "School": "Abjuration",
-          "Range": "60 feet",
-          "Prepared": true
-        },
-        {
-          "Name": "blight",
-          "Level": 4,
-          "School": "Necromancy",
-          "Range": "30 feet",
-          "Prepared": true
-        }
-      ]
+      "SlotsByLevel": {},
+      "Spells": null
     }
+  },
+  {
+    "Name": "Bruni",
+    "Race": "dwarf",
+    "Class": "rogue",
+    "Level": 1,
+    "AbilityScores": {
+      "Strength": 8,
+      "Dexterity": 15,
+      "Constitution": 12,
+      "Intelligence": 10,
+      "Wisdom": 10,
+      "Charisma": 10
+    },
+    "Background": "acolyte",
+    "ProficiencyBonus": 2,
+    "Equipment": {
+      "Armor": "",
+      "Weapon": "rapier",
+      "Shield": "",
+      "OffHand": "",
+      "WeaponInfo": {
+        "Category": "Weapon",
+        "RangeNormal": 5,
+        "TwoHanded": false,
+        "DamageDice": "1d8",
+        "Finesse": true,
+        "WeaponRange": "Melee"
+      },
+      "ArmorInfo": {
+        "ArmorClass": 0,
+        "DexBonus": false,
+        "MaxDexBonus": null
+      }
+    },
+    "Skills": [
+      "acrobatics",
+      "athletics",
+      "deception",
+      "insight",
+      "insight",
+      "religion"
+    ],
+    "Spellcasting": null
   }
 ]
