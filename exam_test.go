@@ -16,7 +16,7 @@ func mkChar(str, dex int, dice, wrange string, finesse bool) *Character {
 	}
 }
 
-func TestAbilityMod_Small(t *testing.T) {
+func TestAbilityMod(t *testing.T) {
 	cases := []struct {
 		score int
 		want  int
