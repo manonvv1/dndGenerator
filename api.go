@@ -10,6 +10,8 @@ import (
 	"strings"
 )
 
+const baseEquipmentURL = "https://www.dnd5eapi.co/api/equipment/"
+
 type EquipmentProvider interface {
 	FetchWeaponMeta(name string) (WeaponMeta, bool)
 	FetchArmorMeta(name string) (ArmorMeta, bool)
@@ -42,7 +44,7 @@ type HttpEquipmentAdapter struct{}
 
 func (a *HttpEquipmentAdapter) FetchWeaponMeta(name string) (WeaponMeta, bool) {
 	var eq apiEquipment
-	if err := httpGetJSON("https://www.dnd5eapi.co/api/equipment/"+slugify(name), &eq, nil); err != nil {
+	if err := httpGetJSON(baseEquipmentURL+slugify(name), &eq, nil); err != nil {
 		return WeaponMeta{}, false
 	}
 	wm := WeaponMeta{
@@ -69,9 +71,8 @@ func (a *HttpEquipmentAdapter) FetchWeaponMeta(name string) (WeaponMeta, bool) {
 
 func (a *HttpEquipmentAdapter) FetchArmorMeta(name string) (ArmorMeta, bool) {
 	var eq apiEquipment
-	if err := httpGetJSON("https://www.dnd5eapi.co/api/equipment/"+slugify(name), &eq, nil); err != nil {
-		// optionele fallback
-		_ = httpGetJSON("https://www.dnd5eapi.co/api/equipment/"+slugify(name+" armor"), &eq, nil)
+	if err := httpGetJSON(baseEquipmentURL+slugify(name), &eq, nil); err != nil {
+		_ = httpGetJSON(baseEquipmentURL+slugify(name+" armor"), &eq, nil)
 	}
 	if eq.ArmorClass.Base == 0 && !eq.ArmorClass.DexBonus && eq.ArmorClass.MaxBonus == nil {
 		return ArmorMeta{}, false
@@ -108,7 +109,7 @@ type apiSpell struct {
 }
 
 /**
-*  EnrichCharacter enriches a Character with weapon, armor, and spell data from the D&D  API
+*  EnrichCharacter enriches a Character with weapon, armor, and spell data from the D&D API
 **/
 func EnrichCharacter(c *Character) {
 	if w := strings.TrimSpace(c.Equipment.Weapon); w != "" {

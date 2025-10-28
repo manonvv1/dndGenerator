@@ -52,8 +52,9 @@ func cantripsKnown(class string, level int) int {
 	if level < 1 {
 		return 0
 	}
+
 	switch l {
-	case "warlock":
+	case "warlock", "bard":
 		switch {
 		case level >= 10:
 			return 4
@@ -79,15 +80,6 @@ func cantripsKnown(class string, level int) int {
 			return 4
 		default:
 			return 3
-		}
-	case "bard":
-		switch {
-		case level >= 10:
-			return 4
-		case level >= 4:
-			return 3
-		default:
-			return 2
 		}
 	case "sorcerer":
 		switch {

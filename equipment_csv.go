@@ -10,8 +10,13 @@ import (
 	"strings"
 )
 
+const (
+	defaultEquipmentCSV = "5e-SRD-Equipment.csv"
+	armorSuffix         = " armor"
+)
+
 var (
-	csvEquipmentTypeByName = map[string]string{} 
+	csvEquipmentTypeByName = map[string]string{}
 	equipmentCSVLoaded     = false
 )
 
@@ -22,11 +27,11 @@ func equipmentCSVPath() string {
 	if p := strings.TrimSpace(os.Getenv("EQUIPMENT_CSV")); p != "" {
 		return p
 	}
-	return filepath.Join("data", "5e-SRD-Equipment.csv")
+	return filepath.Join("data", defaultEquipmentCSV)
 }
 
 /**
-*  tryLoadEquipment attempts to load the CSV 
+*  tryLoadEquipment attempts to load the CSV
 **/
 func tryLoadEquipment(paths ...string) bool {
 	for _, p := range paths {
@@ -43,19 +48,19 @@ func init() {
 		return
 	}
 	if tryLoadEquipment(
-		"5e-SRD-Equipment.csv",
-		"./5e-SRD-Equipment.csv",
-		filepath.Join("data", "5e-SRD-Equipment.csv"),
-		filepath.Join("Data", "5e-SRD-Equipment.csv"),
-		filepath.Join("DATA", "5e-SRD-Equipment.csv"),
+		defaultEquipmentCSV,
+		"./"+defaultEquipmentCSV,
+		filepath.Join("data", defaultEquipmentCSV),
+		filepath.Join("Data", defaultEquipmentCSV),
+		filepath.Join("DATA", defaultEquipmentCSV),
 	) {
 		return
 	}
 	if exe, err := os.Executable(); err == nil {
 		dir := filepath.Dir(exe)
 		_ = tryLoadEquipment(
-			filepath.Join(dir, "5e-SRD-Equipment.csv"),
-			filepath.Join(dir, "data", "5e-SRD-Equipment.csv"),
+			filepath.Join(dir, defaultEquipmentCSV),
+			filepath.Join(dir, "data", defaultEquipmentCSV),
 		)
 	}
 }
@@ -129,12 +134,12 @@ func normalizeEquipment(name string) string {
 		return n
 	}
 	if !strings.Contains(n, "armor") {
-		if _, ok := csvEquipmentTypeByName[n+" armor"]; ok {
-			return n + " armor"
+		if _, ok := csvEquipmentTypeByName[n+armorSuffix]; ok {
+			return n + armorSuffix
 		}
 	}
-	if strings.Contains(n, " armor") {
-		n2 := strings.ReplaceAll(n, " armor", "")
+	if strings.Contains(n, armorSuffix) {
+		n2 := strings.ReplaceAll(n, armorSuffix, "")
 		if _, ok := csvEquipmentTypeByName[n2]; ok {
 			return n2
 		}

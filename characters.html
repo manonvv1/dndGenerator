@@ -23,19 +23,20 @@
     <thead><tr><th>Name</th><th>Class</th><th>Level</th><th>Race</th></tr></thead>
     <tbody></tbody>
   </table>
-  <script>
-    async function load(){
-      const res = await fetch('/api/characters');
-      const data = await res.json();
-      const tb = document.querySelector('#tbl tbody');
-      tb.innerHTML = '';
-      data.forEach(c => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td><a href="charactersheet.html?name=${encodeURIComponent(c.Name)}">${c.Name}</a></td><td>${c.Class}</td><td>${c.Level}</td><td>${c.Race}</td>`;
-        tb.appendChild(tr);
-      });
+  <script type="module">
+    const res = await fetch('/api/characters');
+    const data = await res.json();
+    const tb = document.querySelector('#tbl tbody');
+    tb.innerHTML = '';
+
+    for (const c of data) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td><a href="charactersheet.html?name=${encodeURIComponent(c.Name)}">${c.Name}</a></td>
+                      <td>${c.Class}</td>
+                      <td>${c.Level}</td>
+                      <td>${c.Race}</td>`;
+      tb.appendChild(tr);
     }
-    load();
   </script>
 </body>
 </html>

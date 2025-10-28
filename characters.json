@@ -1,13 +1,13 @@
 [
   {
-    "Name": "Bruni",
-    "Race": "dwarf",
-    "Class": "rogue",
+    "Name": "Gor",
+    "Race": "half orc",
+    "Class": "barbarian",
     "Level": 1,
     "AbilityScores": {
-      "Strength": 8,
-      "Dexterity": 15,
-      "Constitution": 12,
+      "Strength": 19,
+      "Dexterity": 14,
+      "Constitution": 11,
       "Intelligence": 10,
       "Wisdom": 10,
       "Charisma": 10
@@ -16,14 +16,56 @@
     "ProficiencyBonus": 2,
     "Equipment": {
       "Armor": "",
-      "Weapon": "rapier",
+      "Weapon": "greataxe",
+      "Shield": "",
+      "OffHand": "",
+      "WeaponInfo": {
+        "Category": "Weapon",
+        "RangeNormal": 5,
+        "TwoHanded": true,
+        "DamageDice": "1d12",
+        "Finesse": false,
+        "WeaponRange": "Melee"
+      },
+      "ArmorInfo": {
+        "ArmorClass": 0,
+        "DexBonus": false,
+        "MaxDexBonus": null
+      }
+    },
+    "Skills": [
+      "animal handling",
+      "athletics",
+      "insight",
+      "religion"
+    ],
+    "Spellcasting": null
+  },
+  {
+    "Name": "Nyx",
+    "Race": "tiefling",
+    "Class": "ranger",
+    "Level": 1,
+    "AbilityScores": {
+      "Strength": 13,
+      "Dexterity": 15,
+      "Constitution": 10,
+      "Intelligence": 11,
+      "Wisdom": 10,
+      "Charisma": 12
+    },
+    "Background": "acolyte",
+    "ProficiencyBonus": 2,
+    "Equipment": {
+      "Armor": "",
+      "Weapon": "shortsword",
       "Shield": "",
       "OffHand": "",
       "WeaponInfo": {
         "Category": "Weapon",
         "RangeNormal": 5,
         "TwoHanded": false,
-        "DamageDice": "1d8",
+        "DamageDice": "1d6",
         "Finesse": true,
         "WeaponRange": "Melee"
       },
@@ -34,13 +76,15 @@
       }
     },
     "Skills": [
-      "acrobatics",
+      "animal handling",
       "athletics",
-      "deception",
       "insight",
       "insight",
       "religion"
     ],
-    "Spellcasting": null
+    "Spellcasting": {
+      "SlotsByLevel": {},
+      "Spells": null
+    }
   }
 ]

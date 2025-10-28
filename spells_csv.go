@@ -12,6 +12,8 @@ import (
 	"strings"
 )
 
+const defaultSpellsFile = "5e-SRD-Spells.csv"
+
 var (
 	csvSpellsByClass   = map[string][]Spell{}
 	csvSpellLevelIndex = map[string]int{}
@@ -19,13 +21,13 @@ var (
 )
 
 /**
-*  spellsCSVPath returns the spells CSV path 
+*  spellsCSVPath returns the spells CSV path
 **/
 func spellsCSVPath() string {
 	if p := strings.TrimSpace(os.Getenv("SPELLS_CSV")); p != "" {
 		return p
 	}
-	return filepath.Join("data", "5e-SRD-Spells.csv")
+	return filepath.Join("data", defaultSpellsFile)
 }
 
 /**
@@ -46,21 +48,22 @@ func init() {
 		return
 	}
 
-	if tryLoad(
-		"5e-SRD-Spells.csv",
-		"./5e-SRD-Spells.csv",
-		filepath.Join("data", "5e-SRD-Spells.csv"),
-		filepath.Join("Data", "5e-SRD-Spells.csv"),
-		filepath.Join("DATA", "5e-SRD-Spells.csv"),
-	) {
+	commonPaths := []string{
+		defaultSpellsFile,
+		"./" + defaultSpellsFile,
+		filepath.Join("data", defaultSpellsFile),
+		filepath.Join("Data", defaultSpellsFile),
+		filepath.Join("DATA", defaultSpellsFile),
+	}
+	if tryLoad(commonPaths...) {
 		return
 	}
 
 	if exe, err := os.Executable(); err == nil {
 		dir := filepath.Dir(exe)
 		_ = tryLoad(
-			filepath.Join(dir, "5e-SRD-Spells.csv"),
-			filepath.Join(dir, "data", "5e-SRD-Spells.csv"),
+			filepath.Join(dir, defaultSpellsFile),
+			filepath.Join(dir, "data", defaultSpellsFile),
 		)
 	}
 }
@@ -87,7 +90,7 @@ func loadSpellsFromCSV(path string) error {
 	}
 
 	hdr := rows[0]
-	col := func(name string) int {
+	colIdx := func(name string) int {
 		name = strings.ToLower(strings.TrimSpace(name))
 		for i, h := range hdr {
 			if strings.ToLower(strings.TrimSpace(h)) == name {
@@ -96,7 +99,7 @@ func loadSpellsFromCSV(path string) error {
 		}
 		return -1
 	}
-	iName, iLevel, iClass := col("name"), col("level"), col("class")
+	iName, iLevel, iClass := colIdx("name"), colIdx("level"), colIdx("class")
 	if iName < 0 || iLevel < 0 || iClass < 0 {
 		return errors.New("spells CSV missing required headers: name, level, class")
 	}
@@ -112,18 +115,13 @@ func loadSpellsFromCSV(path string) error {
 		if name == "" {
 			continue
 		}
-		lvlStr := strings.TrimSpace(row[iLevel])
-		if lvlStr == "" {
-			continue
-		}
-		lvl, err := strconv.Atoi(lvlStr)
+		lvl, err := strconv.Atoi(strings.TrimSpace(row[iLevel]))
 		if err != nil {
 			continue
 		}
 		tmpLvlIdx[name] = lvl
 
-		classes := strings.Split(row[iClass], ",")
-		for _, c := range classes {
+		for _, c := range strings.Split(row[iClass], ",") {
 			cl := strings.ToLower(strings.TrimSpace(c))
 			if cl == "" {
 				continue
@@ -138,7 +136,7 @@ func loadSpellsFromCSV(path string) error {
 
 	for cl, list := range tmpByClass {
 		sort.SliceStable(list, func(i, j int) bool { return list[i].Name < list[j].Name })
-		uniq := list[:0]
+		uniq := make([]Spell, 0, len(list))
 		var last string
 		for _, s := range list {
 			if s.Name == last {
