@@ -1,4 +1,4 @@
-// Layer: Domain (ability mods, rules; no IO)
+// Layer: Domain 
 
 package main
 

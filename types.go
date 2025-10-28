@@ -1,4 +1,4 @@
-// Layer: Domain (pure business models; no IO or framework deps)
+// Layer: Domain 
 
 package main
 
