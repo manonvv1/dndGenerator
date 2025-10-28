@@ -1,0 +1,3276 @@
+diff --git a/5e-SRD-Equipment.csv b/5e-SRD-Equipment.csv
+deleted file mode 100644
+index cecc291..0000000
+--- a/5e-SRD-Equipment.csv
++++ /dev/null
+@@ -1,238 +0,0 @@
+-name,type
+-Club,Weapon
+-Dagger,Weapon
+-Greatclub,Weapon
+-Handaxe,Weapon
+-Javelin,Weapon
+-Light hammer,Weapon
+-Mace,Weapon
+-Quarterstaff,Weapon
+-Sickle,Weapon
+-Spear,Weapon
+-Crossbow, light,Weapon
+-Dart,Weapon
+-Shortbow,Weapon
+-Sling,Weapon
+-Battleaxe,Weapon
+-Flail,Weapon
+-Glaive,Weapon
+-Greataxe,Weapon
+-Greatsword,Weapon
+-Halberd,Weapon
+-Lance,Weapon
+-Longsword,Weapon
+-Maul,Weapon
+-Morningstar,Weapon
+-Pike,Weapon
+-Rapier,Weapon
+-Scimitar,Weapon
+-Shortsword,Weapon
+-Trident,Weapon
+-War pick,Weapon
+-Warhammer,Weapon
+-Whip,Weapon
+-Blowgun,Weapon
+-Crossbow, hand,Weapon
+-Crossbow, heavy,Weapon
+-Longbow,Weapon
+-Net,Weapon
+-Padded Armor,Armor
+-Leather Armor,Armor
+-Studded Leather Armor,Armor
+-Hide Armor,Armor
+-Chain Shirt,Armor
+-Scale Mail,Armor
+-Breastplate,Armor
+-Half Plate,Armor
+-Ring Mail,Armor
+-Chain Mail,Armor
+-Splint Armor,Armor
+-Plate Armor,Armor
+-Shield,Armor
+-Abacus,Adventuring Gear
+-Acid (vial),Adventuring Gear
+-Alchemist's fire (flask),Adventuring Gear
+-Alms box,Adventuring Gear
+-Arrow,Adventuring Gear
+-Block of incense,Adventuring Gear
+-Blowgun needle,Adventuring Gear
+-Censer,Adventuring Gear
+-Crossbow bolt,Adventuring Gear
+-Sling bullet,Adventuring Gear
+-Amulet,Adventuring Gear
+-Antitoxin (vial),Adventuring Gear
+-Crystal,Adventuring Gear
+-Orb,Adventuring Gear
+-Rod,Adventuring Gear
+-Staff,Adventuring Gear
+-Wand,Adventuring Gear
+-Backpack,Adventuring Gear
+-Ball bearings (bag of 1,000),Adventuring Gear
+-Barrel,Adventuring Gear
+-Basket,Adventuring Gear
+-Bedroll,Adventuring Gear
+-Bell,Adventuring Gear
+-Blanket,Adventuring Gear
+-Block and tackle,Adventuring Gear
+-Book,Adventuring Gear
+-Bottle, glass,Adventuring Gear
+-Bucket,Adventuring Gear
+-Caltrops,Adventuring Gear
+-Candle,Adventuring Gear
+-Case, crossbow bolt,Adventuring Gear
+-Case, map or scroll,Adventuring Gear
+-Chain (10 feet),Adventuring Gear
+-Chalk (1 piece),Adventuring Gear
+-Chest,Adventuring Gear
+-Clothes, common,Adventuring Gear
+-Clothes, costume,Adventuring Gear
+-Clothes, fine,Adventuring Gear
+-Clothes, traveler's,Adventuring Gear
+-Component pouch,Adventuring Gear
+-Crowbar,Adventuring Gear
+-Sprig of mistletoe,Adventuring Gear
+-Totem,Adventuring Gear
+-Wooden staff,Adventuring Gear
+-Yew wand,Adventuring Gear
+-Emblem,Adventuring Gear
+-Fishing tackle,Adventuring Gear
+-Flask or tankard,Adventuring Gear
+-Grappling hook,Adventuring Gear
+-Hammer,Adventuring Gear
+-Hammer, sledge,Adventuring Gear
+-Holy water (flask),Adventuring Gear
+-Hourglass,Adventuring Gear
+-Hunting trap,Adventuring Gear
+-Ink (1 ounce bottle),Adventuring Gear
+-Ink pen,Adventuring Gear
+-Jug or pitcher,Adventuring Gear
+-Climber's Kit,Adventuring Gear
+-Disguise Kit,Adventuring Gear
+-Forgery Kit,Adventuring Gear
+-Herbalism Kit,Adventuring Gear
+-Healer's Kit,Adventuring Gear
+-Mess Kit,Adventuring Gear
+-Poisoner's Kit,Adventuring Gear
+-Ladder (10-foot),Adventuring Gear
+-Lamp,Adventuring Gear
+-Lantern, bullseye,Adventuring Gear
+-Lantern, hooded,Adventuring Gear
+-Little bag of sand,Adventuring Gear
+-Lock,Adventuring Gear
+-Magnifying glass,Adventuring Gear
+-Manacles,Adventuring Gear
+-Mirror, steel,Adventuring Gear
+-Oil (flask),Adventuring Gear
+-Paper (one sheet),Adventuring Gear
+-Parchment (one sheet),Adventuring Gear
+-Perfume (vial),Adventuring Gear
+-Pick, miner's,Adventuring Gear
+-Piton,Adventuring Gear
+-Poison, basic (vial),Adventuring Gear
+-Pole (10-foot),Adventuring Gear
+-Pot, iron,Adventuring Gear
+-Pouch,Adventuring Gear
+-Quiver,Adventuring Gear
+-Ram, portable,Adventuring Gear
+-Rations (1 day),Adventuring Gear
+-Reliquary,Adventuring Gear
+-Robes,Adventuring Gear
+-Rope, hempen (50 feet),Adventuring Gear
+-Rope, silk (50 feet),Adventuring Gear
+-Sack,Adventuring Gear
+-Scale, merchant's,Adventuring Gear
+-Sealing wax,Adventuring Gear
+-Shovel,Adventuring Gear
+-Signal whistle,Adventuring Gear
+-Signet ring,Adventuring Gear
+-Small knife,Adventuring Gear
+-Soap,Adventuring Gear
+-Spellbook,Adventuring Gear
+-Spike, iron,Adventuring Gear
+-Spyglass,Adventuring Gear
+-String (10 feet),Adventuring Gear
+-Tent, two-person,Adventuring Gear
+-Tinderbox,Adventuring Gear
+-Torch,Adventuring Gear
+-Vestments,Adventuring Gear
+-Vial,Adventuring Gear
+-Waterskin,Adventuring Gear
+-Whetstone,Adventuring Gear
+-Burglar's Pack,Adventuring Gear
+-Diplomat's Pack,Adventuring Gear
+-Dungeoneer's Pack,Adventuring Gear
+-Entertainer's Pack,Adventuring Gear
+-Explorer's Pack,Adventuring Gear
+-Priest's Pack,Adventuring Gear
+-Scholar's Pack,Adventuring Gear
+-Alchemist's Supplies,Tools
+-Brewer's Supplies,Tools
+-Calligrapher's Supplies,Tools
+-Carpenter's Tools,Tools
+-Cartographer's Tools,Tools
+-Cobbler's Tools,Tools
+-Cook's utensils,Tools
+-Glassblower's Tools,Tools
+-Jeweler's Tools,Tools
+-Leatherworker's Tools,Tools
+-Mason's Tools,Tools
+-Painter's Supplies,Tools
+-Potter's Tools,Tools
+-Smith's Tools,Tools
+-Tinker's Tools,Tools
+-Weaver's Tools,Tools
+-Woodcarver's Tools,Tools
+-Dice Set,Tools
+-Playing Card Set,Tools
+-Bagpipes,Tools
+-Drum,Tools
+-Dulcimer,Tools
+-Flute,Tools
+-Lute,Tools
+-Lyre,Tools
+-Horn,Tools
+-Pan flute,Tools
+-Shawm,Tools
+-Viol,Tools
+-Navigator's Tools,Tools
+-Thieves' Tools,Tools
+-Camel,Mounts and Vehicles
+-Donkey,Mounts and Vehicles
+-Mule,Mounts and Vehicles
+-Elephant,Mounts and Vehicles
+-Horse, draft,Mounts and Vehicles
+-Horse, riding,Mounts and Vehicles
+-Mastiff,Mounts and Vehicles
+-Pony,Mounts and Vehicles
+-Warhorse,Mounts and Vehicles
+-Barding: Padded,Mounts and Vehicles
+-Barding: Leather,Mounts and Vehicles
+-Barding: Studded Leather,Mounts and Vehicles
+-Barding: Hide,Mounts and Vehicles
+-Barding: Chain shirt,Mounts and Vehicles
+-Barding: Scale mail,Mounts and Vehicles
+-Barding: Breastplate,Mounts and Vehicles
+-Barding: Half plate,Mounts and Vehicles
+-Barding: Ring mail,Mounts and Vehicles
+-Barding: Chain mail,Mounts and Vehicles
+-Barding: Splint,Mounts and Vehicles
+-Barding: Plate,Mounts and Vehicles
+-Bit and bridle,Mounts and Vehicles
+-Carriage,Mounts and Vehicles
+-Cart,Mounts and Vehicles
+-Chariot,Mounts and Vehicles
+-Animal Feed (1 day),Mounts and Vehicles
+-Saddle, Exotic,Mounts and Vehicles
+-Saddle, Military,Mounts and Vehicles
+-Saddle, Pack,Mounts and Vehicles
+-Saddle, Riding,Mounts and Vehicles
+-Saddlebags,Mounts and Vehicles
+-Sled,Mounts and Vehicles
+-Stabling (1 day),Mounts and Vehicles
+-Wagon,Mounts and Vehicles
+-Galley,Mounts and Vehicles
+-Keelboat,Mounts and Vehicles
+-Longship,Mounts and Vehicles
+-Rowboat,Mounts and Vehicles
+-Sailing ship,Mounts and Vehicles
+-Warship,Mounts and Vehicles
+diff --git a/5e-SRD-Spells.csv b/5e-SRD-Spells.csv
+deleted file mode 100644
+index f71c1fb..0000000
+--- a/5e-SRD-Spells.csv
++++ /dev/null
+@@ -1,320 +0,0 @@
+-name,level,class
+-Acid Arrow,2,Wizard
+-Acid Splash,0,"Sorcerer,Wizard"
+-Aid,2,"Cleric,Paladin"
+-Alarm,1,"Ranger,Wizard"
+-Alter Self,2,"Sorcerer,Wizard"
+-Animal Friendship,1,"Bard,Druid,Ranger"
+-Animal Messenger,2,"Bard,Druid,Ranger"
+-Animal Shapes,8,Druid
+-Animate Dead,3,"Cleric,Wizard"
+-Animate Objects,5,"Bard,Sorcerer,Wizard"
+-Antilife Shell,5,Druid
+-Antimagic Field,8,"Cleric,Wizard"
+-Antipathy/Sympathy,8,"Druid,Wizard"
+-Arcane Eye,4,"Cleric,Wizard"
+-Arcane Hand,5,Wizard
+-Arcane Lock,2,Wizard
+-Arcane Sword,7,"Bard,Wizard"
+-Arcanist's Magic Aura,2,Wizard
+-Astral Projection,9,"cleric,warlock,wizard"
+-Augury,2,Cleric
+-Awaken,5,"Bard,Druid"
+-Bane,1,"Bard,Cleric"
+-Banishment,4,"Cleric,Paladin,Sorcerer,Warlock,Wizard"
+-Barkskin,2,"Druid,Ranger"
+-Beacon of Hope,3,Cleric
+-Bestow Curse,3,"Bard,Cleric,Wizard"
+-Black Tentacles,4,Wizard
+-Blade Barrier,6,Cleric
+-Bless,1,"Cleric,Paladin"
+-Blight,4,"Druid,Sorcerer,Warlock,Wizard"
+-Blindness/Deafness,2,"Bard,Cleric,Sorcerer,Wizard"
+-Blink,3,"Sorcerer,Wizard"
+-Blur,2,"Sorcerer,Wizard"
+-Branding Smite,2,Paladin
+-Burning Hands,1,"Sorcerer,Wizard"
+-Call Lightning,3,Druid
+-Calm Emotions,2,"Bard,Cleric"
+-Chain Lightning,6,"Sorcerer,Wizard"
+-Charm Person,1,"Bard,Druid,Sorcerer,Warlock,Wizard"
+-Chill Touch,0,"Sorcerer,Warlock,Wizard"
+-Circle of Death,6,"Sorcerer,Warlock,Wizard"
+-Clairvoyance,3,"Bard,Cleric,Sorcerer,Wizard"
+-Clone,8,Wizard
+-Cloudkill,5,"Sorcerer,Wizard"
+-Color Spray,1,"Sorcerer,Wizard"
+-Command,1,"Cleric,Paladin"
+-Commune,5,Cleric
+-Commune With Nature,5,"Druid,Ranger"
+-Comprehend Languages,1,"Bard,Sorcerer,Warlock,Wizard"
+-Compulsion,4,Bard
+-Cone of Cold,5,"Sorcerer,Wizard"
+-Confusion,4,"Bard,Druid,Sorcerer,Wizard"
+-Conjure Animals,3,"Druid,Ranger"
+-Conjure Celestial,7,Cleric
+-Conjure Elemental,5,"Druid,Wizard"
+-Conjure Fey,6,"Druid,Warlock"
+-Conjure Minor Elementals,4,"Druid,Wizard"
+-Conjure Woodland Beings,4,"Druid,Ranger"
+-Contact Other Plane,5,"Warlock,Wizard"
+-Contagion,5,"Cleric,Druid"
+-Contingency,6,Wizard
+-Continual Flame,2,"Cleric,Wizard"
+-Control Water,4,"Cleric,Druid,Wizard"
+-Control Weather,8,"Cleric,Druid,Wizard"
+-Counterspell,3,"Sorcerer,Warlock,Wizard"
+-Create Food and Water,3,"Cleric,Druid,Paladin"
+-Create Undead,6,"Cleric,Warlock,Wizard"
+-Create or Destroy Water,1,"Cleric,Druid"
+-Creation,5,"Sorcerer,Wizard"
+-Cure Wounds,1,"Bard,Cleric,Druid,Paladin,Ranger"
+-Dancing Lights,0,"Bard,Sorcerer,Wizard"
+-Darkness,2,"Sorcerer,Warlock,Wizard"
+-Darkvision,2,"Druid,Ranger,Sorcerer,Wizard"
+-Daylight,3,"Cleric,Druid,Paladin,Ranger,Sorcerer"
+-Death Ward,4,"Cleric,Paladin"
+-Delayed Blast Fireball,7,"Sorcerer,Wizard"
+-Demiplane,8,"Warlock,Wizard"
+-Detect Evil and Good,1,"Cleric,Paladin"
+-Detect Magic,1,"Bard,Cleric,Druid,Paladin,Ranger,Sorcerer,Wizard"
+-Detect Poison and Disease,1,"Cleric,Druid,Paladin,Ranger"
+-Detect Thoughts,2,"Bard,Sorcerer,Wizard"
+-Dimension Door,4,"Bard,Sorcerer,Warlock,Wizard"
+-Disguise Self,1,"Bard,Sorcerer,Wizard"
+-Disintegrate,6,"Sorcerer,Wizard"
+-Dispel Evil and Good,5,"Cleric,Paladin"
+-Dispel Magic,3,"Bard,Cleric,Druid,Paladin,Sorcerer,Warlock,Wizard"
+-Divination,4,Druid
+-Divine Favor,1,Paladin
+-Divine Word,7,Cleric
+-Dominate Beast,4,"Druid,Sorcerer"
+-Dominate Monster,8,"Bard,Sorcerer,Warlock,Wizard"
+-Dominate Person,5,"Bard,Sorcerer,Wizard"
+-Dream,5,"Bard,Warlock,Wizard"
+-Druidcraft,0,Druid
+-Earthquake,8,"Cleric,Druid,Sorcerer"
+-Eldritch Blast,0,Warlock
+-Enhance Ability,2,"bard,cleric,druid,sorcerer"
+-Enlarge/Reduce,2,"Sorcerer,Wizard"
+-Entangle,1,Druid
+-Enthrall,2,"Bard,Warlock"
+-Etherealness,7,"Bard,Cleric,Sorcerer,Warlock,Wizard"
+-Expeditious Retreat,1,"Sorcerer,Warlock,Wizard"
+-Eyebite,6,"Bard,Sorcerer,Warlock,Wizard"
+-Fabricate,4,Wizard
+-Faerie Fire,1,Druid
+-Faithful Hound,4,Wizard
+-False Life,1,"Sorcerer,Wizard"
+-Fear,3,"Bard,Sorcerer,Warlock,Wizard"
+-Feather Fall,1,"Bard,Sorcerer,Wizard"
+-Feeblemind,8,"Bard,Druid,Warlock,Wizard"
+-Find Familiar,1,Wizard
+-Find Steed,2,Paladin
+-Find Traps,2,"Cleric,Druid,Ranger"
+-Find the Path,6,"Bard,Cleric,Druid"
+-Finger of Death,7,"Sorcerer,Warlock,Wizard"
+-Fire Bolt,0,"Sorcerer,Wizard"
+-Fire Shield,4,Wizard
+-Fire Storm,7,"Cleric,Druid,Sorcerer"
+-Fireball,3,"Sorcerer,Wizard"
+-Flame Blade,2,Druid
+-Flame Strike,5,Cleric
+-Flaming Sphere,2,"Druid,Wizard"
+-Flesh to Stone,6,"Warlock,Wizard"
+-Floating Disk,1,Wizard
+-Fly,3,"Sorcerer,Warlock,Wizard"
+-Fog Cloud,1,"Druid,Ranger,Sorcerer,Wizard"
+-Forbiddance,6,Cleric
+-Forcecage,7,"Bard,Warlock,Wizard"
+-Foresight,9,"Bard,Druid,Warlock,Wizard"
+-Freedom of Movement,4,"Bard,Cleric,Druid,Ranger"
+-Freezing Sphere,6,Wizard
+-Gaseous Form,3,"Sorcerer,Warlock,Wizard"
+-Gate,9,"Cleric,Sorcerer,Wizard"
+-Geas,5,"Bard,Cleric,Druid,Paladin,Wizard"
+-Gentle Repose,2,"Cleric,Wizard"
+-Giant Insect,4,Druid
+-Glibness,8,"Bard,Warlock"
+-Globe of Invulnerability,6,"Sorcerer,Wizard"
+-Glyph of Warding,3,"Bard,Cleric,Wizard"
+-Goodberry,1,"Druid,Ranger"
+-Grease,1,Wizard
+-Greater Invisibility,4,"Bard,Sorcerer,Wizard"
+-Greater Restoration,5,"Bard,Cleric,Druid"
+-Guardian of Faith,4,Cleric
+-Guards and Wards,6,"Bard,Wizard"
+-Guidance,0,"Cleric,Druid"
+-Guiding Bolt,1,Cleric
+-Gust of Wind,2,"Druid,Sorcerer,Wizard"
+-Hallow,5,Cleric
+-Hallucinatory Terrain,4,"Bard,Druid,Warlock,Wizard"
+-Harm,6,Cleric
+-Haste,3,"Sorcerer,Wizard"
+-Heal,6,"Cleric,Druid"
+-Healing Word,1,"Bard,Cleric,Druid"
+-Heat Metal,2,"Bard,Druid"
+-Hellish Rebuke,1,Warlock
+-Heroes' Feast,6,"Cleric,Druid"
+-Heroism,1,"Bard,Paladin"
+-Hideous Laughter,1,"Bard,Wizard"
+-Hold Monster,5,"Bard,Sorcerer,Warlock,Wizard"
+-Hold Person,2,"Bard,Cleric,Druid,Sorcerer,Warlock,Wizard"
+-Holy Aura,8,Cleric
+-Hunter's Mark,1,Ranger
+-Hypnotic Pattern,3,"Bard,Sorcerer,Warlock,Wizard"
+-Ice Storm,4,"Druid,Sorcerer,Wizard"
+-Identify,1,"Bard,Wizard"
+-Illusory Script,1,"Bard,Warlock,Wizard"
+-Imprisonment,9,"Warlock,Wizard"
+-Incendiary Cloud,8,"Sorcerer,Wizard"
+-Inflict Wounds,1,Cleric
+-Insect Plague,5,"Cleric,Druid,Sorcerer"
+-Instant Summons,6,Wizard
+-Invisibility,2,"Bard,Sorcerer,Warlock,Wizard"
+-Irresistible Dance,6,"Bard,Wizard"
+-Jump,1,"Druid,Ranger,Sorcerer,Wizard"
+-Knock,2,"Bard,Sorcerer,Wizard"
+-Legend Lore,5,"Bard,Cleric,Wizard"
+-Lesser Restoration,2,"Bard,Cleric,Druid,Paladin,Ranger"
+-Levitate,2,"Sorcerer,Wizard"
+-Light,0,"Bard,Cleric,Sorcerer,Wizard"
+-Lightning Bolt,3,"Sorcerer,Wizard"
+-Locate Animals or Plants,2,"Bard,Druid,Ranger"
+-Locate Creature,4,"Bard,Cleric,Druid,Paladin,Ranger,Wizard"
+-Locate Object,2,"Bard,Cleric,Druid,Paladin,Ranger,Wizard"
+-Longstrider,1,"Bard,Druid,Ranger,Wizard"
+-Mage Armor,1,"Sorcerer,Wizard"
+-Mage Hand,0,"Bard,Sorcerer,Warlock,Wizard"
+-Magic Circle,3,"Cleric,Paladin,Warlock,Wizard"
+-Magic Jar,6,Wizard
+-Magic Missile,1,"Sorcerer,Wizard"
+-Magic Mouth,2,"Bard,Wizard"
+-Magic Weapon,2,"Paladin,Wizard"
+-Magnificent Mansion,7,"Bard,Wizard"
+-Major Image,3,"Bard,Sorcerer,Warlock,Wizard"
+-Mass Cure Wounds,5,"Bard,Cleric,Druid"
+-Mass Heal,9,Cleric
+-Mass Healing Word,3,Cleric
+-Mass Suggestion,6,"Bard,Sorcerer,Warlock,Wizard"
+-Maze,8,Wizard
+-Meld Into Stone,3,Cleric
+-Mending,0,"Cleric,Bard,Druid,Sorcerer,Wizard"
+-Message,0,"Bard,Sorcerer,Wizard"
+-Meteor Swarm,9,"Sorcerer,Wizard"
+-Mind Blank,8,"Bard,Wizard"
+-Minor Illusion,0,"Bard,Sorcerer,Warlock,Wizard"
+-Mirage Arcane,7,"Bard,Druid,Wizard"
+-Mirror Image,2,"Sorcerer,Warlock,Wizard"
+-Mislead,5,"Bard,Wizard"
+-Misty Step,2,"Sorcerer,Warlock,Wizard"
+-Modify Memory,5,"Bard,Wizard"
+-Moonbeam,2,Druid
+-Move Earth,6,"Druid,Sorcerer,Wizard"
+-Nondetection,3,"Bard,Ranger,Wizard"
+-Pass Without Trace,2,"Druid,Ranger"
+-Passwall,5,Wizard
+-Phantasmal Killer,4,Wizard
+-Phantom Steed,3,Wizard
+-Planar Ally,6,Cleric
+-Planar Binding,5,"Bard,Cleric,Druid,Wizard"
+-Plane Shift,7,"Cleric,Druid,Sorcerer,Warlock,Wizard"
+-Plant Growth,3,"Bard,Druid,Ranger"
+-Poison Spray,0,"Sorcerer,Warlock,Wizard,Druid"
+-Polymorph,4,"Bard,Druid,Sorcerer,Wizard"
+-Power Word Kill,9,"Bard,Sorcerer,Warlock,Wizard"
+-Power Word Stun,8,"Bard,Sorcerer,Warlock,Wizard"
+-Prayer of Healing,2,Cleric
+-Prestidigitation,0,"Bard,Sorcerer,Warlock,Wizard"
+-Prismatic Spray,7,"Sorcerer,Wizard"
+-Prismatic Wall,9,Wizard
+-Private Sanctum,4,Wizard
+-Produce Flame,0,Druid
+-Programmed Illusion,6,"Bard,Wizard"
+-Project Image,7,"Bard,Wizard"
+-Protection From Energy,3,"Cleric,Druid,Ranger,Sorcerer,Wizard"
+-Protection from Evil and Good,1,"Cleric,Paladin,Warlock,Wizard"
+-Protection from Poison,2,"Cleric,Druid,Paladin,Ranger"
+-Purify Food and Drink,1,"Cleric,Druid,Paladin"
+-Raise Dead,5,"Bard,Cleric,Paladin"
+-Ray of Enfeeblement,2,"Warlock,Wizard"
+-Ray of Frost,0,"Sorcerer,Wizard"
+-Regenerate,7,"Bard,Cleric,Druid"
+-Reincarnate,5,Druid
+-Remove Curse,3,"Cleric,Paladin,Warlock,Wizard"
+-Resilient Sphere,4,Wizard
+-Resistance,0,"Cleric,Druid"
+-Resurrection,7,"Bard,Cleric"
+-Reverse Gravity,7,"Druid,Sorcerer,Wizard"
+-Revivify,3,"Cleric,Paladin"
+-Rope Trick,2,Wizard
+-Sacred Flame,0,Cleric
+-Sanctuary,1,Cleric
+-Scorching Ray,2,"Sorcerer,Wizard"
+-Scrying,5,"Bard,Cleric,Druid,Warlock,Wizard"
+-Secret Chest,4,Wizard
+-See Invisibility,2,"Bard,Sorcerer,Wizard"
+-Seeming,5,"Bard,Sorcerer,Wizard"
+-Sending,3,"Bard,Cleric,Wizard"
+-Sequester,7,Wizard
+-Shapechange,9,"Druid,Wizard"
+-Shatter,2,"Bard,Sorcerer,Warlock,Wizard"
+-Shield,1,"Sorcerer,Wizard"
+-Shield of Faith,1,"Cleric,Paladin"
+-Shillelagh,0,Druid
+-Shocking Grasp,0,"Sorcerer,Wizard"
+-Silence,2,"Bard,Cleric,Ranger"
+-Silent Image,1,"Bard,Sorcerer,Wizard"
+-Simulacrum,7,Wizard
+-Sleep,1,"bard,sorcerer,wizard"
+-Sleet Storm,3,"Druid,Sorcerer,Wizard"
+-Slow,3,"Sorcerer,Wizard"
+-Spare the Dying,0,Cleric
+-Speak with Animals,1,"Bard,Druid,Ranger"
+-Speak with Dead,3,"Bard,Cleric"
+-Speak with Plants,3,"Bard,Druid,Ranger"
+-Spider Climb,2,"Sorcerer,Warlock,Wizard"
+-Spike Growth,2,"Druid,Ranger"
+-Spirit Guardians,3,Cleric
+-Spiritual Weapon,2,Cleric
+-Stinking Cloud,3,"Bard,Sorcerer,Wizard"
+-Stone Shape,4,"Cleric,Druid,Wizard"
+-Stoneskin,4,"Druid,Ranger,Sorcerer,Wizard"
+-Storm of Vengeance,9,Druid
+-Suggestion,2,"Bard,Sorcerer,Warlock,Wizard"
+-Sunbeam,6,"Druid,Sorcerer,Wizard"
+-Sunburst,8,"Druid,Sorcerer,Wizard"
+-Symbol,7,"Bard,Cleric,Wizard"
+-Telekinesis,5,"Sorcerer,Wizard"
+-Telepathic Bond,5,Wizard
+-Teleport,7,"Bard,Sorcerer,Wizard"
+-Teleportation Circle,5,"Bard,Sorcerer,Wizard"
+-Thaumaturgy,0,Cleric
+-Thunderwave,1,"Bard,Druid,Sorcerer,Wizard"
+-Time Stop,9,"Sorcerer,Wizard"
+-Tiny Hut,3,"Bard,Wizard"
+-Tongues,3,"Bard,Cleric,Sorcerer,Warlock,Wizard"
+-Transport via Plants,6,Druid
+-Tree Stride,5,"Druid,Ranger"
+-True Polymorph,9,"Bard,Warlock,Wizard"
+-True Resurrection,9,"Cleric,Druid"
+-True Seeing,6,"Bard,Cleric,Sorcerer,Warlock,Wizard"
+-True Strike,0,"Bard,Sorcerer,Warlock,Wizard"
+-Unseen Servant,1,"Bard,Warlock,Wizard"
+-Vampiric Touch,3,"Warlock,Wizard"
+-Vicious Mockery,0,Bard
+-Wall of Fire,4,"Druid,Sorcerer,Wizard"
+-Wall of Force,5,Wizard
+-Wall of Ice,6,Wizard
+-Wall of Stone,5,"Druid,Sorcerer,Wizard"
+-Wall of Thorns,6,Druid
+-Warding Bond,2,Cleric
+-Water Breathing,3,"Druid,Ranger,Sorcerer,Wizard"
+-Water Walk,3,"Cleric,Druid,Ranger,Sorcerer"
+-Web,2,"Sorcerer,Wizard"
+-Weird,9,Wizard
+-Wind Walk,6,Druid
+-Wind Wall,3,"Druid,Ranger"
+-Wish,9,"Sorcerer,Wizard"
+-Word of Recall,6,Cleric
+-Zone of Truth,2,"Bard,Cleric,Paladin"
+diff --git a/api.go b/api.go
+index 6114f42..afcb464 100644
+--- a/api.go
++++ b/api.go
+@@ -1,3 +1,5 @@
++// ===== Infrastructure Adapter (HTTP client for DnD 2014 API) =====
++
+ package main
+ 
+ import (
+@@ -8,6 +10,15 @@ import (
+ 	"strings"
+ )
+ 
++const baseEquipmentURL = "https://www.dnd5eapi.co/api/equipment/"
++
++type EquipmentProvider interface {
++	FetchWeaponMeta(name string) (WeaponMeta, bool)
++	FetchArmorMeta(name string) (ArmorMeta, bool)
++}
++
++var EquipProv EquipmentProvider = &HttpEquipmentAdapter{}
++
+ /**
+ *  httpGetJSON performs an HTTP GET and decodes JSON response into v
+ **/
+@@ -29,14 +40,64 @@ func httpGetJSON(url string, v any, tick <-chan time.Time) error {
+ 	return json.NewDecoder(resp.Body).Decode(v)
+ }
+ 
++type HttpEquipmentAdapter struct{}
++
++func (a *HttpEquipmentAdapter) FetchWeaponMeta(name string) (WeaponMeta, bool) {
++	var eq apiEquipment
++	if err := httpGetJSON(baseEquipmentURL+slugify(name), &eq, nil); err != nil {
++		return WeaponMeta{}, false
++	}
++	wm := WeaponMeta{
++		Category:    eq.EquipmentCategory.Name,
++		RangeNormal: eq.Range.Normal,
++		DamageDice:  eq.Damage.DamageDice,
++		WeaponRange: eq.WeaponRange,
++		TwoHanded:   false,
++		Finesse:     false,
++	}
++	for _, p := range eq.Properties {
++		switch strings.ToLower(p.Index) {
++		case "two-handed":
++			wm.TwoHanded = true
++		case "finesse":
++			wm.Finesse = true
++		}
++	}
++	if wm.RangeNormal == 0 && strings.EqualFold(wm.WeaponRange, "melee") {
++		wm.RangeNormal = 5
++	}
++	return wm, true
++}
++
++func (a *HttpEquipmentAdapter) FetchArmorMeta(name string) (ArmorMeta, bool) {
++	var eq apiEquipment
++	if err := httpGetJSON(baseEquipmentURL+slugify(name), &eq, nil); err != nil {
++		_ = httpGetJSON(baseEquipmentURL+slugify(name+" armor"), &eq, nil)
++	}
++	if eq.ArmorClass.Base == 0 && !eq.ArmorClass.DexBonus && eq.ArmorClass.MaxBonus == nil {
++		return ArmorMeta{}, false
++	}
++	return ArmorMeta{
++		ArmorClass:  eq.ArmorClass.Base,
++		DexBonus:    eq.ArmorClass.DexBonus,
++		MaxDexBonus: eq.ArmorClass.MaxBonus,
++	}, true
++}
++
+ 
+ type apiEquipment struct {
+ 	EquipmentCategory struct{ Name string `json:"name"` } `json:"equipment_category"`
+ 	WeaponRange string `json:"weapon_range"`
+ 	Range       struct{ Normal int `json:"normal"` } `json:"range"`
+-	Properties  []struct{ Index, Name string } `json:"properties"`
++	Properties  []struct{
++		Index string `json:"index"`
++		Name  string `json:"name"`
++	} `json:"properties"`
++	Damage struct {
++		DamageDice string `json:"damage_dice"`
++	} `json:"damage"`
+ 	ArmorClass  struct {
+-		Base int `json:"base"`
++		Base     int  `json:"base"`
+ 		DexBonus bool `json:"dex_bonus"`
+ 		MaxBonus *int `json:"max_bonus"`
+ 	} `json:"armor_class"`
+@@ -48,33 +109,18 @@ type apiSpell struct {
+ }
+ 
+ /**
+-*  EnrichCharacter enriches a Character with weapon, armor, and spell data from the D&D  API
++*  EnrichCharacter enriches a Character with weapon, armor, and spell data from the D&D API
+ **/
+ func EnrichCharacter(c *Character) {
+ 	if w := strings.TrimSpace(c.Equipment.Weapon); w != "" {
+-		var eq apiEquipment
+-		if err := httpGetJSON("https://www.dnd5eapi.co/api/equipment/"+slugify(w), &eq, nil); err == nil {
+-			c.Equipment.WeaponInfo.Category = eq.EquipmentCategory.Name
+-			c.Equipment.WeaponInfo.RangeNormal = eq.Range.Normal
+-			two := false
+-			for _, p := range eq.Properties {
+-				pi := strings.ToLower(p.Index + " " + p.Name)
+-				if strings.Contains(pi, "two-handed") { two = true; break }
+-			}
+-			c.Equipment.WeaponInfo.TwoHanded = two
++		if wm, ok := EquipProv.FetchWeaponMeta(w); ok {
++			c.Equipment.WeaponInfo = wm
+ 		}
+ 	}
+ 
+ 	if a := strings.TrimSpace(c.Equipment.Armor); a != "" {
+-		var eq apiEquipment
+-		err := httpGetJSON("https://www.dnd5eapi.co/api/equipment/"+slugify(a), &eq, nil)
+-		if err != nil && !strings.Contains(strings.ToLower(a), "armor") {
+-			_ = httpGetJSON("https://www.dnd5eapi.co/api/equipment/"+slugify(a+" armor"), &eq, nil)
+-		}
+-		if eq.ArmorClass.Base != 0 || eq.ArmorClass.DexBonus || eq.ArmorClass.MaxBonus != nil {
+-			c.Equipment.ArmorInfo.ArmorClass  = eq.ArmorClass.Base
+-			c.Equipment.ArmorInfo.DexBonus    = eq.ArmorClass.DexBonus
+-			c.Equipment.ArmorInfo.MaxDexBonus = eq.ArmorClass.MaxBonus
++		if am, ok := EquipProv.FetchArmorMeta(a); ok {
++			c.Equipment.ArmorInfo = am
+ 		}
+ 	}
+ 
+@@ -88,4 +134,4 @@ func EnrichCharacter(c *Character) {
+ 			}
+ 		}
+ 	}
+-}
+\ No newline at end of file
++}
+diff --git a/charactersheet (2).html b/charactersheet (2).html
+deleted file mode 100644
+index 862e832..0000000
+--- a/charactersheet (2).html	
++++ /dev/null
+@@ -1,799 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-  <head>
+-    <meta charset="UTF-8" />
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-    <link rel="stylesheet" href="normalize.css" />
+-    <link rel="stylesheet" href="style.css" />
+-    <title>MPP Character Sheet</title>
+-  </head>
+-  <body>
+-    <form class="charsheet">
+-      <header>
+-        <section class="charname">
+-          <label for="charname">Character Name</label
+-          ><input name="charname" placeholder="Thoradin Fireforge" />
+-        </section>
+-        <section class="misc">
+-          <ul>
+-            <li>
+-              <label for="classlevel">Class & Level</label
+-              ><input name="classlevel" placeholder="Paladin 2" />
+-            </li>
+-            <li>
+-              <label for="background">Background</label
+-              ><input name="background" value="Acolyte" readonly disabled />
+-            </li>
+-            <li>
+-              <label for="playername">Player Name</label
+-              ><input name="playername" placeholder="Player McPlayerface" />
+-            </li>
+-            <li>
+-              <label for="race">Race</label
+-              ><input name="race" placeholder="Half-elf" />
+-            </li>
+-            <li>
+-              <label for="alignment">Alignment</label
+-              ><input name="alignment" placeholder="Lawful Good" />
+-            </li>
+-            <li>
+-              <label for="experiencepoints">Experience Points</label
+-              ><input name="experiencepoints" placeholder="3240" />
+-            </li>
+-          </ul>
+-        </section>
+-      </header>
+-      <main>
+-        <section>
+-          <section class="attributes">
+-            <div class="scores">
+-              <ul>
+-                <li>
+-                  <div class="score">
+-                    <label for="Strengthscore">Strength</label
+-                    ><input
+-                      name="Strengthscore"
+-                      placeholder="10"
+-                      class="stat"
+-                    />
+-                  </div>
+-                  <div class="modifier">
+-                    <input
+-                      name="Strengthmod"
+-                      placeholder="+0"
+-                      class="statmod"
+-                    />
+-                  </div>
+-                </li>
+-                <li>
+-                  <div class="score">
+-                    <label for="Dexterityscore">Dexterity</label
+-                    ><input
+-                      name="Dexterityscore"
+-                      placeholder="10"
+-                      class="stat"
+-                    />
+-                  </div>
+-                  <div class="modifier">
+-                    <input
+-                      name="Dexteritymod"
+-                      placeholder="+0"
+-                      class="statmod"
+-                    />
+-                  </div>
+-                </li>
+-                <li>
+-                  <div class="score">
+-                    <label for="Constitutionscore">Constitution</label
+-                    ><input
+-                      name="Constitutionscore"
+-                      placeholder="10"
+-                      class="stat"
+-                    />
+-                  </div>
+-                  <div class="modifier">
+-                    <input
+-                      name="Constitutionmod"
+-                      placeholder="+0"
+-                      class="statmod"
+-                    />
+-                  </div>
+-                </li>
+-                <li>
+-                  <div class="score">
+-                    <label for="Wisdomscore">Wisdom</label
+-                    ><input name="Wisdomscore" placeholder="10" class="stat" />
+-                  </div>
+-                  <div class="modifier">
+-                    <input name="Wisdommod" placeholder="+0" />
+-                  </div>
+-                </li>
+-                <li>
+-                  <div class="score">
+-                    <label for="Intelligencescore">Intelligence</label
+-                    ><input
+-                      name="Intelligencescore"
+-                      placeholder="10"
+-                      class="stat"
+-                    />
+-                  </div>
+-                  <div class="modifier">
+-                    <input
+-                      name="Intelligencemod"
+-                      placeholder="+0"
+-                      class="statmod"
+-                    />
+-                  </div>
+-                </li>
+-                <li>
+-                  <div class="score">
+-                    <label for="Charismascore">Charisma</label
+-                    ><input
+-                      name="Charismascore"
+-                      placeholder="10"
+-                      class="stat"
+-                    />
+-                  </div>
+-                  <div class="modifier">
+-                    <input
+-                      name="Charismamod"
+-                      placeholder="+0"
+-                      class="statmod"
+-                    />
+-                  </div>
+-                </li>
+-              </ul>
+-            </div>
+-            <div class="attr-applications">
+-              <div class="inspiration box">
+-                <div class="label-container">
+-                  <label for="inspiration">Inspiration</label>
+-                </div>
+-                <input name="inspiration" type="checkbox" />
+-              </div>
+-              <div class="proficiencybonus box">
+-                <div class="label-container">
+-                  <label for="proficiencybonus">Proficiency Bonus</label>
+-                </div>
+-                <input name="proficiencybonus" placeholder="+2" />
+-              </div>
+-              <div class="saves list-section box">
+-                <ul>
+-                  <li>
+-                    <label for="Strength-save">Strength</label
+-                    ><input
+-                      name="Strength-save"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Strength-save-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Dexterity-save">Dexterity</label
+-                    ><input
+-                      name="Dexterity-save"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Dexterity-save-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Constitution-save">Constitution</label
+-                    ><input
+-                      name="Constitution-save"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Constitution-save-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Wisdom-save">Wisdom</label
+-                    ><input
+-                      name="Wisdom-save"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Wisdom-save-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Intelligence-save">Intelligence</label
+-                    ><input
+-                      name="Intelligence-save"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Intelligence-save-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Charisma-save">Charisma</label
+-                    ><input
+-                      name="Charisma-save"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Charisma-save-prof" type="checkbox" />
+-                  </li>
+-                </ul>
+-                <div class="label">Saving Throws</div>
+-              </div>
+-              <div class="skills list-section box">
+-                <ul>
+-                  <li>
+-                    <label for="Acrobatics"
+-                      >Acrobatics <span class="skill">(Dex)</span></label
+-                    ><input
+-                      name="Acrobatics"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Acrobatics-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Animal Handling"
+-                      >Animal Handling <span class="skill">(Wis)</span></label
+-                    ><input
+-                      name="Animal Handling"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Animal Handling-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Arcana"
+-                      >Arcana <span class="skill">(Int)</span></label
+-                    ><input name="Arcana" placeholder="+0" type="text" /><input
+-                      name="Arcana-prof"
+-                      type="checkbox"
+-                    />
+-                  </li>
+-                  <li>
+-                    <label for="Athletics"
+-                      >Athletics <span class="skill">(Str)</span></label
+-                    ><input
+-                      name="Athletics"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Athletics-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Deception"
+-                      >Deception <span class="skill">(Cha)</span></label
+-                    ><input
+-                      name="Deception"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Deception-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="History"
+-                      >History <span class="skill">(Int)</span></label
+-                    ><input name="History" placeholder="+0" type="text" /><input
+-                      name="History-prof"
+-                      type="checkbox"
+-                    />
+-                  </li>
+-                  <li>
+-                    <label for="Insight"
+-                      >Insight <span class="skill">(Wis)</span></label
+-                    ><input name="Insight" placeholder="+0" type="text" /><input
+-                      name="Insight-prof"
+-                      type="checkbox"
+-                    />
+-                  </li>
+-                  <li>
+-                    <label for="Intimidation"
+-                      >Intimidation <span class="skill">(Cha)</span></label
+-                    ><input
+-                      name="Intimidation"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Intimidation-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Investigation"
+-                      >Investigation <span class="skill">(Int)</span></label
+-                    ><input
+-                      name="Investigation"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Investigation-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Medicine"
+-                      >Medicine <span class="skill">(Wis)</span></label
+-                    ><input
+-                      name="Medicine"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Medicine-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Nature"
+-                      >Nature <span class="skill">(Int)</span></label
+-                    ><input name="Nature" placeholder="+0" type="text" /><input
+-                      name="Nature-prof"
+-                      type="checkbox"
+-                    />
+-                  </li>
+-                  <li>
+-                    <label for="Perception"
+-                      >Perception <span class="skill">(Wis)</span></label
+-                    ><input
+-                      name="Perception"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Perception-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Performance"
+-                      >Performance <span class="skill">(Cha)</span></label
+-                    ><input
+-                      name="Performance"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Performance-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Persuasion"
+-                      >Persuasion <span class="skill">(Cha)</span></label
+-                    ><input
+-                      name="Persuasion"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Persuasion-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Religion"
+-                      >Religion <span class="skill">(Int)</span></label
+-                    ><input
+-                      name="Religion"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Religion-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Sleight of Hand"
+-                      >Sleight of Hand <span class="skill">(Dex)</span></label
+-                    ><input
+-                      name="Sleight of Hand"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Sleight of Hand-prof" type="checkbox" />
+-                  </li>
+-                  <li>
+-                    <label for="Stealth"
+-                      >Stealth <span class="skill">(Dex)</span></label
+-                    ><input name="Stealth" placeholder="+0" type="text" /><input
+-                      name="Stealth-prof"
+-                      type="checkbox"
+-                    />
+-                  </li>
+-                  <li>
+-                    <label for="Survival"
+-                      >Survival <span class="skill">(Wis)</span></label
+-                    ><input
+-                      name="Survival"
+-                      placeholder="+0"
+-                      type="text"
+-                    /><input name="Survival-prof" type="checkbox" />
+-                  </li>
+-                </ul>
+-                <div class="label">Skills</div>
+-              </div>
+-            </div>
+-          </section>
+-          <div class="passive-perception box">
+-            <div class="label-container">
+-              <label for="passiveperception">Passive Wisdom (Perception)</label>
+-            </div>
+-            <input name="passiveperception" placeholder="10" />
+-          </div>
+-          <div class="otherprofs box textblock">
+-            <label for="otherprofs">Other Proficiencies and Languages</label
+-            ><textarea name="otherprofs"></textarea>
+-          </div>
+-        </section>
+-        <section>
+-          <section class="combat">
+-            <div class="armorclass">
+-              <div>
+-                <label for="ac">Armor Class</label
+-                ><input name="ac" placeholder="10" type="text" />
+-              </div>
+-            </div>
+-            <div class="initiative">
+-              <div>
+-                <label for="initiative">Initiative</label
+-                ><input name="initiative" placeholder="+0" type="text" />
+-              </div>
+-            </div>
+-            <div class="speed">
+-              <div>
+-                <label for="speed">Speed</label
+-                ><input name="speed" placeholder="30" type="text" />
+-              </div>
+-            </div>
+-            <div class="hp">
+-              <div class="regular">
+-                <div class="max">
+-                  <label for="maxhp">Hit Point Maximum</label
+-                  ><input name="maxhp" placeholder="10" type="text" />
+-                </div>
+-                <div class="current">
+-                  <label for="currenthp">Current Hit Points</label
+-                  ><input name="currenthp" type="text" />
+-                </div>
+-              </div>
+-              <div class="temporary">
+-                <label for="temphp">Temporary Hit Points</label
+-                ><input name="temphp" type="text" />
+-              </div>
+-            </div>
+-            <div class="hitdice">
+-              <div>
+-                <div class="total">
+-                  <label onclick="totalhd_clicked()" for="totalhd">Total</label
+-                  ><input name="totalhd" placeholder="2d10" type="text" />
+-                </div>
+-                <div class="remaining">
+-                  <label for="remaininghd">Hit Dice</label
+-                  ><input name="remaininghd" type="text" />
+-                </div>
+-              </div>
+-            </div>
+-            <div class="deathsaves">
+-              <div>
+-                <div class="label">
+-                  <label>Death Saves</label>
+-                </div>
+-                <div class="marks">
+-                  <div class="deathsuccesses">
+-                    <label>Successes</label>
+-                    <div class="bubbles">
+-                      <input name="deathsuccess1" type="checkbox" />
+-                      <input name="deathsuccess2" type="checkbox" />
+-                      <input name="deathsuccess3" type="checkbox" />
+-                    </div>
+-                  </div>
+-                  <div class="deathfails">
+-                    <label>Failures</label>
+-                    <div class="bubbles">
+-                      <input name="deathfail1" type="checkbox" />
+-                      <input name="deathfail2" type="checkbox" />
+-                      <input name="deathfail3" type="checkbox" />
+-                    </div>
+-                  </div>
+-                </div>
+-              </div>
+-            </div>
+-          </section>
+-          <section class="attacksandspellcasting">
+-            <div>
+-              <label>Attacks & Spellcasting</label>
+-              <table>
+-                <thead>
+-                  <tr>
+-                    <th>Name</th>
+-                    <th>Atk Bonus</th>
+-                    <th>Damage/Type</th>
+-                  </tr>
+-                </thead>
+-                <tbody>
+-                  <tr>
+-                    <td>
+-                      <input name="atkname1" type="text" />
+-                    </td>
+-                    <td>
+-                      <input name="atkbonus1" type="text" />
+-                    </td>
+-                    <td>
+-                      <input name="atkdamage1" type="text" />
+-                    </td>
+-                  </tr>
+-                  <tr>
+-                    <td>
+-                      <input name="atkname2" type="text" />
+-                    </td>
+-                    <td>
+-                      <input name="atkbonus2" type="text" />
+-                    </td>
+-                    <td>
+-                      <input name="atkdamage2" type="text" />
+-                    </td>
+-                  </tr>
+-                  <tr>
+-                    <td>
+-                      <input name="atkname3" type="text" />
+-                    </td>
+-                    <td>
+-                      <input name="atkbonus3" type="text" />
+-                    </td>
+-                    <td>
+-                      <input name="atkdamage3" type="text" />
+-                    </td>
+-                  </tr>
+-                </tbody>
+-              </table>
+-              <textarea></textarea>
+-            </div>
+-          </section>
+-          <section class="equipment">
+-            <div>
+-              <label>Equipment</label>
+-              <div class="money">
+-                <ul>
+-                  <li><label for="cp">cp</label><input name="cp" /></li>
+-                  <li><label for="sp">sp</label><input name="sp" /></li>
+-                  <li><label for="ep">ep</label><input name="ep" /></li>
+-                  <li><label for="gp">gp</label><input name="gp" /></li>
+-                  <li><label for="pp">pp</label><input name="pp" /></li>
+-                </ul>
+-              </div>
+-              <textarea placeholder="Equipment list here"></textarea>
+-            </div>
+-          </section>
+-        </section>
+-        <section>
+-          <section class="flavor">
+-            <div class="personality">
+-              <label for="personality">Personality</label
+-              ><textarea name="personality"></textarea>
+-            </div>
+-            <div class="ideals">
+-              <label for="ideals">Ideals</label
+-              ><textarea name="ideals"></textarea>
+-            </div>
+-            <div class="bonds">
+-              <label for="bonds">Bonds</label><textarea name="bonds"></textarea>
+-            </div>
+-            <div class="flaws">
+-              <label for="flaws">Flaws</label><textarea name="flaws"></textarea>
+-            </div>
+-          </section>
+-          <section class="features">
+-            <div>
+-              <label for="features">Features & Traits</label
+-              ><textarea name="features"></textarea>
+-            </div>
+-          </section>
+-        </section>
+-      </main>
+-    </form>
+-    <script>
+-      (function () {
+-        function qs(name) {
+-          return document.querySelector(`[name="${name}"]`);
+-        }
+-        function intval(x, d) {
+-          x = parseInt(String(x || "").trim(), 10);
+-          return isNaN(x) ? d : x;
+-        }
+-        function abilityMod(score) {
+-          return Math.floor((score - 10) / 2);
+-        }
+-        function sign(n) {
+-          return (n >= 0 ? "+" : "") + n;
+-        }
+-        function normSkill(s) {
+-          return String(s || "")
+-            .toLowerCase()
+-            .replace(/[_-]/g, " ")
+-            .replace(/\s+/g, " ")
+-            .trim();
+-        }
+-        function parseClassAndLevel() {
+-          const raw = (qs("classlevel")?.value || "").trim();
+-          if (!raw) return { cls: "", lvl: 1 };
+-          let m = raw.match(/([A-Za-z ]+?)(?:\s+level)?\s+(\d{1,2})$/i);
+-          if (m)
+-            return {
+-              cls: m[1].trim(),
+-              lvl: Math.max(1, Math.min(20, parseInt(m[2], 10))),
+-            };
+-          let lvlm = raw.match(/(\d{1,2})/);
+-          let lvl = lvlm ? Math.max(1, Math.min(20, parseInt(lvlm[1], 10))) : 1;
+-          let cls = raw.replace(/\d+/g, "").replace(/level/i, "").trim();
+-          return { cls, lvl };
+-        }
+-
+-        function weaponDamageString(c) {
+-          if (!c || !c.Equipment) return "";
+-          const wi = c.Equipment.WeaponInfo || {};
+-          const dice = String(wi.DamageDice || "").trim();
+-          if (!dice) return "";
+-          const strM = abilityMod((c.AbilityScores || {}).Strength ?? 10);
+-          const dexM = abilityMod((c.AbilityScores || {}).Dexterity ?? 10);
+-          const wr = String(wi.WeaponRange || "")
+-            .trim()
+-            .toLowerCase();
+-          const mod =
+-            wr === "ranged" ? dexM : wi.Finesse ? Math.max(strM, dexM) : strM;
+-          return mod >= 0 ? `${dice} + ${mod}` : `${dice} - ${Math.abs(mod)}`;
+-        }
+-
+-        async function saveToServer() {
+-          const name = (qs("charname")?.value || "").trim();
+-          if (!name) {
+-            alert("Name is required");
+-            return;
+-          }
+-          const race = (qs("race")?.value || "").trim();
+-          const bg = (qs("background")?.value || "").trim();
+-          const { cls, lvl } = parseClassAndLevel();
+-
+-          const scores = {
+-            Strength: intval(qs("Strengthscore")?.value, 10),
+-            Dexterity: intval(qs("Dexterityscore")?.value, 10),
+-            Constitution: intval(qs("Constitutionscore")?.value, 10),
+-            Intelligence: intval(qs("Intelligencescore")?.value, 10),
+-            Wisdom: intval(qs("Wisdomscore")?.value, 10),
+-            Charisma: intval(qs("Charismascore")?.value, 10),
+-          };
+-          const skills = Array.from(
+-            document.querySelectorAll('input[name$="-prof"]:checked')
+-          ).map((cb) => cb.name.replace(/-prof$/, "").toLowerCase());
+-
+-          const payload = {
+-            name,
+-            race,
+-            class: cls,
+-            level: lvl,
+-            background: bg || "acolyte",
+-            ability_scores: scores,
+-            skills,
+-          };
+-
+-          try {
+-            const res = await fetch("/api/characters", {
+-              method: "POST",
+-              headers: { "Content-Type": "application/json" },
+-              body: JSON.stringify(payload),
+-            });
+-            if (!res.ok) {
+-              alert("Save failed: " + (await res.text()));
+-              return;
+-            }
+-            const saved = await res.json();
+-            alert("Saved " + saved.Name + " to server!");
+-
+-            const s = saved.AbilityScores || {};
+-            const pb = saved.ProficiencyBonus || 2;
+-            const dexM = abilityMod(s.Dexterity ?? 10);
+-            const wisM = abilityMod(s.Wisdom ?? 10);
+-            const skillsLower = (saved.Skills || []).map((x) =>
+-              String(x || "").toLowerCase()
+-            );
+-            if (qs("proficiencybonus")) qs("proficiencybonus").value = sign(pb);
+-            if (qs("passiveperception"))
+-              qs("passiveperception").value =
+-                10 + wisM + (skillsLower.includes("perception") ? pb : 0);
+-            if (qs("initiative") && !qs("initiative").value)
+-              qs("initiative").value = sign(dexM);
+-            if (qs("ac") && !qs("ac").value) qs("ac").value = 10 + dexM;
+-          } catch (e) {
+-            alert("Network error: " + e);
+-          }
+-        }
+-
+-        async function loadCharacterIntoSheet(name) {
+-          const res = await fetch(
+-            "/api/characters?name=" + encodeURIComponent(name)
+-          );
+-          if (!res.ok) {
+-            alert("Character not found: " + name);
+-            return;
+-          }
+-          const c = await res.json();
+-
+-          if (qs("charname")) qs("charname").value = c.Name || "";
+-          if (qs("race")) qs("race").value = c.Race || "";
+-          if (qs("classlevel"))
+-            qs("classlevel").value =
+-              (c.Class ? c.Class[0].toUpperCase() + c.Class.slice(1) : "") +
+-              (c.Level ? " " + c.Level : "");
+-          if (qs("background")) qs("background").value = "Acolyte";
+-
+-          const s = c.AbilityScores || {};
+-          [
+-            ["Strength", "Strengthscore", "Strengthmod"],
+-            ["Dexterity", "Dexterityscore", "Dexteritymod"],
+-            ["Constitution", "Constitutionscore", "Constitutionmod"],
+-            ["Wisdom", "Wisdomscore", "Wisdommod"],
+-            ["Intelligence", "Intelligencescore", "Intelligencemod"],
+-            ["Charisma", "Charismascore", "Charismamod"],
+-          ].forEach(([k, scoreName, modName]) => {
+-            const val = s[k] ?? 10,
+-              mod = abilityMod(val);
+-            if (qs(scoreName)) qs(scoreName).value = val;
+-            if (qs(modName)) qs(modName).value = sign(mod);
+-          });
+-
+-          const pb = c.ProficiencyBonus ?? 2;
+-          if (qs("proficiencybonus")) qs("proficiencybonus").value = sign(pb);
+-
+-          const have = new Set((c.Skills || []).map(normSkill));
+-          document.querySelectorAll('input[name$="-prof"]').forEach((cb) => {
+-            const nm = cb.name.replace(/-prof$/, "");
+-            cb.checked = have.has(normSkill(nm));
+-          });
+-
+-          const wisM = abilityMod(s.Wisdom ?? 10);
+-          if (qs("passiveperception"))
+-            qs("passiveperception").value =
+-              10 + wisM + (have.has("perception") ? pb : 0);
+-          const dexM = abilityMod(s.Dexterity ?? 10);
+-          if (qs("initiative") && !qs("initiative").value)
+-            qs("initiative").value = sign(dexM);
+-          if (qs("ac") && !qs("ac").value) qs("ac").value = 10 + dexM;
+-
+-          const weaponName =
+-            c.Equipment && c.Equipment.Weapon ? c.Equipment.Weapon : "";
+-          const dmg = weaponDamageString(c);
+-          // const atkName1 = document.querySelector('[name="atkname1"]');
+-          // const atkDmg1 = document.querySelector('[name="atkdamage1"]');
+-          // const atkBonus1 = document.querySelector('[name="atkbonus1"]');
+-          // if (atkName1) atkName1.value = weaponName || "";
+-          // if (atkDmg1) atkDmg1.value = dmg || "";
+-          // if (atkBonus1 && !atkBonus1.value) atkBonus1.value = "";
+-          const hdTotal = document.querySelector('[name="totalhd"]');
+-          if (hdTotal && dmg) hdTotal.value = dmg;
+-        }
+-
+-        const params = new URLSearchParams(location.search);
+-        const qname = params.get("name");
+-        if (qname) loadCharacterIntoSheet(qname);
+-
+-        const form = document.querySelector("form.charsheet");
+-        if (form) {
+-          const row = document.createElement("div");
+-          row.style.display = "flex";
+-          row.style.gap = "8px";
+-          row.style.margin = "16px 0";
+-
+-          const saveBtn = document.createElement("button");
+-          saveBtn.type = "button";
+-          saveBtn.textContent = "Save Character";
+-          saveBtn.addEventListener("click", saveToServer);
+-
+-          const listBtn = document.createElement("a");
+-          listBtn.href = "characters.html";
+-          listBtn.textContent = "View List";
+-          listBtn.style.display = "inline-block";
+-          listBtn.style.padding = "6px 12px";
+-          listBtn.style.border = "1px solid #333";
+-          listBtn.style.textDecoration = "none";
+-          listBtn.style.lineHeight = "22px";
+-
+-          row.appendChild(saveBtn);
+-          row.appendChild(listBtn);
+-          form.appendChild(row);
+-        }
+-      })();
+-    </script>
+-
+-    <div style="position: fixed; right: 12px; bottom: 12px; z-index: 9999">
+-      <a
+-        href="index.html"
+-        style="
+-          text-decoration: none;
+-          padding: 8px 12px;
+-          border: 1px solid #333;
+-          border-radius: 6px;
+-          font-family: system-ui, Arial, sans-serif;
+-          font-size: 14px;
+-          background: #f5f5f5;
+-          color: #111;
+-        "
+-        >← Back to index</a
+-      >
+-    </div>
+-    <div style="position: fixed; right: 12px; bottom: 12px; z-index: 9999">
+-      <a
+-        href="index.html"
+-        style="
+-          text-decoration: none;
+-          padding: 8px 12px;
+-          border: 1px solid #333;
+-          border-radius: 6px;
+-          font-family: system-ui, Arial, sans-serif;
+-          font-size: 14px;
+-          background: #f5f5f5;
+-          color: #111;
+-        "
+-        >← Back to index</a
+-      >
+-    </div>
+-  </body>
+-</html>
+diff --git a/combat.go b/combat.go
+index e45b433..826cc46 100644
+--- a/combat.go
++++ b/combat.go
+@@ -1,6 +1,11 @@
++// Layer: Domain (business rules: damage, AC, initiative; no IO)
++
+ package main
+ 
+-import "strings"
++import (
++	"strings"
++	// "fmt"
++)
+ 
+ /**
+ * DexModOf returns the Dexterity ability modifier
+@@ -121,4 +126,11 @@ func computePassivePerception(c *Character) int {
+ 		pp += c.ProficiencyBonus
+ 	}
+ 	return pp
+-}
+\ No newline at end of file
++}
++
++/**
++* computeWeaponDamageString geeft "XdY + N" of "" als er geen data is
++**/
++func computeWeaponDamageString(c *Character) string {
++    return ""
++}
+diff --git a/exam_test.go b/exam_test.go
+new file mode 100644
+index 0000000..bab2ac6
+--- /dev/null
++++ b/exam_test.go
+@@ -0,0 +1,52 @@
++package main
++
++import "testing"
++
++func mkChar(str, dex int, dice, wrange string, finesse bool) *Character {
++	return &Character{
++		AbilityScores: AbilityScores{Strength: str, Dexterity: dex},
++		Equipment: Equipment{
++			Weapon: "x",
++			WeaponInfo: WeaponMeta{
++				DamageDice:  dice,
++				WeaponRange: wrange, 
++				Finesse:     finesse,
++			},
++		},
++	}
++}
++
++func TestAbilityMod(t *testing.T) {
++	cases := []struct {
++		score int
++		want  int
++	}{
++		{10, 0}, {11, 0}, {9, -1}, {15, 2}, {17, 3},
++	}
++	for _, tc := range cases {
++		if got := abilityMod(tc.score); got != tc.want {
++			t.Fatalf("abilityMod(%d)=%d; want %d", tc.score, got, tc.want)
++		}
++	}
++}
++
++func TestDamage_Gor(t *testing.T) {
++	c := mkChar(17, 14, "1d12", "Melee", false) 
++	if got, want := computeWeaponDamageString(c), "1d12 + 3"; got != want {
++		t.Fatalf("Gor dmg = %q; want %q", got, want)
++	}
++}
++
++func TestDamage_Nyx(t *testing.T) {
++	c := mkChar(13, 15, "1d6", "Melee", true) 
++	if got, want := computeWeaponDamageString(c), "1d6 + 2"; got != want {
++		t.Fatalf("Nyx dmg = %q; want %q", got, want)
++	}
++}
++
++func TestDamage_Bruni(t *testing.T) {
++	c := mkChar(8, 15, "1d8", "Melee", true) 
++	if got, want := computeWeaponDamageString(c), "1d8 + 2"; got != want {
++		t.Fatalf("Bruni dmg = %q; want %q", got, want)
++	}
++}
+diff --git a/main.go b/main.go
+index cc40f5d..2d451e9 100644
+--- a/main.go
++++ b/main.go
+@@ -1,3 +1,4 @@
++// Layer: Infrastructure / UI (CLI commands; invokes application/domain)
+ package main
+ 
+ import (
+@@ -6,12 +7,16 @@ import (
+ 	"os"
+ 	"sort"
+ 	"strings"
+-	"sync"
+-	"time"
++)
++
++const (
++	constSpellSlotsLine          = "Spell slots:"
++	constCharNotFoundFmt          = "character \"%s\" not found\n"
++	constSpellTooHighMsg          = "the spell has higher level than the available spell slots"
+ )
+ 
+ /**
+-*  usage prints command-line help
++* usage prints command-line help
+ **/
+ func usage() {
+ 	app := os.Args[0]
+@@ -23,686 +28,672 @@ func usage() {
+   %s equip -name NAME [-weapon WEAPON] [-armor ARMOR] [-shield SHIELD] [-slot SLOT]
+   %s prepare -name NAME -spell "SPELL NAME"
+   %s learn -name NAME -spell "SPELL NAME"
+-  %s enrich [-limit N] [-dryrun] [-rps N] [-workers N]
++  %s enrich [-limit N] [-dryrun] [-rps N] [-workers N] 
+   %s inspect [-name NAME_OR_SUBSTRING]
+   %s serve [-addr :8080]
+ `, app, app, app, app, app, app, app, app, app, app)
+ }
+ 
+-/**
+-*  main is the CLI entrypoint for creating, viewing, managing, and enriching characters
+-**/
+-func main() {
+-	loadCharacters()
+-	if len(os.Args) < 2 {
+-		usage()
+-		os.Exit(1)
++
++func upsertCharacter(c Character) {
++	idx := -1
++	for i := range characters {
++		if strings.EqualFold(characters[i].Name, c.Name) {
++			idx = i
++			break
++		}
+ 	}
+-	switch os.Args[1] {
++	if idx >= 0 {
++		characters[idx] = c
++	} else {
++		characters = append(characters, c)
++	}
++}
+ 
+-	case "serve":
+-		serveCommand(os.Args[2:])
++func printAbilityScores(c *Character) {
++	fmt.Println("Ability scores:")
++	fmt.Printf("  STR: %d (%+d)\n", c.AbilityScores.Strength, abilityMod(c.AbilityScores.Strength))
++	fmt.Printf("  DEX: %d (%+d)\n", c.AbilityScores.Dexterity, abilityMod(c.AbilityScores.Dexterity))
++	fmt.Printf("  CON: %d (%+d)\n", c.AbilityScores.Constitution, abilityMod(c.AbilityScores.Constitution))
++	fmt.Printf("  INT: %d (%+d)\n", c.AbilityScores.Intelligence, abilityMod(c.AbilityScores.Intelligence))
++	fmt.Printf("  WIS: %d (%+d)\n", c.AbilityScores.Wisdom, abilityMod(c.AbilityScores.Wisdom))
++	fmt.Printf("  CHA: %d (%+d)\n", c.AbilityScores.Charisma, abilityMod(c.AbilityScores.Charisma))
++}
+ 
+-	case "create":
+-		fs := flag.NewFlagSet("create", flag.ExitOnError)
+-		name := fs.String("name", "", "required")
+-		race := fs.String("race", "", "")
+-		class := fs.String("class", "", "")
+-		level := fs.Int("level", 1, "")
+-		bgLong := fs.String("background", "", "optional")
+-		bgShort := fs.String("bg", "", "optional")
+-		_ = bgLong
+-		_ = bgShort
+-		bg := "acolyte"
+-		str := fs.Int("str", 0, "")
+-		dex := fs.Int("dex", 0, "")
+-		con := fs.Int("con", 0, "")
+-		intl := fs.Int("int", 0, "")
+-		wis := fs.Int("wis", 0, "")
+-		cha := fs.Int("cha", 0, "")
+-		skillsFlag := fs.String("skills", "", "comma separated")
+-		_ = fs.Parse(os.Args[2:])
+-
+-		if *name == "" {
+-			fmt.Println("name is required")
+-			os.Exit(2)
+-		}
+-		raw := []int{*str, *dex, *con, *intl, *wis, *cha}
+-		providedAll, providedAny := true, false
+-		for _, v := range raw {
+-			if v != 0 {
+-				providedAny = true
+-			} else {
+-				providedAll = false
+-			}
+-		}
+-		def10 := func(x int) int {
+-			if x == 0 {
+-				return 10
+-			}
+-			return x
+-		}
++func normalizeSkillList(in []string) []string {
++	out := make([]string, len(in))
++	for i, s := range in {
++		s = strings.ReplaceAll(s, "_", " ")
++		s = strings.ReplaceAll(s, "-", " ")
++		out[i] = strings.ToLower(strings.Join(strings.Fields(s), " "))
++	}
++	sort.Strings(out)
++	return out
++}
++
++func printSpellSlotsBlock(c *Character, keys []int, includeHeader bool) {
++	if includeHeader {
++		fmt.Println(constSpellSlotsLine)
++	}
++	for _, lvl := range keys {
++		fmt.Printf("  Level %d: %d\n", lvl, c.Spellcasting.SlotsByLevel[lvl])
++	}
++}
+ 
+-		var base AbilityScores
+-		switch {
+-		case providedAll:
+-			base = AbilityScores{*str, *dex, *con, *intl, *wis, *cha}
+-		case providedAny:
+-			base = AbilityScores{def10(*str), def10(*dex), def10(*con), def10(*intl), def10(*wis), def10(*cha)}
+-		default:
+-			base = assignStandardArray()
++func slotKeys(c *Character, min int) []int {
++	keys := make([]int, 0, len(c.Spellcasting.SlotsByLevel))
++	for lvl := range c.Spellcasting.SlotsByLevel {
++		if lvl >= min {
++			keys = append(keys, lvl)
+ 		}
++	}
++	sort.Ints(keys)
++	return keys
++}
+ 
+-		rStr, rDex, rCon, rInt, rWis, rCha := raceBonusDeltas(*race)
+-		final := AbilityScores{
+-			Strength: base.Strength + rStr, Dexterity: base.Dexterity + rDex, Constitution: base.Constitution + rCon,
+-			Intelligence: base.Intelligence + rInt, Wisdom: base.Wisdom + rWis, Charisma: base.Charisma + rCha,
++func maxSlotLevel(slots map[int]int) int {
++	max := 0
++	for lvl, count := range slots {
++		if count > 0 && lvl > max {
++			max = lvl
+ 		}
++	}
++	return max
++}
+ 
+-		if bg == "" {
+-			bg = strings.ToLower(strings.TrimSpace(*bgShort))
++
++func calcBaseScoresCLI(str, dex, con, intl, wis, cha int) AbilityScores {
++	raw := []int{str, dex, con, intl, wis, cha}
++	providedAll, providedAny := true, false
++	for _, v := range raw {
++		if v != 0 {
++			providedAny = true
++		} else {
++			providedAll = false
+ 		}
+-		if bg == "" {
+-			bg = "acolyte"
++	}
++	def10 := func(x int) int {
++		if x == 0 {
++			return 10
+ 		}
++		return x
++	}
++	switch {
++	case providedAll:
++		return AbilityScores{str, dex, con, intl, wis, cha}
++	case providedAny:
++		return AbilityScores{def10(str), def10(dex), def10(con), def10(intl), def10(wis), def10(cha)}
++	default:
++		return assignStandardArray()
++	}
++}
+ 
+-		var provided []string
+-		if *skillsFlag != "" {
+-			for _, p := range strings.Split(*skillsFlag, ",") {
+-				if t := strings.TrimSpace(p); t != "" {
+-					provided = append(provided, t)
+-				}
+-			}
+-		}
++func applyRaceBonusesCLI(base AbilityScores, race string) AbilityScores {
++	rStr, rDex, rCon, rInt, rWis, rCha := raceBonusDeltas(race)
++	return AbilityScores{
++		Strength:     base.Strength + rStr,
++		Dexterity:    base.Dexterity + rDex,
++		Constitution: base.Constitution + rCon,
++		Intelligence: base.Intelligence + rInt,
++		Wisdom:       base.Wisdom + rWis,
++		Charisma:     base.Charisma + rCha,
++	}
++}
+ 
+-		ct := casterType(*class)
+-		var sc *Spellcasting
+-		if ct != "none" {
+-			slots := spellSlotsFor(ct, *level)
+-			maxL := maxSpellLevel(ct, *level)
+-			chosen := pickSpellsForClass(*class, maxL, 4)
+-			sc = &Spellcasting{SlotsByLevel: slots, Spells: chosen}
++func parseSkillsCSV(s string) []string {
++	if strings.TrimSpace(s) == "" {
++		return nil
++	}
++	var out []string
++	for _, p := range strings.Split(s, ",") {
++		if t := strings.TrimSpace(p); t != "" {
++			out = append(out, t)
+ 		}
++	}
++	return out
++}
+ 
+-		c := Character{
+-			Name: *name, Race: strings.ToLower(*race), Class: strings.ToLower(*class), Level: *level,
+-			Background: bg, AbilityScores: final, ProficiencyBonus: profByLevel(*level),
+-			Skills: finalSkills(*class, bg, provided), Spellcasting: sc,
+-		}
+-		characters = append(characters, c)
+-		saveCharacters()
+-		fmt.Printf("saved character %s\n", c.Name)
++func buildSpellcastingCLI(class string, level int) *Spellcasting {
++	ct := casterType(class)
++	if ct == "none" {
++		return nil
++	}
++	slots := spellSlotsFor(ct, level)
++	maxL := maxSpellLevel(ct, level)
++	chosen := pickSpellsForClass(class, maxL, 4)
++	return &Spellcasting{SlotsByLevel: slots, Spells: chosen}
++}
+ 
+-	case "view":
+-		fs := flag.NewFlagSet("view", flag.ExitOnError)
+-		name := fs.String("name", "", "required")
+-		noSlots := fs.Bool("no-slots", false, "hide spell slot lines")
++func cmdCreate(args []string) {
++	fs := flag.NewFlagSet("create", flag.ExitOnError)
++	name := fs.String("name", "", "required")
++	race := fs.String("race", "", "")
++	class := fs.String("class", "", "")
++	level := fs.Int("level", 1, "")
++	bgLong := fs.String("background", "", "optional")
++	bgShort := fs.String("bg", "", "optional")
++	_ = bgLong
++	_ = bgShort
++
++	str := fs.Int("str", 0, "")
++	dex := fs.Int("dex", 0, "")
++	con := fs.Int("con", 0, "")
++	intl := fs.Int("int", 0, "")
++	wis := fs.Int("wis", 0, "")
++	cha := fs.Int("cha", 0, "")
++	skillsFlag := fs.String("skills", "", "comma separated")
++	_ = fs.Parse(args)
++
++	if *name == "" {
++		fmt.Println("name is required")
++		os.Exit(2)
++	}
+ 
+-		_ = fs.Parse(os.Args[2:])
++	base := calcBaseScoresCLI(*str, *dex, *con, *intl, *wis, *cha)
++	final := applyRaceBonusesCLI(base, *race)
+ 
+-		c := findCharLike(*name)
+-		if c == nil {
+-			fmt.Printf("character \"%s\" not found\n", *name)
+-			return
+-		}
++	bg := "acolyte"
+ 
+-		fmt.Printf("Name: %s\n", c.Name)
+-		fmt.Printf("Class: %s\n", strings.ToLower(c.Class))
+-		fmt.Printf("Race: %s\n", strings.ToLower(c.Race))
+-		fmt.Printf("Background: %s\n", strings.ToLower(strings.TrimSpace(c.Background)))
+-		fmt.Printf("Level: %d\n", c.Level)
+-		fmt.Println("Ability scores:")
+-		fmt.Printf("  STR: %d (%+d)\n", c.AbilityScores.Strength, abilityMod(c.AbilityScores.Strength))
+-		fmt.Printf("  DEX: %d (%+d)\n", c.AbilityScores.Dexterity, abilityMod(c.AbilityScores.Dexterity))
+-		fmt.Printf("  CON: %d (%+d)\n", c.AbilityScores.Constitution, abilityMod(c.AbilityScores.Constitution))
+-		fmt.Printf("  INT: %d (%+d)\n", c.AbilityScores.Intelligence, abilityMod(c.AbilityScores.Intelligence))
+-		fmt.Printf("  WIS: %d (%+d)\n", c.AbilityScores.Wisdom, abilityMod(c.AbilityScores.Wisdom))
+-		fmt.Printf("  CHA: %d (%+d)\n", c.AbilityScores.Charisma, abilityMod(c.AbilityScores.Charisma))
+-		fmt.Printf("Proficiency bonus: %+d\n", c.ProficiencyBonus)
+-
+-		skillsOut := make([]string, len(c.Skills))
+-		for i, s := range c.Skills {
+-			s = strings.ReplaceAll(s, "_", " ")
+-			s = strings.ReplaceAll(s, "-", " ")
+-			s = strings.Join(strings.Fields(s), " ")
+-			skillsOut[i] = strings.ToLower(s)
+-		}
+-		sort.Strings(skillsOut)
+-		fmt.Printf("Skill proficiencies: %s\n", strings.Join(skillsOut, ", "))
++	provided := parseSkillsCSV(*skillsFlag)
++	sc := buildSpellcastingCLI(*class, *level)
+ 
+-		if strings.TrimSpace(c.Equipment.Weapon) != "" {
+-			fmt.Printf("Main hand: %s\n", c.Equipment.Weapon)
+-		}
+-		if strings.TrimSpace(c.Equipment.OffHand) != "" {
+-			fmt.Printf("Off hand: %s\n", c.Equipment.OffHand)
++	c := Character{
++		Name:             *name,
++		Race:             strings.ToLower(*race),
++		Class:            strings.ToLower(*class),
++		Level:            *level,
++		Background:       bg,
++		AbilityScores:    final,
++		ProficiencyBonus: profByLevel(*level),
++		Skills:           finalSkills(*class, bg, provided),
++		Spellcasting:     sc,
++	}
++	upsertCharacter(c)
++	saveCharacters()
++	fmt.Printf("saved character %s\n", c.Name)
++}
++
++
++func printEquipmentBlock(c *Character) {
++	if strings.TrimSpace(c.Equipment.Weapon) != "" {
++		fmt.Printf("Main hand: %s\n", c.Equipment.Weapon)
++		if dmg := computeWeaponDamageString(c); dmg != "" {
++			fmt.Printf("Weapon damage: %s\n", dmg)
+ 		}
+-		if strings.TrimSpace(c.Equipment.Armor) != "" {
+-			fmt.Printf("Armor: %s\n", c.Equipment.Armor)
++	}
++	if strings.TrimSpace(c.Equipment.OffHand) != "" {
++		fmt.Printf("Off hand: %s\n", c.Equipment.OffHand)
++	}
++	if strings.TrimSpace(c.Equipment.Armor) != "" {
++		fmt.Printf("Armor: %s\n", c.Equipment.Armor)
++	}
++	if strings.TrimSpace(c.Equipment.Shield) != "" {
++		fmt.Printf("Shield: %s\n", c.Equipment.Shield)
++	}
++}
++
++func showHalfOrWarlockSlots(c *Character, minSlot int) {
++	if ck := cantripsKnown(c.Class, c.Level); ck > 0 {
++		fmt.Println(constSpellSlotsLine)
++		fmt.Printf("  Level 0: %d\n", ck)
++	}
++	keys := slotKeys(c, minSlot)
++	if len(keys) > 0 {
++		if cantripsKnown(c.Class, c.Level) == 0 {
++			fmt.Println(constSpellSlotsLine)
+ 		}
+-		if strings.TrimSpace(c.Equipment.Shield) != "" {
+-			fmt.Printf("Shield: %s\n", c.Equipment.Shield)
++		printSpellSlotsBlock(c, keys, false)
++	}
++}
++
++func showFullCaster(c *Character, noSlots bool) {
++	if !noSlots {
++		fmt.Println(constSpellSlotsLine)
++		if ck := cantripsKnown(c.Class, c.Level); ck > 0 {
++			fmt.Printf("  Level 0: %d\n", ck)
+ 		}
++		keys := slotKeys(c, 1)
++		printSpellSlotsBlock(c, keys, false)
++	}
++	sca := spellcastingAbilityForClass(c.Class)
++	if sca != "" {
++		abMod := abilityMod(abilityScoreByName(c, sca))
++		saveDC := 8 + c.ProficiencyBonus + abMod
++		attack := c.ProficiencyBonus + abMod
++		fmt.Printf("Spellcasting ability: %s\n", sca)
++		fmt.Printf("Spell save DC: %d\n", saveDC)
++		fmt.Printf("Spell attack bonus: %+d\n", attack)
++	}
++}
+ 
+-		if c.Spellcasting != nil {
+-			switch casterType(c.Class) {
+-			case "half":
+-				if ck := cantripsKnown(c.Class, c.Level); ck > 0 {
+-					fmt.Println("Spell slots:")
+-					fmt.Printf("  Level 0: %d\n", ck)
+-				}
+-				keys := make([]int, 0, len(c.Spellcasting.SlotsByLevel))
+-				for lvl := range c.Spellcasting.SlotsByLevel {
+-					if lvl >= 1 {
+-						keys = append(keys, lvl)
+-					}
+-				}
+-				sort.Ints(keys)
+-				if len(keys) > 0 {
+-					if cantripsKnown(c.Class, c.Level) == 0 {
+-						fmt.Println("Spell slots:")
+-					}
+-					for _, lvl := range keys {
+-						fmt.Printf("  Level %d: %d\n", lvl, c.Spellcasting.SlotsByLevel[lvl])
+-					}
+-				}
++func printSpellcastingView(c *Character, noSlots bool) {
++	if c.Spellcasting == nil {
++		return
++	}
++	switch casterType(c.Class) {
++	case "half":
++		showHalfOrWarlockSlots(c, 1)
++	case "warlock":
++		showHalfOrWarlockSlots(c, 0)
++	case "full":
++		showFullCaster(c, noSlots)
++	}
++}
+ 
+-			case "warlock":
+-				if ck := cantripsKnown(c.Class, c.Level); ck > 0 {
+-					fmt.Println("Spell slots:")
+-					fmt.Printf("  Level 0: %d\n", ck)
+-				}
+-				keys := make([]int, 0, len(c.Spellcasting.SlotsByLevel))
+-				for lvl := range c.Spellcasting.SlotsByLevel {
+-					keys = append(keys, lvl)
+-				}
+-				sort.Ints(keys)
+-				if len(keys) > 0 {
+-					if cantripsKnown(c.Class, c.Level) == 0 {
+-						fmt.Println("Spell slots:")
+-					}
+-					for _, lvl := range keys {
+-						fmt.Printf("  Level %d: %d\n", lvl, c.Spellcasting.SlotsByLevel[lvl])
+-					}
+-				}
++func cmdView(args []string) {
++	fs := flag.NewFlagSet("view", flag.ExitOnError)
++	name := fs.String("name", "", "required")
++	noSlots := fs.Bool("no-slots", false, "hide spell slot lines")
++	_ = fs.Parse(args)
+ 
+-			case "full":
+-				if !*noSlots {
+-					fmt.Println("Spell slots:")
+-					if ck := cantripsKnown(c.Class, c.Level); ck > 0 {
+-						fmt.Printf("  Level 0: %d\n", ck)
+-					}
+-					keys := make([]int, 0, len(c.Spellcasting.SlotsByLevel))
+-					for lvl := range c.Spellcasting.SlotsByLevel {
+-						if lvl >= 1 {
+-							keys = append(keys, lvl)
+-						}
+-					}
+-					sort.Ints(keys)
+-					for _, lvl := range keys {
+-						fmt.Printf("  Level %d: %d\n", lvl, c.Spellcasting.SlotsByLevel[lvl])
+-					}
+-				}
+-				sca := spellcastingAbilityForClass(c.Class)
+-				if sca != "" {
+-					abMod := abilityMod(abilityScoreByName(c, sca))
+-					saveDC := 8 + c.ProficiencyBonus + abMod
+-					attack := c.ProficiencyBonus + abMod
+-					fmt.Printf("Spellcasting ability: %s\n", sca)
+-					fmt.Printf("Spell save DC: %d\n", saveDC)
+-					fmt.Printf("Spell attack bonus: %+d\n", attack)
+-				}
+-			}
+-		}
++	c := findCharLike(*name)
++	if c == nil {
++		fmt.Printf(constCharNotFoundFmt, *name)
++		return
++	}
+ 
+-		fmt.Printf("Armor class: %d\n", computeArmorClass(c))
+-		fmt.Printf("Initiative bonus: %d\n", computeInitiativeBonus(c))
+-		fmt.Printf("Passive perception: %d\n", computePassivePerception(c))
++	fmt.Printf("Name: %s\n", c.Name)
++	fmt.Printf("Class: %s\n", strings.ToLower(c.Class))
++	fmt.Printf("Race: %s\n", strings.ToLower(c.Race))
++	fmt.Printf("Background: %s\n", strings.ToLower(strings.TrimSpace(c.Background)))
++	fmt.Printf("Level: %d\n", c.Level)
+ 
+-		return
++	printAbilityScores(c)
++	fmt.Printf("Proficiency bonus: %+d\n", c.ProficiencyBonus)
+ 
+-	case "list":
+-		for _, c := range characters {
+-			fmt.Printf("- %s (%s, level %d, %s)\n", c.Name, c.Class, c.Level, c.Race)
+-			fmt.Printf("Background: %s  ProficiencyBonus: %d\n", c.Background, c.ProficiencyBonus)
+-		}
++	skillsOut := normalizeSkillList(c.Skills)
++	fmt.Printf("Skill proficiencies: %s\n", strings.Join(skillsOut, ", "))
+ 
+-	case "delete":
+-		fs := flag.NewFlagSet("delete", flag.ExitOnError)
+-		name := fs.String("name", "", "")
+-		_ = fs.Parse(os.Args[2:])
+-		for i := range characters {
+-			if characters[i].Name == *name {
+-				characters = append(characters[:i], characters[i+1:]...)
+-				saveCharacters()
+-				fmt.Printf("deleted %s\n", *name)
+-				return
+-			}
+-		}
+-		fmt.Printf("character \"%s\" not found\n", *name)
++	printEquipmentBlock(c)
++	printSpellcastingView(c, *noSlots)
+ 
+-	case "equip":
+-		fs := flag.NewFlagSet("equip", flag.ExitOnError)
+-		name := fs.String("name", "", "")
+-		weapon := fs.String("weapon", "", "")
+-		armor := fs.String("armor", "", "")
+-		shield := fs.String("shield", "", "")
+-		slot := fs.String("slot", "", "")
+-		_ = fs.Parse(os.Args[2:])
+-
+-		c := findCharLike(*name)
+-		if c == nil {
+-			fmt.Printf("character \"%s\" not found\n", *name)
+-			return
+-		}
++	fmt.Printf("Armor class: %d\n", computeArmorClass(c))
++	fmt.Printf("Initiative bonus: %d\n", computeInitiativeBonus(c))
++	fmt.Printf("Passive perception: %d\n", computePassivePerception(c))
++}
+ 
+-		s := strings.ToLower(strings.TrimSpace(*slot))
+-		if s == "offhand" {
+-			s = "off hand"
+-		}
+-		if s == "mainhand" {
+-			s = "main hand"
+-		}
+ 
+-		normalize := func(x string) string {
+-			return normalizeEquipment(x)
+-		}
+-		warnUnknown := func(x string) {
+-			if x == "" {
+-				return
+-			}
+-			if !isKnownEquipment(x) && equipmentCSVLoaded {
+-				fmt.Printf("(warning) \"%s\" not found in equipment CSV; continuing\n", x)
+-			}
+-		}
++func normalizeSlotName(in string) string {
++	s := strings.ToLower(strings.TrimSpace(in))
++	switch s {
++	case "offhand":
++		return "off hand"
++	case "mainhand":
++		return "main hand"
++	default:
++		return s
++	}
++}
+ 
+-		if *weapon != "" {
+-			w := normalize(*weapon)
+-			warnUnknown(w)
+-			if s == "off hand" {
+-				if c.Equipment.OffHand != "" {
+-					fmt.Println("off hand already occupied")
+-					return
+-				}
+-				c.Equipment.OffHand = w
+-				fmt.Printf("Equipped weapon %s to off hand\n", w)
+-			} else {
+-				if c.Equipment.Weapon != "" {
+-					fmt.Println("main hand already occupied")
+-					return
+-				}
+-				c.Equipment.Weapon = w
+-				hand := "main hand"
+-				if s != "" && s != "main hand" {
+-					hand = s
+-				}
+-				fmt.Printf("Equipped weapon %s to %s\n", w, hand)
+-			}
+-		}
+-		if *armor != "" {
+-			a := normalize(*armor)
+-			warnUnknown(a)
+-			c.Equipment.Armor = a
+-			fmt.Printf("Equipped armor %s\n", a)
+-		}
+-		if *shield != "" {
+-			sh := normalize(*shield)
+-			warnUnknown(sh)
+-			c.Equipment.Shield = sh
+-			fmt.Printf("Equipped shield %s\n", sh)
+-		}
+-		saveCharacters()
++func warnUnknownIfNeeded(x string) {
++	if x == "" {
++		return
++	}
++	if !isKnownEquipment(x) && equipmentCSVLoaded {
++		fmt.Printf("(warning) \"%s\" not found in equipment CSV; continuing\n", x)
++	}
++}
+ 
+-	case "prepare", "prepare-spell":
+-		fs := flag.NewFlagSet("prepare", flag.ExitOnError)
+-		name := fs.String("name", "", "required")
+-		spell := fs.String("spell", "", "required")
+-		_ = fs.Parse(os.Args[2:])
+-		if *spell != "" && len(fs.Args()) > 0 {
+-			*spell = *spell + " " + strings.Join(fs.Args(), " ")
+-		}
+-		if *name == "" || *spell == "" {
+-			usage()
+-			return
+-		}
++func equipWeapon(c *Character, weapon, slot string) bool {
++	if weapon == "" {
++		return false
++	}
++	w := normalizeEquipment(weapon)
++	warnUnknownIfNeeded(w)
++	if slot == "off hand" {
++		if c.Equipment.OffHand != "" {
++			fmt.Println("off hand already occupied")
++			return true
++		}
++		c.Equipment.OffHand = w
++		fmt.Printf("Equipped weapon %s to off hand\n", w)
++		return true
++	}
++	if c.Equipment.Weapon != "" {
++		fmt.Println("main hand already occupied")
++		return true
++	}
++	c.Equipment.Weapon = w
++	hand := "main hand"
++	if slot != "" && slot != "main hand" {
++		hand = slot
++	}
++	fmt.Printf("Equipped weapon %s to %s\n", w, hand)
++	return true
++}
+ 
+-		c := findCharLike(*name)
+-		if c == nil {
+-			fmt.Printf("character \"%s\" not found\n", *name)
+-			return
+-		}
+-		if casterType(c.Class) == "none" {
+-			fmt.Println("this class can't cast spells")
+-			return
+-		}
+-		if learnsSpells(c.Class) && !preparesSpells(c.Class) {
+-			fmt.Println("this class learns spells and can't prepare them")
+-			return
+-		}
++func equipArmor(c *Character, armor string) bool {
++	if armor == "" {
++		return false
++	}
++	a := normalizeEquipment(armor)
++	warnUnknownIfNeeded(a)
++	c.Equipment.Armor = a
++	fmt.Printf("Equipped armor %s\n", a)
++	return true
++}
+ 
+-		sp := strings.ToLower(strings.TrimSpace(*spell))
+-		slots := spellSlotsFor(casterType(c.Class), c.Level)
+-		maxSlot := 0
+-		for lvl := range slots {
+-			if lvl > maxSlot {
+-				maxSlot = lvl
+-			}
+-		}
++func equipShield(c *Character, shield string) bool {
++	if shield == "" {
++		return false
++	}
++	sh := normalizeEquipment(shield)
++	warnUnknownIfNeeded(sh)
++	c.Equipment.Shield = sh
++	fmt.Printf("Equipped shield %s\n", sh)
++	return true
++}
+ 
+-		if spellLvl, ok := spellLevelByName(sp); ok {
+-			if maxSlot == 0 || spellLvl > maxSlot {
+-				fmt.Println("the spell has higher level than the available spell slots")
+-				return
+-			}
+-		} else {
+-			fmt.Println("the spell has higher level than the available spell slots")
+-			return
+-		}
++func cmdEquip(args []string) {
++	fs := flag.NewFlagSet("equip", flag.ExitOnError)
++	name := fs.String("name", "", "")
++	weapon := fs.String("weapon", "", "")
++	armor := fs.String("armor", "", "")
++	shield := fs.String("shield", "", "")
++	slot := fs.String("slot", "", "")
++	_ = fs.Parse(args)
++
++	c := findCharLike(*name)
++	if c == nil {
++		fmt.Printf(constCharNotFoundFmt, *name)
++		return
++	}
+ 
+-		if c.Spellcasting == nil {
+-			c.Spellcasting = &Spellcasting{SlotsByLevel: map[int]int{}, Spells: []Spell{}}
+-		}
+-		found := false
+-		for i := range c.Spellcasting.Spells {
+-			if strings.ToLower(c.Spellcasting.Spells[i].Name) == sp {
+-				c.Spellcasting.Spells[i].Prepared = true
+-				found = true
+-				break
+-			}
+-		}
+-		if !found {
+-			lvl, _ := spellLevelByName(sp)
+-			c.Spellcasting.Spells = append(c.Spellcasting.Spells, Spell{Name: sp, Level: lvl, Prepared: true})
+-		}
++	s := normalizeSlotName(*slot)
++	changed := false
++	if equipWeapon(c, *weapon, s) {
++		changed = true
++	}
++	if equipArmor(c, *armor) {
++		changed = true
++	}
++	if equipShield(c, *shield) {
++		changed = true
++	}
++	if changed {
+ 		saveCharacters()
+-		fmt.Printf("Prepared spell %s\n", sp)
++	}
++}
+ 
+-	case "learn", "learn-spell":
+-		fs := flag.NewFlagSet("learn", flag.ExitOnError)
+-		name := fs.String("name", "", "required")
+-		spell := fs.String("spell", "", "required")
+-		_ = fs.Parse(os.Args[2:])
+ 
+-		if *spell != "" && len(fs.Args()) > 0 {
+-			*spell = *spell + " " + strings.Join(fs.Args(), " ")
+-		}
+-		if *name == "" || *spell == "" {
+-			usage()
+-			return
+-		}
++func mergeSpellArgs(spellFlag string, rest []string) string {
++	if spellFlag != "" && len(rest) > 0 {
++		return spellFlag + " " + strings.Join(rest, " ")
++	}
++	return spellFlag
++}
+ 
+-		ch := findCharLike(*name)
+-		if ch == nil {
+-			fmt.Printf("character \"%s\" not found\n", *name)
+-			return
+-		}
+-		if casterType(ch.Class) == "none" {
+-			fmt.Println("this class can't cast spells")
+-			return
+-		}
+-		if preparesSpells(ch.Class) {
+-			fmt.Println("this class prepares spells and can't learn them")
+-			return
+-		}
++func validatePrepareInputs(name, spell string) bool {
++	if name == "" || spell == "" {
++		usage()
++		return false
++	}
++	return true
++}
+ 
+-		target := strings.ToLower(strings.TrimSpace(*spell))
+-		slots := spellSlotsFor(casterType(ch.Class), ch.Level)
+-		maxSlot := 0
+-		for lvl := range slots {
+-			if lvl > maxSlot {
+-				maxSlot = lvl
+-			}
++func ensureCanPrepare(c *Character) bool {
++	if c == nil {
++		return false
++	}
++	if casterType(c.Class) == "none" {
++		fmt.Println("this class can't cast spells")
++		return false
++	}
++	if learnsSpells(c.Class) && !preparesSpells(c.Class) {
++		fmt.Println("this class learns spells and can't prepare them")
++		return false
++	}
++	return true
++}
++
++func spellWithinSlotsOrError(c *Character, target string) (int, bool) {
++	slots := spellSlotsFor(casterType(c.Class), c.Level)
++	if spellLvl, ok := spellLevelByName(target); ok {
++		if max := maxSlotLevel(slots); max == 0 || spellLvl > max {
++			fmt.Println(constSpellTooHighMsg)
++			return 0, false
+ 		}
++		return spellLvl, true
++	}
++	fmt.Println(constSpellTooHighMsg)
++	return 0, false
++}
+ 
+-		if spellLvl, ok := spellLevelByName(target); ok {
+-			if maxSlot == 0 || spellLvl > maxSlot {
+-				fmt.Println("the spell has higher level than the available spell slots")
+-				return
+-			}
+-		} else {
+-			fmt.Println("the spell has higher level than the available spell slots")
++func setPrepared(c *Character, target string, lvl int) {
++	if c.Spellcasting == nil {
++		c.Spellcasting = &Spellcasting{SlotsByLevel: map[int]int{}, Spells: []Spell{}}
++	}
++	for i := range c.Spellcasting.Spells {
++		if strings.ToLower(c.Spellcasting.Spells[i].Name) == target {
++			c.Spellcasting.Spells[i].Prepared = true
++			saveCharacters()
++			fmt.Printf("Prepared spell %s\n", target)
+ 			return
+ 		}
++	}
++	c.Spellcasting.Spells = append(c.Spellcasting.Spells, Spell{Name: target, Level: lvl, Prepared: true})
++	saveCharacters()
++	fmt.Printf("Prepared spell %s\n", target)
++}
+ 
+-		if ch.Spellcasting == nil {
+-			ch.Spellcasting = &Spellcasting{SlotsByLevel: map[int]int{}, Spells: []Spell{}}
+-		}
+-		for _, s := range ch.Spellcasting.Spells {
+-			if strings.ToLower(s.Name) == target {
+-				saveCharacters()
+-				fmt.Printf("Learned spell %s\n", target)
+-				return
+-			}
+-		}
+-		lvl, _ := spellLevelByName(target)
+-		ch.Spellcasting.Spells = append(ch.Spellcasting.Spells, Spell{
+-			Name:     target,
+-			Level:    lvl,
+-			Prepared: false,
+-		})
+-		saveCharacters()
+-		fmt.Printf("Learned spell %s\n", target)
++func cmdPrepare(args []string) {
++	fs := flag.NewFlagSet("prepare", flag.ExitOnError)
++	name := fs.String("name", "", "required")
++	spell := fs.String("spell", "", "required")
++	_ = fs.Parse(args)
+ 
+-	case "enrich":
+-		fs := flag.NewFlagSet("enrich", flag.ExitOnError)
+-		limit := fs.Int("limit", 0, "")
+-		dryrun := fs.Bool("dryrun", false, "")
+-		rps := fs.Int("rps", 6, "")
+-		workers := fs.Int("workers", 8, "number of concurrent workers")
+-		_ = fs.Parse(os.Args[2:])
+-
+-		var tick <-chan time.Time
+-		var ticker *time.Ticker
+-		if *rps > 0 {
+-			interval := time.Second / time.Duration(*rps)
+-			if interval <= 0 {
+-				interval = time.Second
+-			}
+-			ticker = time.NewTicker(interval)
+-			defer ticker.Stop()
+-			tick = ticker.C
+-		}
++	merged := mergeSpellArgs(*spell, fs.Args())
++	if !validatePrepareInputs(*name, merged) {
++		return
++	}
+ 
+-		type task struct {
+-			url, kind  string
+-			cIdx, sIdx int
+-		}
+-		type weaponResult struct {
+-			cIdx int
+-			ok   bool
+-			cat  string
+-			rng  int
+-			two  bool
+-		}
+-		type armorResult struct {
+-			cIdx int
+-			ok   bool
+-			base int
+-			dex  bool
+-			max  *int
+-		}
+-		type spellResult struct {
+-			cIdx, sIdx  int
+-			ok          bool
+-			school, rng string
+-		}
++	c := findCharLike(*name)
++	if !ensureCanPrepare(c) {
++		return
++	}
+ 
+-		jobs := make(chan task, 64)
+-		wres := make(chan weaponResult, 256)
+-		ares := make(chan armorResult, 256)
+-		sres := make(chan spellResult, 256)
++	target := strings.ToLower(strings.TrimSpace(merged))
++	lvl, ok := spellWithinSlotsOrError(c, target)
++	if !ok {
++		return
++	}
++	setPrepared(c, target, lvl)
++}
+ 
+-		var wg sync.WaitGroup
+-		if *workers <= 0 {
+-			*workers = 8
+-		}
+-		for i := 0; i < *workers; i++ {
+-			wg.Add(1)
+-			go func() {
+-				defer wg.Done()
+-				for t := range jobs {
+-					switch t.kind {
+-					case "weapon":
+-						var eq apiEquipment
+-						if err := httpGetJSON(t.url, &eq, tick); err != nil {
+-							wres <- weaponResult{cIdx: t.cIdx, ok: false}
+-							continue
+-						}
+-						two := false
+-						for _, p := range eq.Properties {
+-							pi := strings.ToLower(p.Index + " " + p.Name)
+-							if strings.Contains(pi, "two-handed") {
+-								two = true
+-								break
+-							}
+-						}
+-						wres <- weaponResult{cIdx: t.cIdx, ok: true, cat: eq.EquipmentCategory.Name, rng: eq.Range.Normal, two: two}
+-
+-					case "armor":
+-						var eq apiEquipment
+-						if err := httpGetJSON(t.url, &eq, tick); err != nil {
+-							ares <- armorResult{cIdx: t.cIdx, ok: false}
+-							continue
+-						}
+-						ares <- armorResult{cIdx: t.cIdx, ok: true, base: eq.ArmorClass.Base, dex: eq.ArmorClass.DexBonus, max: eq.ArmorClass.MaxBonus}
+-
+-					case "spell":
+-						var sp apiSpell
+-						if err := httpGetJSON(t.url, &sp, tick); err != nil {
+-							sres <- spellResult{cIdx: t.cIdx, sIdx: t.sIdx, ok: false}
+-							continue
+-						}
+-						sres <- spellResult{cIdx: t.cIdx, sIdx: t.sIdx, ok: true, school: sp.School.Name, rng: sp.Range}
+-					}
+-				}
+-			}()
+-		}
+ 
+-		var total int
+-		processedChars := 0
+-		for ci := range characters {
+-			if *limit > 0 && processedChars >= *limit {
+-				break
+-			}
+-			ch := &characters[ci]
+-			if w := strings.TrimSpace(ch.Equipment.Weapon); w != "" {
+-				total++
+-				jobs <- task{url: "https://www.dnd5eapi.co/api/equipment/" + slugify(w), kind: "weapon", cIdx: ci}
+-			}
+-			if a := strings.TrimSpace(ch.Equipment.Armor); a != "" {
+-				total++
+-				jobs <- task{url: "https://www.dnd5eapi.co/api/equipment/" + slugify(a), kind: "armor", cIdx: ci}
+-			}
+-			if ch.Spellcasting != nil {
+-				for si := range ch.Spellcasting.Spells {
+-					total++
+-					jobs <- task{url: "https://www.dnd5eapi.co/api/spells/" + slugify(ch.Spellcasting.Spells[si].Name), kind: "spell", cIdx: ci, sIdx: si}
+-				}
+-			}
+-			processedChars++
++func cmdList() {
++	for _, c := range characters {
++		fmt.Printf("- %s (%s, level %d, %s)\n", c.Name, c.Class, c.Level, c.Race)
++		fmt.Printf("Background: %s  ProficiencyBonus: %d\n", c.Background, c.ProficiencyBonus)
++	}
++}
++
++func cmdDelete(args []string) {
++	fs := flag.NewFlagSet("delete", flag.ExitOnError)
++	name := fs.String("name", "", "")
++	_ = fs.Parse(args)
++	for i := range characters {
++		if characters[i].Name == *name {
++			characters = append(characters[:i], characters[i+1:]...)
++			saveCharacters()
++			fmt.Printf("deleted %s\n", *name)
++			return
+ 		}
+-		close(jobs)
+-
+-		go func() { wg.Wait(); close(wres); close(ares); close(sres) }()
+-
+-		done := 0
+-		for done < total {
+-			select {
+-			case wr, ok := <-wres:
+-				if ok {
+-					if wr.ok {
+-						characters[wr.cIdx].Equipment.WeaponInfo.Category = wr.cat
+-						characters[wr.cIdx].Equipment.WeaponInfo.RangeNormal = wr.rng
+-						characters[wr.cIdx].Equipment.WeaponInfo.TwoHanded = wr.two
+-					}
+-					done++
+-				}
+-			case ar, ok := <-ares:
+-				if ok {
+-					if ar.ok {
+-						characters[ar.cIdx].Equipment.ArmorInfo.ArmorClass = ar.base
+-						characters[ar.cIdx].Equipment.ArmorInfo.DexBonus = ar.dex
+-						characters[ar.cIdx].Equipment.ArmorInfo.MaxDexBonus = ar.max
+-					}
+-					done++
+-				}
+-			case sr, ok := <-sres:
+-				if ok {
+-					if sr.ok && characters[sr.cIdx].Spellcasting != nil &&
+-						sr.sIdx >= 0 && sr.sIdx < len(characters[sr.cIdx].Spellcasting.Spells) {
+-						characters[sr.cIdx].Spellcasting.Spells[sr.sIdx].School = sr.school
+-						characters[sr.cIdx].Spellcasting.Spells[sr.sIdx].Range = sr.rng
+-					}
+-					done++
+-				}
+-			}
++	}
++	fmt.Printf(constCharNotFoundFmt, *name)
++}
++
++func cmdLearn(args []string) {
++	fs := flag.NewFlagSet("learn", flag.ExitOnError)
++	name := fs.String("name", "", "required")
++	spell := fs.String("spell", "", "required")
++	_ = fs.Parse(args)
++
++	if *spell != "" && len(fs.Args()) > 0 {
++		*spell = *spell + " " + strings.Join(fs.Args(), " ")
++	}
++	if *name == "" || *spell == "" {
++		usage()
++		return
++	}
++
++	ch := findCharLike(*name)
++	if ch == nil {
++		fmt.Printf(constCharNotFoundFmt, *name)
++		return
++	}
++	if casterType(ch.Class) == "none" {
++		fmt.Println("this class can't cast spells")
++		return
++	}
++	if preparesSpells(ch.Class) {
++		fmt.Println("this class prepares spells and can't learn them")
++		return
++	}
++
++	target := strings.ToLower(strings.TrimSpace(*spell))
++	slots := spellSlotsFor(casterType(ch.Class), ch.Level)
++	if spellLvl, ok := spellLevelByName(target); ok {
++		if max := maxSlotLevel(slots); max == 0 || spellLvl > max {
++			fmt.Println(constSpellTooHighMsg)
++			return
+ 		}
++	} else {
++		fmt.Println(constSpellTooHighMsg)
++		return
++	}
+ 
+-		if !*dryrun {
++	if ch.Spellcasting == nil {
++		ch.Spellcasting = &Spellcasting{SlotsByLevel: map[int]int{}, Spells: []Spell{}}
++	}
++	for _, s := range ch.Spellcasting.Spells {
++		if strings.ToLower(s.Name) == target {
+ 			saveCharacters()
++			fmt.Printf("Learned spell %s\n", target)
++			return
+ 		}
+-		fmt.Println("enrichment done")
++	}
++	lvl, _ := spellLevelByName(target)
++	ch.Spellcasting.Spells = append(ch.Spellcasting.Spells, Spell{
++		Name:     target,
++		Level:    lvl,
++		Prepared: false,
++	})
++	saveCharacters()
++	fmt.Printf("Learned spell %s\n", target)
++}
+ 
+-	case "inspect":
+-		fs := flag.NewFlagSet("inspect", flag.ExitOnError)
+-		name := fs.String("name", "", "optional: name or substring")
+-		_ = fs.Parse(os.Args[2:])
+-		showChar := func(c *Character) {
+-			fmt.Printf("== %s ==\n", c.Name)
+-			if strings.TrimSpace(c.Equipment.Weapon) != "" {
+-				wi := c.Equipment.WeaponInfo
+-				fmt.Printf("Weapon: %s\n", c.Equipment.Weapon)
+-				if wi.Category != "" || wi.RangeNormal != 0 || wi.TwoHanded {
+-					fmt.Printf("  category=%s, range.normal=%d, two-handed=%t\n", wi.Category, wi.RangeNormal, wi.TwoHanded)
+-				} else {
+-					fmt.Println("  (no enriched weapon data)")
+-				}
++func cmdEnrich(args []string) {
++	fs := flag.NewFlagSet("enrich", flag.ExitOnError)
++	limit := fs.Int("limit", 0, "")
++	_ = fs.Parse(args)
++
++	processed := 0
++	for i := range characters {
++		if *limit > 0 && processed >= *limit {
++			break
++		}
++		EnrichCharacter(&characters[i])
++		processed++
++	}
++	saveCharacters()
++	fmt.Println("enrichment done")
++}
++
++func cmdInspect(args []string) {
++	fs := flag.NewFlagSet("inspect", flag.ExitOnError)
++	name := fs.String("name", "", "optional: name or substring")
++	_ = fs.Parse(args)
++
++	showChar := func(c *Character) {
++		fmt.Printf("== %s ==\n", c.Name)
++		if strings.TrimSpace(c.Equipment.Weapon) != "" {
++			wi := c.Equipment.WeaponInfo
++			fmt.Printf("Weapon: %s\n", c.Equipment.Weapon)
++			if wi.Category != "" || wi.RangeNormal != 0 || wi.TwoHanded {
++				fmt.Printf("  category=%s, range.normal=%d, two-handed=%t\n", wi.Category, wi.RangeNormal, wi.TwoHanded)
++			} else {
++				fmt.Println("  (no enriched weapon data)")
+ 			}
+-			if strings.TrimSpace(c.Equipment.Armor) != "" {
+-				ai := c.Equipment.ArmorInfo
+-				fmt.Printf("Armor: %s\n", c.Equipment.Armor)
+-				if ai.ArmorClass != 0 || ai.DexBonus || ai.MaxDexBonus != nil {
+-					if ai.MaxDexBonus != nil {
+-						fmt.Printf("  armor_class=%d, dex_bonus=%t, max_dex_bonus=%d\n", ai.ArmorClass, ai.DexBonus, *ai.MaxDexBonus)
+-					} else {
+-						fmt.Printf("  armor_class=%d, dex_bonus=%t\n", ai.ArmorClass, ai.DexBonus)
+-					}
++		}
++		if strings.TrimSpace(c.Equipment.Armor) != "" {
++			ai := c.Equipment.ArmorInfo
++			fmt.Printf("Armor: %s\n", c.Equipment.Armor)
++			if ai.ArmorClass != 0 || ai.DexBonus || ai.MaxDexBonus != nil {
++				if ai.MaxDexBonus != nil {
++					fmt.Printf("  armor_class=%d, dex_bonus=%t, max_dex_bonus=%d\n", ai.ArmorClass, ai.DexBonus, *ai.MaxDexBonus)
+ 				} else {
+-					fmt.Println("  (no enriched armor data)")
++					fmt.Printf("  armor_class=%d, dex_bonus=%t\n", ai.ArmorClass, ai.DexBonus)
+ 				}
++			} else {
++				fmt.Println("  (no enriched armor data)")
+ 			}
+-			if c.Spellcasting != nil && len(c.Spellcasting.Spells) > 0 {
+-				any := false
+-				for _, s := range c.Spellcasting.Spells {
+-					if s.School != "" || s.Range != "" {
+-						if !any {
+-							fmt.Println("Spells (enriched):")
+-							any = true
+-						}
+-						fmt.Printf("  - %s: school=%s, range=%s\n", s.Name, s.School, s.Range)
++		}
++		if c.Spellcasting != nil && len(c.Spellcasting.Spells) > 0 {
++			any := false
++			for _, s := range c.Spellcasting.Spells {
++				if s.School != "" || s.Range != "" {
++					if !any {
++						fmt.Println("Spells (enriched):")
++						any = true
+ 					}
+-				}
+-				if !any {
+-					fmt.Println("Spells: (no enriched spell data)")
++					fmt.Printf("  - %s: school=%s, range=%s\n", s.Name, s.School, s.Range)
+ 				}
+ 			}
+-			fmt.Println()
+-		}
+-		if strings.TrimSpace(*name) == "" {
+-			for i := range characters {
+-				showChar(&characters[i])
++			if !any {
++				fmt.Println("Spells: (no enriched spell data)")
+ 			}
+-			return
+ 		}
++		fmt.Println()
++	}
+ 
+-		c := findCharLike(*name)
+-		if c == nil {
+-			fmt.Printf("character \"%s\" not found\n", *name)
+-			return
++	if strings.TrimSpace(*name) == "" {
++		for i := range characters {
++			showChar(&characters[i])
+ 		}
+-		showChar(c)
++		return
++	}
++	c := findCharLike(*name)
++	if c == nil {
++		fmt.Printf(constCharNotFoundFmt, *name)
++
++		return
++	}
++	showChar(c)
++}
+ 
++/**
++* main is the CLI entrypoint for creating, viewing, managing, and enriching characters
++**/
++func main() {
++	loadCharacters()
++	if len(os.Args) < 2 {
++		usage()
++		os.Exit(1)
++	}
++	switch os.Args[1] {
++	case "serve":
++		serveCommand(os.Args[2:])
++	case "create":
++		cmdCreate(os.Args[2:])
++	case "view":
++		cmdView(os.Args[2:])
++	case "list":
++		cmdList()
++	case "delete":
++		cmdDelete(os.Args[2:])
++	case "equip":
++		cmdEquip(os.Args[2:])
++	case "prepare", "prepare-spell":
++		cmdPrepare(os.Args[2:])
++	case "learn", "learn-spell":
++		cmdLearn(os.Args[2:])
++	case "enrich":
++		cmdEnrich(os.Args[2:])
++	case "inspect":
++		cmdInspect(os.Args[2:])
+ 	default:
+ 		usage()
+ 		os.Exit(2)
+ 	}
+-}
+\ No newline at end of file
++}
+diff --git a/server.go b/server.go
+index c78800e..8a0c59a 100644
+--- a/server.go
++++ b/server.go
+@@ -1,3 +1,5 @@
++// Layer: Infrastructure / UI (HTTP transport/controller layer)
++
+ package main
+ 
+ import (
+@@ -37,94 +39,104 @@ func writeJSON(w http.ResponseWriter, status int, v any) {
+ 	_ = json.NewEncoder(w).Encode(v)
+ }
+ 
++/* --------- kleine helpers om complexiteit te verlagen (gedrag ongewijzigd) --------- */
++
++func handleCharactersGet(w http.ResponseWriter, r *http.Request) {
++	name := strings.TrimSpace(r.URL.Query().Get("name"))
++	if name == "" {
++		writeJSON(w, http.StatusOK, characters)
++		return
++	}
++	if c := findCharLike(name); c != nil {
++		writeJSON(w, http.StatusOK, c)
++		return
++	}
++	writeJSON(w, http.StatusNotFound, apiError{Error: "character not found"})
++}
++
++func handleCharactersPost(w http.ResponseWriter, r *http.Request) {
++	var req createRequest
++	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
++		writeJSON(w, http.StatusBadRequest, apiError{Error: "invalid json"})
++		return
++	}
++	req.Name = strings.TrimSpace(req.Name)
++	if req.Name == "" {
++		writeJSON(w, http.StatusBadRequest, apiError{Error: "name is required"})
++		return
++	}
++	if req.Level < 1 {
++		req.Level = 1
++	}
++
++	c := buildCharacterFromRequest(req)
++
++	// upsert (exact hetzelfde als voorheen)
++	idx := -1
++	for i := range characters {
++		if strings.EqualFold(characters[i].Name, c.Name) {
++			idx = i
++			break
++		}
++	}
++	if idx >= 0 {
++		characters[idx] = c
++	} else {
++		characters = append(characters, c)
++	}
++
++	EnrichCharacter(&c)
++
++	saveCharacters()
++	writeJSON(w, http.StatusCreated, c)
++}
++
+ /**
+ *  apiCharactersHandler handles GET and POST requests for /api/characters
+ **/
+ func apiCharactersHandler(w http.ResponseWriter, r *http.Request) {
+ 	switch r.Method {
+ 	case http.MethodGet:
+-		name := strings.TrimSpace(r.URL.Query().Get("name"))
+-		if name == "" {
+-			writeJSON(w, http.StatusOK, characters)
+-			return
+-		}
+-		if c := findCharLike(name); c != nil {
+-			writeJSON(w, http.StatusOK, c)
+-			return
+-		}
+-		writeJSON(w, http.StatusNotFound, apiError{Error: "character not found"})
++		handleCharactersGet(w, r)
+ 		return
+-
+ 	case http.MethodPost:
+-		var req createRequest
+-		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+-			writeJSON(w, http.StatusBadRequest, apiError{Error: "invalid json"})
+-			return
+-		}
+-		req.Name = strings.TrimSpace(req.Name)
+-		if req.Name == "" {
+-			writeJSON(w, http.StatusBadRequest, apiError{Error: "name is required"})
+-			return
+-		}
+-		if req.Level < 1 {
+-			req.Level = 1
+-		}
+-
+-		c := buildCharacterFromRequest(req)
+-
+-		idx := -1
+-		for i := range characters {
+-			if strings.EqualFold(characters[i].Name, c.Name) {
+-				idx = i
+-				break
+-			}
+-		}
+-		if idx >= 0 {
+-			characters[idx] = c
+-		} else {
+-			characters = append(characters, c)
+-		}
+-
+-		EnrichCharacter(&c)
+-
+-		saveCharacters()
+-		writeJSON(w, http.StatusCreated, c)
++		handleCharactersPost(w, r)
+ 		return
+-
+ 	default:
+ 		w.Header().Set("Allow", "GET, POST")
+ 		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+ 	}
+ }
+ 
+-/**
+-*  buildCharacterFromRequest constructs a Character struct from an API request
+-**/
+-func buildCharacterFromRequest(req createRequest) Character {
+-	var base AbilityScores
++// --- Helpers to reduce cognitive complexity (behavior unchanged) ---
++
++func baseScoresFromReq(req createRequest) AbilityScores {
+ 	if req.AbilityScores == nil {
+-		base = assignStandardArray()
+-	} else {
+-		s := *req.AbilityScores
+-		all := s.Strength > 0 && s.Dexterity > 0 && s.Constitution > 0 &&
+-			s.Intelligence > 0 && s.Wisdom > 0 && s.Charisma > 0
+-		if all {
+-			base = s
+-		} else {
+-			nz10 := func(x int) int { if x == 0 { return 10 }; return x }
+-			base = AbilityScores{
+-				Strength:     nz10(s.Strength),
+-				Dexterity:    nz10(s.Dexterity),
+-				Constitution: nz10(s.Constitution),
+-				Intelligence: nz10(s.Intelligence),
+-				Wisdom:       nz10(s.Wisdom),
+-				Charisma:     nz10(s.Charisma),
+-			}
+-		}
++		return assignStandardArray()
+ 	}
++	s := *req.AbilityScores
++	all := s.Strength > 0 && s.Dexterity > 0 && s.Constitution > 0 &&
++		s.Intelligence > 0 && s.Wisdom > 0 && s.Charisma > 0
++	if all {
++		return s
++	}
++	nz10 := func(x int) int {
++		if x == 0 { return 10 }
++		return x
++	}
++	return AbilityScores{
++		Strength:     nz10(s.Strength),
++		Dexterity:    nz10(s.Dexterity),
++		Constitution: nz10(s.Constitution),
++		Intelligence: nz10(s.Intelligence),
++		Wisdom:       nz10(s.Wisdom),
++		Charisma:     nz10(s.Charisma),
++	}
++}
+ 
+-	rStr, rDex, rCon, rInt, rWis, rCha := raceBonusDeltas(req.Race)
+-	final := AbilityScores{
++func applyRaceBonusesTo(base AbilityScores, race string) AbilityScores {
++	rStr, rDex, rCon, rInt, rWis, rCha := raceBonusDeltas(race)
++	return AbilityScores{
+ 		Strength:     base.Strength + rStr,
+ 		Dexterity:    base.Dexterity + rDex,
+ 		Constitution: base.Constitution + rCon,
+@@ -132,26 +144,44 @@ func buildCharacterFromRequest(req createRequest) Character {
+ 		Wisdom:       base.Wisdom + rWis,
+ 		Charisma:     base.Charisma + rCha,
+ 	}
++}
+ 
+-	bg := "acolyte"
++func deriveSkillsFor(req createRequest, bg string) []string {
++	if len(req.Skills) == 0 {
++		// zelfde fallback als voorheen
++		return finalSkills(req.Class, bg, nil)
++	}
+ 	var skills []string
+-	if len(req.Skills) > 0 {
+-		for _, s := range req.Skills {
+-			if t := strings.TrimSpace(s); t != "" {
+-				skills = append(skills, normalizeSkill(t))
+-			}
++	for _, s := range req.Skills {
++		if t := strings.TrimSpace(s); t != "" {
++			skills = append(skills, normalizeSkill(t))
+ 		}
+-	} else {
+-		skills = finalSkills(req.Class, bg, nil)
+ 	}
++	return skills
++}
+ 
+-	var sc *Spellcasting
+-	if ct := casterType(req.Class); ct != "none" {
+-		slots := spellSlotsFor(ct, req.Level)
+-		maxL := maxSpellLevel(ct, req.Level)
+-		spells := pickSpellsForClass(req.Class, maxL, 4)
+-		sc = &Spellcasting{SlotsByLevel: slots, Spells: spells}
++func buildSpellcastingFor(class string, level int) *Spellcasting {
++	if ct := casterType(class); ct != "none" {
++		slots := spellSlotsFor(ct, level)
++		maxL := maxSpellLevel(ct, level)
++		spells := pickSpellsForClass(class, maxL, 4)
++		return &Spellcasting{SlotsByLevel: slots, Spells: spells}
+ 	}
++	return nil
++}
++
++// --- Refactored function (same behavior, lower complexity) ---
++
++/**
++*  buildCharacterFromRequest constructs a Character struct from an API request
++**/
++func buildCharacterFromRequest(req createRequest) Character {
++	base := baseScoresFromReq(req)
++	final := applyRaceBonusesTo(base, req.Race)
++
++	bg := "acolyte"
++	skills := deriveSkillsFor(req, bg)
++	sc := buildSpellcastingFor(req.Class, req.Level)
+ 
+ 	return Character{
+ 		Name:             req.Name,
+@@ -187,7 +217,7 @@ func startServer(addr string) error {
+ }
+ 
+ /**
+-*  serveCommand parses CLI args and starts the API server
++*  serveCommand parses CLI args and starts the HTTP server
+ **/
+ func serveCommand(args []string) {
+ 	fs := flag.NewFlagSet("serve", flag.ExitOnError)
+@@ -197,4 +227,4 @@ func serveCommand(args []string) {
+ 		fmt.Fprintln(os.Stderr, err)
+ 		os.Exit(1)
+ 	}
+-}
+\ No newline at end of file
++}
+diff --git a/skills.go b/skills.go
+index 1d1975a..af633d9 100644
+--- a/skills.go
++++ b/skills.go
+@@ -1,3 +1,5 @@
++// Layer: Domain (business rules: skills/proficiencies; no IO)
++
+ package main
+ 
+ import (
+diff --git a/storage.go b/storage.go
+index f5a7e94..71bacac 100644
+--- a/storage.go
++++ b/storage.go
+@@ -1,8 +1,12 @@
++// Layer: Infrastructure (persistence adapter: read/write characters.json)
++
+ package main
+ 
+ import (
+ 	"encoding/json"
+ 	"os"
++	"strings"
++
+ )
+ 
+ var characters []Character
+@@ -25,4 +29,22 @@ func loadCharacters() {
+ func saveCharacters() {
+ 	data, _ := json.MarshalIndent(characters, "", "  ")
+ 	_ = os.WriteFile(dbFile, data, 0644)
+-}
+\ No newline at end of file
++}
++
++func findCharLike(name string) *Character {
++	q := strings.ToLower(strings.TrimSpace(name))
++	if q == "" {
++		return nil
++	}
++	for i := range characters {
++		if strings.EqualFold(characters[i].Name, name) {
++			return &characters[i]
++		}
++	}
++	for i := range characters {
++		if strings.Contains(strings.ToLower(characters[i].Name), q) {
++			return &characters[i]
++		}
++	}
++	return nil
++}
+diff --git a/types.go b/types.go
+index b623d75..dc3c321 100644
+--- a/types.go
++++ b/types.go
+@@ -1,3 +1,5 @@
++// Layer: Domain 
++
+ package main
+ 
+ var StandardArray = []int{15, 14, 13, 12, 10, 8}
+@@ -46,6 +48,9 @@ type WeaponMeta struct {
+ 	Category    string
+ 	RangeNormal int
+ 	TwoHanded   bool
++	DamageDice  string
++	Finesse     bool
++	WeaponRange string
+ }
+ 
+ type ArmorMeta struct {
+diff --git a/utils.go b/utils.go
+index b511eee..f5a0d42 100644
+--- a/utils.go
++++ b/utils.go
+@@ -1,7 +1,10 @@
++// Layer: Domain 
++
+ package main
+ 
+ import "strings"
+ 
++
+ /**
+ *  profByLevel returns SRD proficiency bonus for the given level
+ **/
+@@ -100,19 +103,6 @@ func slugify(s string) string {
+ 	return s
+ }
+ 
+-/**
+-*  findCharLike finds a character by case-insensitive exact or substring match
+-**/
+-func findCharLike(name string) *Character {
+-	lc := strings.ToLower(strings.TrimSpace(name))
+-	for i := range characters {
+-		if strings.ToLower(characters[i].Name) == lc || strings.Contains(strings.ToLower(characters[i].Name), lc) {
+-			return &characters[i]
+-		}
+-	}
+-	return nil
+-}
+-
+ /**
+ *  abilityScoreByName returns a character's score by short name (str/dex/...)
+ **/

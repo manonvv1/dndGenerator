@@ -1,3 +1,5 @@
+// Layer: Infrastructure / UI (HTTP transport/controller layer)
+
 package main
 
 import (
@@ -37,94 +39,104 @@ func writeJSON(w http.ResponseWriter, status int, v any) {
 	_ = json.NewEncoder(w).Encode(v)
 }
 
+/* --------- kleine helpers om complexiteit te verlagen (gedrag ongewijzigd) --------- */
+
+func handleCharactersGet(w http.ResponseWriter, r *http.Request) {
+	name := strings.TrimSpace(r.URL.Query().Get("name"))
+	if name == "" {
+		writeJSON(w, http.StatusOK, characters)
+		return
+	}
+	if c := findCharLike(name); c != nil {
+		writeJSON(w, http.StatusOK, c)
+		return
+	}
+	writeJSON(w, http.StatusNotFound, apiError{Error: "character not found"})
+}
+
+func handleCharactersPost(w http.ResponseWriter, r *http.Request) {
+	var req createRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		writeJSON(w, http.StatusBadRequest, apiError{Error: "invalid json"})
+		return
+	}
+	req.Name = strings.TrimSpace(req.Name)
+	if req.Name == "" {
+		writeJSON(w, http.StatusBadRequest, apiError{Error: "name is required"})
+		return
+	}
+	if req.Level < 1 {
+		req.Level = 1
+	}
+
+	c := buildCharacterFromRequest(req)
+
+	// upsert (exact hetzelfde als voorheen)
+	idx := -1
+	for i := range characters {
+		if strings.EqualFold(characters[i].Name, c.Name) {
+			idx = i
+			break
+		}
+	}
+	if idx >= 0 {
+		characters[idx] = c
+	} else {
+		characters = append(characters, c)
+	}
+
+	EnrichCharacter(&c)
+
+	saveCharacters()
+	writeJSON(w, http.StatusCreated, c)
+}
+
 /**
 *  apiCharactersHandler handles GET and POST requests for /api/characters
 **/
 func apiCharactersHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodGet:
-		name := strings.TrimSpace(r.URL.Query().Get("name"))
-		if name == "" {
-			writeJSON(w, http.StatusOK, characters)
-			return
-		}
-		if c := findCharLike(name); c != nil {
-			writeJSON(w, http.StatusOK, c)
-			return
-		}
-		writeJSON(w, http.StatusNotFound, apiError{Error: "character not found"})
+		handleCharactersGet(w, r)
 		return
-
 	case http.MethodPost:
-		var req createRequest
-		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
-			writeJSON(w, http.StatusBadRequest, apiError{Error: "invalid json"})
-			return
-		}
-		req.Name = strings.TrimSpace(req.Name)
-		if req.Name == "" {
-			writeJSON(w, http.StatusBadRequest, apiError{Error: "name is required"})
-			return
-		}
-		if req.Level < 1 {
-			req.Level = 1
-		}
-
-		c := buildCharacterFromRequest(req)
-
-		idx := -1
-		for i := range characters {
-			if strings.EqualFold(characters[i].Name, c.Name) {
-				idx = i
-				break
-			}
-		}
-		if idx >= 0 {
-			characters[idx] = c
-		} else {
-			characters = append(characters, c)
-		}
-
-		EnrichCharacter(&c)
-
-		saveCharacters()
-		writeJSON(w, http.StatusCreated, c)
+		handleCharactersPost(w, r)
 		return
-
 	default:
 		w.Header().Set("Allow", "GET, POST")
 		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 	}
 }
 
-/**
-*  buildCharacterFromRequest constructs a Character struct from an API request
-**/
-func buildCharacterFromRequest(req createRequest) Character {
-	var base AbilityScores
-	if req.AbilityScores == nil {
-		base = assignStandardArray()
-	} else {
-		s := *req.AbilityScores
-		all := s.Strength > 0 && s.Dexterity > 0 && s.Constitution > 0 &&
-			s.Intelligence > 0 && s.Wisdom > 0 && s.Charisma > 0
-		if all {
-			base = s
-		} else {
-			nz10 := func(x int) int { if x == 0 { return 10 }; return x }
-			base = AbilityScores{
-				Strength:     nz10(s.Strength),
-				Dexterity:    nz10(s.Dexterity),
-				Constitution: nz10(s.Constitution),
-				Intelligence: nz10(s.Intelligence),
-				Wisdom:       nz10(s.Wisdom),
-				Charisma:     nz10(s.Charisma),
-			}
-		}
-	}
+// --- Helpers to reduce cognitive complexity (behavior unchanged) ---
 
-	rStr, rDex, rCon, rInt, rWis, rCha := raceBonusDeltas(req.Race)
-	final := AbilityScores{
+func baseScoresFromReq(req createRequest) AbilityScores {
+	if req.AbilityScores == nil {
+		return assignStandardArray()
+	}
+	s := *req.AbilityScores
+	all := s.Strength > 0 && s.Dexterity > 0 && s.Constitution > 0 &&
+		s.Intelligence > 0 && s.Wisdom > 0 && s.Charisma > 0
+	if all {
+		return s
+	}
+	nz10 := func(x int) int {
+		if x == 0 { return 10 }
+		return x
+	}
+	return AbilityScores{
+		Strength:     nz10(s.Strength),
+		Dexterity:    nz10(s.Dexterity),
+		Constitution: nz10(s.Constitution),
+		Intelligence: nz10(s.Intelligence),
+		Wisdom:       nz10(s.Wisdom),
+		Charisma:     nz10(s.Charisma),
+	}
+}
+
+func applyRaceBonusesTo(base AbilityScores, race string) AbilityScores {
+	rStr, rDex, rCon, rInt, rWis, rCha := raceBonusDeltas(race)
+	return AbilityScores{
 		Strength:     base.Strength + rStr,
 		Dexterity:    base.Dexterity + rDex,
 		Constitution: base.Constitution + rCon,
@@ -132,26 +144,44 @@ func buildCharacterFromRequest(req createRequest) Character {
 		Wisdom:       base.Wisdom + rWis,
 		Charisma:     base.Charisma + rCha,
 	}
+}
+
+func deriveSkillsFor(req createRequest, bg string) []string {
+	if len(req.Skills) == 0 {
+		// zelfde fallback als voorheen
+		return finalSkills(req.Class, bg, nil)
+	}
+	var skills []string
+	for _, s := range req.Skills {
+		if t := strings.TrimSpace(s); t != "" {
+			skills = append(skills, normalizeSkill(t))
+		}
+	}
+	return skills
+}
+
+func buildSpellcastingFor(class string, level int) *Spellcasting {
+	if ct := casterType(class); ct != "none" {
+		slots := spellSlotsFor(ct, level)
+		maxL := maxSpellLevel(ct, level)
+		spells := pickSpellsForClass(class, maxL, 4)
+		return &Spellcasting{SlotsByLevel: slots, Spells: spells}
+	}
+	return nil
+}
+
+// --- Refactored function (same behavior, lower complexity) ---
+
+/**
+*  buildCharacterFromRequest constructs a Character struct from an API request
+**/
+func buildCharacterFromRequest(req createRequest) Character {
+	base := baseScoresFromReq(req)
+	final := applyRaceBonusesTo(base, req.Race)
 
 	bg := "acolyte"
-	var skills []string
-	if len(req.Skills) > 0 {
-		for _, s := range req.Skills {
-			if t := strings.TrimSpace(s); t != "" {
-				skills = append(skills, normalizeSkill(t))
-			}
-		}
-	} else {
-		skills = finalSkills(req.Class, bg, nil)
-	}
-
-	var sc *Spellcasting
-	if ct := casterType(req.Class); ct != "none" {
-		slots := spellSlotsFor(ct, req.Level)
-		maxL := maxSpellLevel(ct, req.Level)
-		spells := pickSpellsForClass(req.Class, maxL, 4)
-		sc = &Spellcasting{SlotsByLevel: slots, Spells: spells}
-	}
+	skills := deriveSkillsFor(req, bg)
+	sc := buildSpellcastingFor(req.Class, req.Level)
 
 	return Character{
 		Name:             req.Name,
@@ -187,7 +217,7 @@ func startServer(addr string) error {
 }
 
 /**
-*  serveCommand parses CLI args and starts the API server
+*  serveCommand parses CLI args and starts the HTTP server
 **/
 func serveCommand(args []string) {
 	fs := flag.NewFlagSet("serve", flag.ExitOnError)

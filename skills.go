@@ -1,3 +1,5 @@
+// Layer: Domain (business rules: skills/proficiencies; no IO)
+
 package main
 
 import (

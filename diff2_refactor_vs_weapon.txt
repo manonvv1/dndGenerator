@@ -1,0 +1,51 @@
+diff --git a/combat.go b/combat.go
+index 826cc46..a2609e2 100644
+--- a/combat.go
++++ b/combat.go
+@@ -4,7 +4,7 @@ package main
+ 
+ import (
+ 	"strings"
+-	// "fmt"
++	"fmt"
+ )
+ 
+ /**
+@@ -132,5 +132,36 @@ func computePassivePerception(c *Character) int {
+ * computeWeaponDamageString geeft "XdY + N" of "" als er geen data is
+ **/
+ func computeWeaponDamageString(c *Character) string {
+-    return ""
++	w := strings.TrimSpace(c.Equipment.Weapon)
++	if w == "" {
++		return ""
++	}
++	wi := c.Equipment.WeaponInfo
++	if strings.TrimSpace(wi.DamageDice) == "" {
++		return ""
++	}
++
++	strMod := abilityMod(c.AbilityScores.Strength)
++	dexMod := abilityMod(c.AbilityScores.Dexterity)
++
++	var mod int
++	switch strings.ToLower(strings.TrimSpace(wi.WeaponRange)) {
++	case "ranged":
++		mod = dexMod
++	default:
++		if wi.Finesse {
++			if dexMod > strMod {
++				mod = dexMod
++			} else {
++				mod = strMod
++			}
++		} else {
++			mod = strMod
++		}
++	}
++
++	if mod >= 0 {
++		return wi.DamageDice + " + " + fmt.Sprintf("%d", mod)
++	}
++	return wi.DamageDice + " - " + fmt.Sprintf("%d", -mod)
+ }

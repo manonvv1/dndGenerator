@@ -1,6 +1,9 @@
+// Layer: Domain 
+
 package main
 
 import "strings"
+
 
 /**
 *  profByLevel returns SRD proficiency bonus for the given level
@@ -98,19 +101,6 @@ func slugify(s string) string {
 		s = strings.ReplaceAll(s, "--", "-")
 	}
 	return s
-}
-
-/**
-*  findCharLike finds a character by case-insensitive exact or substring match
-**/
-func findCharLike(name string) *Character {
-	lc := strings.ToLower(strings.TrimSpace(name))
-	for i := range characters {
-		if strings.ToLower(characters[i].Name) == lc || strings.Contains(strings.ToLower(characters[i].Name), lc) {
-			return &characters[i]
-		}
-	}
-	return nil
 }
 
 /**
