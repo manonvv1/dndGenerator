@@ -65,42 +65,30 @@ func init() {
 	}
 }
 
-/**
-*  loadEquipmentFromCSV builds a name type index from the SRD equipment CSV
-**/
-func loadEquipmentFromCSV(path string) error {
+func readEquipmentCSV(path string) ([][]string, error) {
 	f, err := os.Open(path)
 	if err != nil {
-		return err
+		return nil, err
 	}
 	defer f.Close()
 
 	r := csv.NewReader(f)
 	r.TrimLeadingSpace = true
-	rows, err := r.ReadAll()
-	if err != nil {
-		return err
-	}
-	if len(rows) == 0 {
-		return errors.New("equipment CSV is empty")
-	}
+	return r.ReadAll()
+}
 
-	hdr := rows[0]
-	col := func(name string) int {
-		name = strings.ToLower(strings.TrimSpace(name))
-		for i, h := range hdr {
-			if strings.ToLower(strings.TrimSpace(h)) == name {
-				return i
-			}
+func findColumnIndex(header []string, name string) int {
+	want := strings.ToLower(strings.TrimSpace(name))
+	for i, h := range header {
+		if strings.ToLower(strings.TrimSpace(h)) == want {
+			return i
 		}
-		return -1
 	}
-	iName, iType := col("name"), col("type")
-	if iName < 0 || iType < 0 {
-		return errors.New("equipment CSV missing required headers: name, type")
-	}
+	return -1
+}
 
-	tmp := map[string]string{}
+func buildNameTypeIndex(rows [][]string, iName, iType int) map[string]string {
+	tmp := make(map[string]string, len(rows))
 	for _, row := range rows[1:] {
 		if len(row) <= iType {
 			continue
@@ -112,7 +100,29 @@ func loadEquipmentFromCSV(path string) error {
 		}
 		tmp[name] = typ
 	}
-	csvEquipmentTypeByName = tmp
+	return tmp
+}
+
+/**
+*  loadEquipmentFromCSV builds a name type index from the SRD equipment CSV
+**/
+func loadEquipmentFromCSV(path string) error {
+	rows, err := readEquipmentCSV(path)
+	if err != nil {
+		return err
+	}
+	if len(rows) == 0 {
+		return errors.New("equipment CSV is empty")
+	}
+
+	hdr := rows[0]
+	iName := findColumnIndex(hdr, "name")
+	iType := findColumnIndex(hdr, "type")
+	if iName < 0 || iType < 0 {
+		return errors.New("equipment CSV missing required headers: name, type")
+	}
+
+	csvEquipmentTypeByName = buildNameTypeIndex(rows, iName, iType)
 	return nil
 }
 

@@ -1,13 +1,13 @@
 [
   {
-    "Name": "Gor",
-    "Race": "half orc",
-    "Class": "barbarian",
+    "Name": "Bruni",
+    "Race": "dwarf",
+    "Class": "rogue",
     "Level": 1,
     "AbilityScores": {
-      "Strength": 19,
-      "Dexterity": 14,
-      "Constitution": 11,
+      "Strength": 8,
+      "Dexterity": 15,
+      "Constitution": 12,
       "Intelligence": 10,
       "Wisdom": 10,
       "Charisma": 10
@@ -16,15 +16,15 @@
     "ProficiencyBonus": 2,
     "Equipment": {
       "Armor": "",
-      "Weapon": "greataxe",
+      "Weapon": "rapier",
       "Shield": "",
       "OffHand": "",
       "WeaponInfo": {
         "Category": "Weapon",
         "RangeNormal": 5,
-        "TwoHanded": true,
-        "DamageDice": "1d12",
-        "Finesse": false,
+        "TwoHanded": false,
+        "DamageDice": "1d8",
+        "Finesse": true,
         "WeaponRange": "Melee"
       },
       "ArmorInfo": {
@@ -34,8 +34,10 @@
       }
     },
     "Skills": [
-      "animal handling",
+      "acrobatics",
       "athletics",
+      "deception",
+      "insight",
       "insight",
       "religion"
     ],

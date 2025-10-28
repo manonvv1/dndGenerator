@@ -28,19 +28,20 @@ func usage() {
 `, app, app, app, app, app, app, app, app, app, app)
 }
 
+
 func upsertCharacter(c Character) {
-    idx := -1
-    for i := range characters {
-        if strings.EqualFold(characters[i].Name, c.Name) {
-            idx = i
-            break
-        }
-    }
-    if idx >= 0 {
-        characters[idx] = c
-    } else {
-        characters = append(characters, c)
-    }
+	idx := -1
+	for i := range characters {
+		if strings.EqualFold(characters[i].Name, c.Name) {
+			idx = i
+			break
+		}
+	}
+	if idx >= 0 {
+		characters[idx] = c
+	} else {
+		characters = append(characters, c)
+	}
 }
 
 func printAbilityScores(c *Character) {
@@ -84,32 +85,19 @@ func slotKeys(c *Character, min int) []int {
 	return keys
 }
 
-func cmdCreate(args []string) {
-	fs := flag.NewFlagSet("create", flag.ExitOnError)
-	name := fs.String("name", "", "required")
-	race := fs.String("race", "", "")
-	class := fs.String("class", "", "")
-	level := fs.Int("level", 1, "")
-	bgLong := fs.String("background", "", "optional")
-	bgShort := fs.String("bg", "", "optional")
-	_ = bgLong
-	_ = bgShort
-	bg := "acolyte"
-	str := fs.Int("str", 0, "")
-	dex := fs.Int("dex", 0, "")
-	con := fs.Int("con", 0, "")
-	intl := fs.Int("int", 0, "")
-	wis := fs.Int("wis", 0, "")
-	cha := fs.Int("cha", 0, "")
-	skillsFlag := fs.String("skills", "", "comma separated")
-	_ = fs.Parse(args)
-
-	if *name == "" {
-		fmt.Println("name is required")
-		os.Exit(2)
+func maxSlotLevel(slots map[int]int) int {
+	max := 0
+	for lvl, count := range slots {
+		if count > 0 && lvl > max {
+			max = lvl
+		}
 	}
+	return max
+}
 
-	raw := []int{*str, *dex, *con, *intl, *wis, *cha}
+
+func calcBaseScoresCLI(str, dex, con, intl, wis, cha int) AbilityScores {
+	raw := []int{str, dex, con, intl, wis, cha}
 	providedAll, providedAny := true, false
 	for _, v := range raw {
 		if v != 0 {
@@ -124,54 +112,166 @@ func cmdCreate(args []string) {
 		}
 		return x
 	}
-	var base AbilityScores
 	switch {
 	case providedAll:
-		base = AbilityScores{*str, *dex, *con, *intl, *wis, *cha}
+		return AbilityScores{str, dex, con, intl, wis, cha}
 	case providedAny:
-		base = AbilityScores{def10(*str), def10(*dex), def10(*con), def10(*intl), def10(*wis), def10(*cha)}
+		return AbilityScores{def10(str), def10(dex), def10(con), def10(intl), def10(wis), def10(cha)}
 	default:
-		base = assignStandardArray()
+		return assignStandardArray()
 	}
+}
 
-	rStr, rDex, rCon, rInt, rWis, rCha := raceBonusDeltas(*race)
-	final := AbilityScores{
-		Strength: base.Strength + rStr, Dexterity: base.Dexterity + rDex, Constitution: base.Constitution + rCon,
-		Intelligence: base.Intelligence + rInt, Wisdom: base.Wisdom + rWis, Charisma: base.Charisma + rCha,
+func applyRaceBonusesCLI(base AbilityScores, race string) AbilityScores {
+	rStr, rDex, rCon, rInt, rWis, rCha := raceBonusDeltas(race)
+	return AbilityScores{
+		Strength:     base.Strength + rStr,
+		Dexterity:    base.Dexterity + rDex,
+		Constitution: base.Constitution + rCon,
+		Intelligence: base.Intelligence + rInt,
+		Wisdom:       base.Wisdom + rWis,
+		Charisma:     base.Charisma + rCha,
 	}
+}
 
-	if bg == "" {
-		bg = strings.ToLower(strings.TrimSpace(*bgShort))
+func parseSkillsCSV(s string) []string {
+	if strings.TrimSpace(s) == "" {
+		return nil
 	}
-	if bg == "" {
-		bg = "acolyte"
-	}
-	var provided []string
-	if *skillsFlag != "" {
-		for _, p := range strings.Split(*skillsFlag, ",") {
-			if t := strings.TrimSpace(p); t != "" {
-				provided = append(provided, t)
-			}
+	var out []string
+	for _, p := range strings.Split(s, ",") {
+		if t := strings.TrimSpace(p); t != "" {
+			out = append(out, t)
 		}
 	}
+	return out
+}
 
-	ct := casterType(*class)
-	var sc *Spellcasting
-	if ct != "none" {
-		slots := spellSlotsFor(ct, *level)
-		maxL := maxSpellLevel(ct, *level)
-		chosen := pickSpellsForClass(*class, maxL, 4)
-		sc = &Spellcasting{SlotsByLevel: slots, Spells: chosen}
+func buildSpellcastingCLI(class string, level int) *Spellcasting {
+	ct := casterType(class)
+	if ct == "none" {
+		return nil
+	}
+	slots := spellSlotsFor(ct, level)
+	maxL := maxSpellLevel(ct, level)
+	chosen := pickSpellsForClass(class, maxL, 4)
+	return &Spellcasting{SlotsByLevel: slots, Spells: chosen}
+}
+
+func cmdCreate(args []string) {
+	fs := flag.NewFlagSet("create", flag.ExitOnError)
+	name := fs.String("name", "", "required")
+	race := fs.String("race", "", "")
+	class := fs.String("class", "", "")
+	level := fs.Int("level", 1, "")
+	bgLong := fs.String("background", "", "optional")
+	bgShort := fs.String("bg", "", "optional")
+	_ = bgLong
+	_ = bgShort
+
+	str := fs.Int("str", 0, "")
+	dex := fs.Int("dex", 0, "")
+	con := fs.Int("con", 0, "")
+	intl := fs.Int("int", 0, "")
+	wis := fs.Int("wis", 0, "")
+	cha := fs.Int("cha", 0, "")
+	skillsFlag := fs.String("skills", "", "comma separated")
+	_ = fs.Parse(args)
+
+	if *name == "" {
+		fmt.Println("name is required")
+		os.Exit(2)
 	}
 
+	base := calcBaseScoresCLI(*str, *dex, *con, *intl, *wis, *cha)
+	final := applyRaceBonusesCLI(base, *race)
+
+	bg := "acolyte"
+
+	provided := parseSkillsCSV(*skillsFlag)
+	sc := buildSpellcastingCLI(*class, *level)
+
 	c := Character{
-		Name: *name, Race: strings.ToLower(*race), Class: strings.ToLower(*class), Level: *level,
-		Background: bg, AbilityScores: final, ProficiencyBonus: profByLevel(*level),
-		Skills: finalSkills(*class, bg, provided), Spellcasting: sc,
+		Name:             *name,
+		Race:             strings.ToLower(*race),
+		Class:            strings.ToLower(*class),
+		Level:            *level,
+		Background:       bg,
+		AbilityScores:    final,
+		ProficiencyBonus: profByLevel(*level),
+		Skills:           finalSkills(*class, bg, provided),
+		Spellcasting:     sc,
 	}
 	upsertCharacter(c)
 	saveCharacters()
 	fmt.Printf("saved character %s\n", c.Name)
+}
+
+
+func printEquipmentBlock(c *Character) {
+	if strings.TrimSpace(c.Equipment.Weapon) != "" {
+		fmt.Printf("Main hand: %s\n", c.Equipment.Weapon)
+		if dmg := computeWeaponDamageString(c); dmg != "" {
+			fmt.Printf("Weapon damage: %s\n", dmg)
+		}
+	}
+	if strings.TrimSpace(c.Equipment.OffHand) != "" {
+		fmt.Printf("Off hand: %s\n", c.Equipment.OffHand)
+	}
+	if strings.TrimSpace(c.Equipment.Armor) != "" {
+		fmt.Printf("Armor: %s\n", c.Equipment.Armor)
+	}
+	if strings.TrimSpace(c.Equipment.Shield) != "" {
+		fmt.Printf("Shield: %s\n", c.Equipment.Shield)
+	}
+}
+
+func showHalfOrWarlockSlots(c *Character, minSlot int) {
+	if ck := cantripsKnown(c.Class, c.Level); ck > 0 {
+		fmt.Println("Spell slots:")
+		fmt.Printf("  Level 0: %d\n", ck)
+	}
+	keys := slotKeys(c, minSlot)
+	if len(keys) > 0 {
+		if cantripsKnown(c.Class, c.Level) == 0 {
+			fmt.Println("Spell slots:")
+		}
+		printSpellSlotsBlock(c, keys, false)
+	}
+}
+
+func showFullCaster(c *Character, noSlots bool) {
+	if !noSlots {
+		fmt.Println("Spell slots:")
+		if ck := cantripsKnown(c.Class, c.Level); ck > 0 {
+			fmt.Printf("  Level 0: %d\n", ck)
+		}
+		keys := slotKeys(c, 1)
+		printSpellSlotsBlock(c, keys, false)
+	}
+	sca := spellcastingAbilityForClass(c.Class)
+	if sca != "" {
+		abMod := abilityMod(abilityScoreByName(c, sca))
+		saveDC := 8 + c.ProficiencyBonus + abMod
+		attack := c.ProficiencyBonus + abMod
+		fmt.Printf("Spellcasting ability: %s\n", sca)
+		fmt.Printf("Spell save DC: %d\n", saveDC)
+		fmt.Printf("Spell attack bonus: %+d\n", attack)
+	}
+}
+
+func printSpellcastingView(c *Character, noSlots bool) {
+	if c.Spellcasting == nil {
+		return
+	}
+	switch casterType(c.Class) {
+	case "half":
+		showHalfOrWarlockSlots(c, 1)
+	case "warlock":
+		showHalfOrWarlockSlots(c, 0)
+	case "full":
+		showFullCaster(c, noSlots)
+	}
 }
 
 func cmdView(args []string) {
@@ -198,73 +298,202 @@ func cmdView(args []string) {
 	skillsOut := normalizeSkillList(c.Skills)
 	fmt.Printf("Skill proficiencies: %s\n", strings.Join(skillsOut, ", "))
 
-	if strings.TrimSpace(c.Equipment.Weapon) != "" {
-		fmt.Printf("Main hand: %s\n", c.Equipment.Weapon)
-		if dmg := computeWeaponDamageString(c); dmg != "" {
-			fmt.Printf("Weapon damage: %s\n", dmg)
-		}
-	}
-	if strings.TrimSpace(c.Equipment.OffHand) != "" {
-		fmt.Printf("Off hand: %s\n", c.Equipment.OffHand)
-	}
-	if strings.TrimSpace(c.Equipment.Armor) != "" {
-		fmt.Printf("Armor: %s\n", c.Equipment.Armor)
-	}
-	if strings.TrimSpace(c.Equipment.Shield) != "" {
-		fmt.Printf("Shield: %s\n", c.Equipment.Shield)
-	}
-
-	if c.Spellcasting != nil {
-		switch casterType(c.Class) {
-		case "half":
-			if ck := cantripsKnown(c.Class, c.Level); ck > 0 {
-				fmt.Println("Spell slots:")
-				fmt.Printf("  Level 0: %d\n", ck)
-			}
-			keys := slotKeys(c, 1)
-			if len(keys) > 0 {
-				if cantripsKnown(c.Class, c.Level) == 0 {
-					fmt.Println("Spell slots:")
-				}
-				printSpellSlotsBlock(c, keys, false)
-			}
-		case "warlock":
-			if ck := cantripsKnown(c.Class, c.Level); ck > 0 {
-				fmt.Println("Spell slots:")
-				fmt.Printf("  Level 0: %d\n", ck)
-			}
-			keys := slotKeys(c, 0)
-			if len(keys) > 0 {
-				if cantripsKnown(c.Class, c.Level) == 0 {
-					fmt.Println("Spell slots:")
-				}
-				printSpellSlotsBlock(c, keys, false)
-			}
-		case "full":
-			if !*noSlots {
-				fmt.Println("Spell slots:")
-				if ck := cantripsKnown(c.Class, c.Level); ck > 0 {
-					fmt.Printf("  Level 0: %d\n", ck)
-				}
-				keys := slotKeys(c, 1)
-				printSpellSlotsBlock(c, keys, false)
-			}
-			sca := spellcastingAbilityForClass(c.Class)
-			if sca != "" {
-				abMod := abilityMod(abilityScoreByName(c, sca))
-				saveDC := 8 + c.ProficiencyBonus + abMod
-				attack := c.ProficiencyBonus + abMod
-				fmt.Printf("Spellcasting ability: %s\n", sca)
-				fmt.Printf("Spell save DC: %d\n", saveDC)
-				fmt.Printf("Spell attack bonus: %+d\n", attack)
-			}
-		}
-	}
+	printEquipmentBlock(c)
+	printSpellcastingView(c, *noSlots)
 
 	fmt.Printf("Armor class: %d\n", computeArmorClass(c))
 	fmt.Printf("Initiative bonus: %d\n", computeInitiativeBonus(c))
 	fmt.Printf("Passive perception: %d\n", computePassivePerception(c))
 }
+
+
+func normalizeSlotName(in string) string {
+	s := strings.ToLower(strings.TrimSpace(in))
+	switch s {
+	case "offhand":
+		return "off hand"
+	case "mainhand":
+		return "main hand"
+	default:
+		return s
+	}
+}
+
+func warnUnknownIfNeeded(x string) {
+	if x == "" {
+		return
+	}
+	if !isKnownEquipment(x) && equipmentCSVLoaded {
+		fmt.Printf("(warning) \"%s\" not found in equipment CSV; continuing\n", x)
+	}
+}
+
+func equipWeapon(c *Character, weapon, slot string) bool {
+	if weapon == "" {
+		return false
+	}
+	w := normalizeEquipment(weapon)
+	warnUnknownIfNeeded(w)
+	if slot == "off hand" {
+		if c.Equipment.OffHand != "" {
+			fmt.Println("off hand already occupied")
+			return true
+		}
+		c.Equipment.OffHand = w
+		fmt.Printf("Equipped weapon %s to off hand\n", w)
+		return true
+	}
+	if c.Equipment.Weapon != "" {
+		fmt.Println("main hand already occupied")
+		return true
+	}
+	c.Equipment.Weapon = w
+	hand := "main hand"
+	if slot != "" && slot != "main hand" {
+		hand = slot
+	}
+	fmt.Printf("Equipped weapon %s to %s\n", w, hand)
+	return true
+}
+
+func equipArmor(c *Character, armor string) bool {
+	if armor == "" {
+		return false
+	}
+	a := normalizeEquipment(armor)
+	warnUnknownIfNeeded(a)
+	c.Equipment.Armor = a
+	fmt.Printf("Equipped armor %s\n", a)
+	return true
+}
+
+func equipShield(c *Character, shield string) bool {
+	if shield == "" {
+		return false
+	}
+	sh := normalizeEquipment(shield)
+	warnUnknownIfNeeded(sh)
+	c.Equipment.Shield = sh
+	fmt.Printf("Equipped shield %s\n", sh)
+	return true
+}
+
+func cmdEquip(args []string) {
+	fs := flag.NewFlagSet("equip", flag.ExitOnError)
+	name := fs.String("name", "", "")
+	weapon := fs.String("weapon", "", "")
+	armor := fs.String("armor", "", "")
+	shield := fs.String("shield", "", "")
+	slot := fs.String("slot", "", "")
+	_ = fs.Parse(args)
+
+	c := findCharLike(*name)
+	if c == nil {
+		fmt.Printf("character \"%s\" not found\n", *name)
+		return
+	}
+
+	s := normalizeSlotName(*slot)
+	changed := false
+	if equipWeapon(c, *weapon, s) {
+		changed = true
+	}
+	if equipArmor(c, *armor) {
+		changed = true
+	}
+	if equipShield(c, *shield) {
+		changed = true
+	}
+	if changed {
+		saveCharacters()
+	}
+}
+
+
+func mergeSpellArgs(spellFlag string, rest []string) string {
+	if spellFlag != "" && len(rest) > 0 {
+		return spellFlag + " " + strings.Join(rest, " ")
+	}
+	return spellFlag
+}
+
+func validatePrepareInputs(name, spell string) bool {
+	if name == "" || spell == "" {
+		usage()
+		return false
+	}
+	return true
+}
+
+func ensureCanPrepare(c *Character) bool {
+	if c == nil {
+		return false
+	}
+	if casterType(c.Class) == "none" {
+		fmt.Println("this class can't cast spells")
+		return false
+	}
+	if learnsSpells(c.Class) && !preparesSpells(c.Class) {
+		fmt.Println("this class learns spells and can't prepare them")
+		return false
+	}
+	return true
+}
+
+func spellWithinSlotsOrError(c *Character, target string) (int, bool) {
+	slots := spellSlotsFor(casterType(c.Class), c.Level)
+	if spellLvl, ok := spellLevelByName(target); ok {
+		if max := maxSlotLevel(slots); max == 0 || spellLvl > max {
+			fmt.Println("the spell has higher level than the available spell slots")
+			return 0, false
+		}
+		return spellLvl, true
+	}
+	fmt.Println("the spell has higher level than the available spell slots")
+	return 0, false
+}
+
+func setPrepared(c *Character, target string, lvl int) {
+	if c.Spellcasting == nil {
+		c.Spellcasting = &Spellcasting{SlotsByLevel: map[int]int{}, Spells: []Spell{}}
+	}
+	for i := range c.Spellcasting.Spells {
+		if strings.ToLower(c.Spellcasting.Spells[i].Name) == target {
+			c.Spellcasting.Spells[i].Prepared = true
+			saveCharacters()
+			fmt.Printf("Prepared spell %s\n", target)
+			return
+		}
+	}
+	c.Spellcasting.Spells = append(c.Spellcasting.Spells, Spell{Name: target, Level: lvl, Prepared: true})
+	saveCharacters()
+	fmt.Printf("Prepared spell %s\n", target)
+}
+
+func cmdPrepare(args []string) {
+	fs := flag.NewFlagSet("prepare", flag.ExitOnError)
+	name := fs.String("name", "", "required")
+	spell := fs.String("spell", "", "required")
+	_ = fs.Parse(args)
+
+	merged := mergeSpellArgs(*spell, fs.Args())
+	if !validatePrepareInputs(*name, merged) {
+		return
+	}
+
+	c := findCharLike(*name)
+	if !ensureCanPrepare(c) {
+		return
+	}
+
+	target := strings.ToLower(strings.TrimSpace(merged))
+	lvl, ok := spellWithinSlotsOrError(c, target)
+	if !ok {
+		return
+	}
+	setPrepared(c, target, lvl)
+}
+
 
 func cmdList() {
 	for _, c := range characters {
@@ -286,142 +515,6 @@ func cmdDelete(args []string) {
 		}
 	}
 	fmt.Printf("character \"%s\" not found\n", *name)
-}
-
-func cmdEquip(args []string) {
-	fs := flag.NewFlagSet("equip", flag.ExitOnError)
-	name := fs.String("name", "", "")
-	weapon := fs.String("weapon", "", "")
-	armor := fs.String("armor", "", "")
-	shield := fs.String("shield", "", "")
-	slot := fs.String("slot", "", "")
-	_ = fs.Parse(args)
-
-	c := findCharLike(*name)
-	if c == nil {
-		fmt.Printf("character \"%s\" not found\n", *name)
-		return
-	}
-
-	s := strings.ToLower(strings.TrimSpace(*slot))
-	if s == "offhand" {
-		s = "off hand"
-	}
-	if s == "mainhand" {
-		s = "main hand"
-	}
-
-	normalize := func(x string) string { return normalizeEquipment(x) }
-	warnUnknown := func(x string) {
-		if x == "" {
-			return
-		}
-		if !isKnownEquipment(x) && equipmentCSVLoaded {
-			fmt.Printf("(warning) \"%s\" not found in equipment CSV; continuing\n", x)
-		}
-	}
-
-	if *weapon != "" {
-		w := normalize(*weapon)
-		warnUnknown(w)
-		if s == "off hand" {
-			if c.Equipment.OffHand != "" {
-				fmt.Println("off hand already occupied")
-				return
-			}
-			c.Equipment.OffHand = w
-			fmt.Printf("Equipped weapon %s to off hand\n", w)
-		} else {
-			if c.Equipment.Weapon != "" {
-				fmt.Println("main hand already occupied")
-				return
-			}
-			c.Equipment.Weapon = w
-			hand := "main hand"
-			if s != "" && s != "main hand" {
-				hand = s
-			}
-			fmt.Printf("Equipped weapon %s to %s\n", w, hand)
-		}
-	}
-	if *armor != "" {
-		a := normalize(*armor)
-		warnUnknown(a)
-		c.Equipment.Armor = a
-		fmt.Printf("Equipped armor %s\n", a)
-	}
-	if *shield != "" {
-		sh := normalize(*shield)
-		warnUnknown(sh)
-		c.Equipment.Shield = sh
-		fmt.Printf("Equipped shield %s\n", sh)
-	}
-	saveCharacters()
-}
-
-func maxSlotLevel(slots map[int]int) int {
-	max := 0
-	for lvl := range slots {
-		if lvl > max {
-			max = lvl
-		}
-	}
-	return max
-}
-
-func cmdPrepare(args []string) {
-	fs := flag.NewFlagSet("prepare", flag.ExitOnError)
-	name := fs.String("name", "", "required")
-	spell := fs.String("spell", "", "required")
-	_ = fs.Parse(args)
-	if *spell != "" && len(fs.Args()) > 0 {
-		*spell = *spell + " " + strings.Join(fs.Args(), " ")
-	}
-	if *name == "" || *spell == "" {
-		usage()
-		return
-	}
-	c := findCharLike(*name)
-	if c == nil {
-		fmt.Printf("character \"%s\" not found\n", *name)
-		return
-	}
-	if casterType(c.Class) == "none" {
-		fmt.Println("this class can't cast spells")
-		return
-	}
-	if learnsSpells(c.Class) && !preparesSpells(c.Class) {
-		fmt.Println("this class learns spells and can't prepare them")
-		return
-	}
-
-	sp := strings.ToLower(strings.TrimSpace(*spell))
-	slots := spellSlotsFor(casterType(c.Class), c.Level)
-	if spellLvl, ok := spellLevelByName(sp); ok {
-		if max := maxSlotLevel(slots); max == 0 || spellLvl > max {
-			fmt.Println("the spell has higher level than the available spell slots")
-			return
-		}
-	} else {
-		fmt.Println("the spell has higher level than the available spell slots")
-		return
-	}
-
-	if c.Spellcasting == nil {
-		c.Spellcasting = &Spellcasting{SlotsByLevel: map[int]int{}, Spells: []Spell{}}
-	}
-	for i := range c.Spellcasting.Spells {
-		if strings.ToLower(c.Spellcasting.Spells[i].Name) == sp {
-			c.Spellcasting.Spells[i].Prepared = true
-			saveCharacters()
-			fmt.Printf("Prepared spell %s\n", sp)
-			return
-		}
-	}
-	lvl, _ := spellLevelByName(sp)
-	c.Spellcasting.Spells = append(c.Spellcasting.Spells, Spell{Name: sp, Level: lvl, Prepared: true})
-	saveCharacters()
-	fmt.Printf("Prepared spell %s\n", sp)
 }
 
 func cmdLearn(args []string) {
