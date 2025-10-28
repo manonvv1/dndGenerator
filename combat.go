@@ -1,11 +1,6 @@
-// Layer: Domain (business rules: damage, AC, initiative; no IO)
-
 package main
 
-import (
-	"strings"
-	"fmt"
-)
+import "strings"
 
 /**
 * DexModOf returns the Dexterity ability modifier
@@ -126,42 +121,4 @@ func computePassivePerception(c *Character) int {
 		pp += c.ProficiencyBonus
 	}
 	return pp
-}
-
-/**
-* computeWeaponDamageString geeft "XdY + N" of "" als er geen data is
-**/
-func computeWeaponDamageString(c *Character) string {
-	w := strings.TrimSpace(c.Equipment.Weapon)
-	if w == "" {
-		return ""
-	}
-	wi := c.Equipment.WeaponInfo
-	if strings.TrimSpace(wi.DamageDice) == "" {
-		return ""
-	}
-
-	strMod := abilityMod(c.AbilityScores.Strength)
-	dexMod := abilityMod(c.AbilityScores.Dexterity)
-
-	var mod int
-	switch strings.ToLower(strings.TrimSpace(wi.WeaponRange)) {
-	case "ranged":
-		mod = dexMod
-	default:
-		if wi.Finesse {
-			if dexMod > strMod {
-				mod = dexMod
-			} else {
-				mod = strMod
-			}
-		} else {
-			mod = strMod
-		}
-	}
-
-	if mod >= 0 {
-		return wi.DamageDice + " + " + fmt.Sprintf("%d", mod)
-	}
-	return wi.DamageDice + " - " + fmt.Sprintf("%d", -mod)
 }

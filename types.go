@@ -1,5 +1,3 @@
-// Layer: Domain 
-
 package main
 
 var StandardArray = []int{15, 14, 13, 12, 10, 8}
@@ -48,9 +46,6 @@ type WeaponMeta struct {
 	Category    string
 	RangeNormal int
 	TwoHanded   bool
-	DamageDice  string
-	Finesse     bool
-	WeaponRange string
 }
 
 type ArmorMeta struct {
