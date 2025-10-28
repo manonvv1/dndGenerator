@@ -39,7 +39,6 @@ func writeJSON(w http.ResponseWriter, status int, v any) {
 	_ = json.NewEncoder(w).Encode(v)
 }
 
-/* --------- kleine helpers om complexiteit te verlagen (gedrag ongewijzigd) --------- */
 
 func handleCharactersGet(w http.ResponseWriter, r *http.Request) {
 	name := strings.TrimSpace(r.URL.Query().Get("name"))
@@ -71,7 +70,6 @@ func handleCharactersPost(w http.ResponseWriter, r *http.Request) {
 
 	c := buildCharacterFromRequest(req)
 
-	// upsert (exact hetzelfde als voorheen)
 	idx := -1
 	for i := range characters {
 		if strings.EqualFold(characters[i].Name, c.Name) {
@@ -108,22 +106,21 @@ func apiCharactersHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// --- Helpers to reduce cognitive complexity (behavior unchanged) ---
 
-func baseScoresFromReq(req createRequest) AbilityScores {
+func baseScoresFromReq(req createRequest) (AbilityScores, bool) {
 	if req.AbilityScores == nil {
-		return assignStandardArray()
+		return assignStandardArray(), false
 	}
 	s := *req.AbilityScores
-	all := s.Strength > 0 && s.Dexterity > 0 && s.Constitution > 0 &&
+	providedAll := s.Strength > 0 && s.Dexterity > 0 && s.Constitution > 0 &&
 		s.Intelligence > 0 && s.Wisdom > 0 && s.Charisma > 0
-	if all {
-		return s
+	providedAny := s.Strength != 0 || s.Dexterity != 0 || s.Constitution != 0 ||
+		s.Intelligence != 0 || s.Wisdom != 0 || s.Charisma != 0
+
+	if providedAll {
+		return s, true
 	}
-	nz10 := func(x int) int {
-		if x == 0 { return 10 }
-		return x
-	}
+	nz10 := func(x int) int { if x == 0 { return 10 }; return x }
 	return AbilityScores{
 		Strength:     nz10(s.Strength),
 		Dexterity:    nz10(s.Dexterity),
@@ -131,8 +128,9 @@ func baseScoresFromReq(req createRequest) AbilityScores {
 		Intelligence: nz10(s.Intelligence),
 		Wisdom:       nz10(s.Wisdom),
 		Charisma:     nz10(s.Charisma),
-	}
+	}, providedAny
 }
+
 
 func applyRaceBonusesTo(base AbilityScores, race string) AbilityScores {
 	rStr, rDex, rCon, rInt, rWis, rCha := raceBonusDeltas(race)
@@ -148,7 +146,6 @@ func applyRaceBonusesTo(base AbilityScores, race string) AbilityScores {
 
 func deriveSkillsFor(req createRequest, bg string) []string {
 	if len(req.Skills) == 0 {
-		// zelfde fallback als voorheen
 		return finalSkills(req.Class, bg, nil)
 	}
 	var skills []string
@@ -170,14 +167,16 @@ func buildSpellcastingFor(class string, level int) *Spellcasting {
 	return nil
 }
 
-// --- Refactored function (same behavior, lower complexity) ---
 
 /**
 *  buildCharacterFromRequest constructs a Character struct from an API request
 **/
 func buildCharacterFromRequest(req createRequest) Character {
-	base := baseScoresFromReq(req)
-	final := applyRaceBonusesTo(base, req.Race)
+	base, providedAny := baseScoresFromReq(req)
+	final := base
+	if !providedAny {
+		final = applyRaceBonusesTo(base, req.Race)
+	}
 
 	bg := "acolyte"
 	skills := deriveSkillsFor(req, bg)

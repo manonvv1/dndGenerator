@@ -102,31 +102,24 @@ func maxSlotLevel(slots map[int]int) int {
 }
 
 
-func calcBaseScoresCLI(str, dex, con, intl, wis, cha int) AbilityScores {
+func calcBaseScoresCLI(str, dex, con, intl, wis, cha int) (AbilityScores, bool) {
 	raw := []int{str, dex, con, intl, wis, cha}
 	providedAll, providedAny := true, false
 	for _, v := range raw {
-		if v != 0 {
-			providedAny = true
-		} else {
-			providedAll = false
-		}
+		if v != 0 { providedAny = true } else { providedAll = false }
 	}
-	def10 := func(x int) int {
-		if x == 0 {
-			return 10
-		}
-		return x
-	}
+	def10 := func(x int) int { if x == 0 { return 10 }; return x }
+
 	switch {
 	case providedAll:
-		return AbilityScores{str, dex, con, intl, wis, cha}
+		return AbilityScores{str, dex, con, intl, wis, cha}, true
 	case providedAny:
-		return AbilityScores{def10(str), def10(dex), def10(con), def10(intl), def10(wis), def10(cha)}
+		return AbilityScores{def10(str), def10(dex), def10(con), def10(intl), def10(wis), def10(cha)}, true
 	default:
-		return assignStandardArray()
+		return assignStandardArray(), false
 	}
 }
+
 
 func applyRaceBonusesCLI(base AbilityScores, race string) AbilityScores {
 	rStr, rDex, rCon, rInt, rWis, rCha := raceBonusDeltas(race)
@@ -189,8 +182,12 @@ func cmdCreate(args []string) {
 		os.Exit(2)
 	}
 
-	base := calcBaseScoresCLI(*str, *dex, *con, *intl, *wis, *cha)
-	final := applyRaceBonusesCLI(base, *race)
+	base, providedAny := calcBaseScoresCLI(*str, *dex, *con, *intl, *wis, *cha)
+	final := base
+	if !providedAny {
+		final = applyRaceBonusesCLI(base, *race)
+	}
+
 
 	bg := "acolyte"
 
