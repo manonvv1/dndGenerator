@@ -88,5 +88,47 @@
       "SlotsByLevel": {},
       "Spells": null
     }
+  },
+  {
+    "Name": "Gor",
+    "Race": "half orc",
+    "Class": "barbarian",
+    "Level": 1,
+    "AbilityScores": {
+      "Strength": 19,
+      "Dexterity": 14,
+      "Constitution": 11,
+      "Intelligence": 10,
+      "Wisdom": 10,
+      "Charisma": 10
+    },
+    "Background": "acolyte",
+    "ProficiencyBonus": 2,
+    "Equipment": {
+      "Armor": "",
+      "Weapon": "greataxe",
+      "Shield": "",
+      "OffHand": "",
+      "WeaponInfo": {
+        "Category": "Weapon",
+        "RangeNormal": 5,
+        "TwoHanded": true,
+        "DamageDice": "1d12",
+        "Finesse": false,
+        "WeaponRange": "Melee"
+      },
+      "ArmorInfo": {
+        "ArmorClass": 0,
+        "DexBonus": false,
+        "MaxDexBonus": null
+      }
+    },
+    "Skills": [
+      "animal handling",
+      "athletics",
+      "insight",
+      "religion"
+    ],
+    "Spellcasting": null
   }
 ]

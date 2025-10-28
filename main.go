@@ -9,6 +9,12 @@ import (
 	"strings"
 )
 
+const (
+	constSpellSlotsLine          = "Spell slots:"
+	constCharNotFoundFmt          = "character \"%s\" not found\n"
+	constSpellTooHighMsg          = "the spell has higher level than the available spell slots"
+)
+
 /**
 * usage prints command-line help
 **/
@@ -67,7 +73,7 @@ func normalizeSkillList(in []string) []string {
 
 func printSpellSlotsBlock(c *Character, keys []int, includeHeader bool) {
 	if includeHeader {
-		fmt.Println("Spell slots:")
+		fmt.Println(constSpellSlotsLine)
 	}
 	for _, lvl := range keys {
 		fmt.Printf("  Level %d: %d\n", lvl, c.Spellcasting.SlotsByLevel[lvl])
@@ -228,13 +234,13 @@ func printEquipmentBlock(c *Character) {
 
 func showHalfOrWarlockSlots(c *Character, minSlot int) {
 	if ck := cantripsKnown(c.Class, c.Level); ck > 0 {
-		fmt.Println("Spell slots:")
+		fmt.Println(constSpellSlotsLine)
 		fmt.Printf("  Level 0: %d\n", ck)
 	}
 	keys := slotKeys(c, minSlot)
 	if len(keys) > 0 {
 		if cantripsKnown(c.Class, c.Level) == 0 {
-			fmt.Println("Spell slots:")
+			fmt.Println(constSpellSlotsLine)
 		}
 		printSpellSlotsBlock(c, keys, false)
 	}
@@ -242,7 +248,7 @@ func showHalfOrWarlockSlots(c *Character, minSlot int) {
 
 func showFullCaster(c *Character, noSlots bool) {
 	if !noSlots {
-		fmt.Println("Spell slots:")
+		fmt.Println(constSpellSlotsLine)
 		if ck := cantripsKnown(c.Class, c.Level); ck > 0 {
 			fmt.Printf("  Level 0: %d\n", ck)
 		}
@@ -282,7 +288,7 @@ func cmdView(args []string) {
 
 	c := findCharLike(*name)
 	if c == nil {
-		fmt.Printf("character \"%s\" not found\n", *name)
+		fmt.Printf(constCharNotFoundFmt, *name)
 		return
 	}
 
@@ -389,7 +395,7 @@ func cmdEquip(args []string) {
 
 	c := findCharLike(*name)
 	if c == nil {
-		fmt.Printf("character \"%s\" not found\n", *name)
+		fmt.Printf(constCharNotFoundFmt, *name)
 		return
 	}
 
@@ -444,12 +450,12 @@ func spellWithinSlotsOrError(c *Character, target string) (int, bool) {
 	slots := spellSlotsFor(casterType(c.Class), c.Level)
 	if spellLvl, ok := spellLevelByName(target); ok {
 		if max := maxSlotLevel(slots); max == 0 || spellLvl > max {
-			fmt.Println("the spell has higher level than the available spell slots")
+			fmt.Println(constSpellTooHighMsg)
 			return 0, false
 		}
 		return spellLvl, true
 	}
-	fmt.Println("the spell has higher level than the available spell slots")
+	fmt.Println(constSpellTooHighMsg)
 	return 0, false
 }
 
@@ -514,7 +520,7 @@ func cmdDelete(args []string) {
 			return
 		}
 	}
-	fmt.Printf("character \"%s\" not found\n", *name)
+	fmt.Printf(constCharNotFoundFmt, *name)
 }
 
 func cmdLearn(args []string) {
@@ -533,7 +539,7 @@ func cmdLearn(args []string) {
 
 	ch := findCharLike(*name)
 	if ch == nil {
-		fmt.Printf("character \"%s\" not found\n", *name)
+		fmt.Printf(constCharNotFoundFmt, *name)
 		return
 	}
 	if casterType(ch.Class) == "none" {
@@ -549,11 +555,11 @@ func cmdLearn(args []string) {
 	slots := spellSlotsFor(casterType(ch.Class), ch.Level)
 	if spellLvl, ok := spellLevelByName(target); ok {
 		if max := maxSlotLevel(slots); max == 0 || spellLvl > max {
-			fmt.Println("the spell has higher level than the available spell slots")
+			fmt.Println(constSpellTooHighMsg)
 			return
 		}
 	} else {
-		fmt.Println("the spell has higher level than the available spell slots")
+		fmt.Println(constSpellTooHighMsg)
 		return
 	}
 
@@ -649,7 +655,8 @@ func cmdInspect(args []string) {
 	}
 	c := findCharLike(*name)
 	if c == nil {
-		fmt.Printf("character \"%s\" not found\n", *name)
+		fmt.Printf(constCharNotFoundFmt, *name)
+
 		return
 	}
 	showChar(c)
